@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Chuckwalla: Race Pace
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-05-08-chuckwalla-12cp1ed@phoenixtrackdays.com
+DTSTAMP:20261120T120000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:Chuckwalla CW: Race Pace
+LOCATION:Chuckwalla\, Desert Center\, CA
+DESCRIPTION:Advanced only\n~$295/day\nBeat the Heat\nLap time check\nBook:
+  https://racepace.motorsportreg.com/events/may-saturday-chuckwalla-cw-bea
+ t-heat-valley-raceway-race-pace-track-days-935349\nMore dates: https://ph
+ oenixtrackdays.com/
+URL:https://racepace.motorsportreg.com/events/may-saturday-chuckwalla-cw-b
+ eat-heat-valley-raceway-race-pace-track-days-935349
+END:VEVENT
+END:VCALENDAR

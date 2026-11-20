@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Chuckwalla: Race Pace
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-02-13-chuckwalla-vdz07t@phoenixtrackdays.com
+DTSTAMP:20261120T120000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270215
+SUMMARY:Chuckwalla CCW: Race Pace
+LOCATION:Chuckwalla\, Desert Center\, CA
+DESCRIPTION:Advanced only\n~$295/day\nLap time check\nBook: https://racepa
+ ce.motorsportreg.com/events/february-saturday-chuckwalla-ccw-valley-racew
+ ay-race-pace-track-days-388813\nMore dates: https://phoenixtrackdays.com/
+URL:https://racepace.motorsportreg.com/events/february-saturday-chuckwalla
+ -ccw-valley-raceway-race-pace-track-days-388813
+END:VEVENT
+END:VCALENDAR

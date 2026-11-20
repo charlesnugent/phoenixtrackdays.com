@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Streets of Willow: California Superbike School
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-04-17-willow-1e5f1xs@phoenixtrackdays.com
+DTSTAMP:20261120T120000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Streets of Willow CCW: California Superbike School
+LOCATION:Streets of Willow\, Rosamond\, CA
+DESCRIPTION:All levels · coaching\n$695 own / $895 rental\nSingle day\nBoo
+ k: https://superbikeschool.com/sign-up/\nMore dates: https://phoenixtrack
+ days.com/
+URL:https://superbikeschool.com/sign-up/
+END:VEVENT
+END:VCALENDAR

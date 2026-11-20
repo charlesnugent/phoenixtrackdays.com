@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Wild Horse Pass: XCEL
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2026-12-06-whp-1jb9lif@phoenixtrackdays.com
+DTSTAMP:20261120T120000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Wild Horse Pass West: XCEL
+LOCATION:Wild Horse Pass\, Chandler\, AZ
+DESCRIPTION:All levels · groups by pace\n$169\n9 AM to 5 PM\nBook: https:/
+ /xceltrackdays.trackrabbit.com/event/details/10019612-XCEL-Motorcycle-Tra
+ ck-Day---Dec-6th-West-2026-12-06\nMore dates: https://phoenixtrackdays.co
+ m/
+URL:https://xceltrackdays.trackrabbit.com/event/details/10019612-XCEL-Moto
+ rcycle-Track-Day---Dec-6th-West-2026-12-06
+END:VEVENT
+END:VCALENDAR
