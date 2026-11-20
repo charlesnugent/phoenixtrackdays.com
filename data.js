@@ -1,5 +1,5 @@
 // Phoenix Area Motorcycle Track Days: data file.
-// Refreshed weekly. Window: past 6 months + next 12 months.
+// Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
 window.UPDATED = "2026-11-20";
 
@@ -22,7 +22,8 @@ const TR = "https://xceltrackdays.trackrabbit.com/";
 const CSS = "https://superbikeschool.com/sign-up/";
 const PK = "https://pkra.com/calendar/";
 const RP = "https://racepace.motorsportreg.com/";
-const YC = "https://ridelikeachampion.com/";
+const YC = "https://ridelikeachampion.com/schedule/";
+const AA = "https://apexassassins.com/#events-2027";
 const pkNote = "1 to 6 PM. Pay at gate";
 
 window.EVENTS = [
@@ -59,6 +60,8 @@ window.EVENTS = [
   { d: "2026-11-01", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$259", note: "Trackday Massacre" },
   { d: "2026-11-07", e: "2026-11-08", t: "chuckwalla", org: "Race Pace", type: "day" },
   { d: "2026-11-07", t: "willow", cfg: "CCW", org: "Compact Octane", type: "day", price: "$299" },
+  { d: "2026-11-07", t: "whp", cfg: "West", org: "ASMA", type: "day" },
+  { d: "2026-11-07", e: "2026-11-08", t: "inde", org: "IMR Riders Club", type: "day", price: "$300/day, $500 weekend" },
   { d: "2026-11-08", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50" },
   { d: "2026-11-11", e: "2026-11-12", t: "chuckwalla", org: "Racers Edge", type: "day" },
   { d: "2026-11-12", e: "2026-11-13", t: "lvms", org: "California Superbike School", type: "school" },
@@ -72,6 +75,7 @@ window.EVENTS = [
   { d: "2026-11-22", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2026-11-28", e: "2026-11-29", t: "chuckwalla", org: "TrackXperience", type: "day", url: "https://www.txptrackdays.com/chuckwalla-raceway-november-28-29" },
   { d: "2026-11-29", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2026-12-04", e: "2026-12-05", t: "lvms", org: "Yamaha ChampSchool", type: "school", note: "Two day school", url: YC },
   { d: "2026-12-05", e: "2026-12-06", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/december-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-846067" },
   { d: "2026-12-06", t: "whp", cfg: "West", org: "XCEL", type: "day", price: "$169", note: "9 AM to 5 PM", url: "https://xceltrackdays.trackrabbit.com/event/details/10019612-XCEL-Motorcycle-Track-Day---Dec-6th-West-2026-12-06" },
   { d: "2026-12-09", e: "2026-12-10", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Weekday private days, ride only", url: "https://racersedgeperformance.com/products/december-9th-2026-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy" },
@@ -79,6 +83,7 @@ window.EVENTS = [
   { d: "2026-12-13", t: "podium", cfg: "CW", org: "Brake Free", type: "day", price: "$259", url: BF },
   { d: "2026-12-13", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2026-12-14", t: "chuckwalla", cfg: "CW", org: "2 Wheels Track Days", type: "day", price: "$245", note: "9 AM to 5 PM", url: "https://www.2wheelstrackdays.com/events/dec-14-chuckwalla" },
+  { d: "2026-12-20", t: "musselman", org: "Musselman Honda Circuit", type: "day", price: "$100", note: "Motorcycle Day, 10 AM to 4 PM", url: "https://mhcircuit.com/event/motorcycle-day-2026-12-20/" },
   { d: "2026-12-27", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-01-03", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-01-06", e: "2027-01-07", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Thu with training $800", url: "https://racersedgeperformance.com/products/dec-4-ride-only-private-track-day-at-chuckwalla-valley-raceway" },
@@ -89,6 +94,7 @@ window.EVENTS = [
   { d: "2027-01-31", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-02-07", t: "whp", cfg: "West CCW", org: "Brake Free", type: "day", price: "$169", note: "Podium's calendar also lists a Brake Free Feb 7; confirm venue", url: BF },
   { d: "2027-02-09", e: "2027-02-10", t: "chuckwalla", org: "Yamaha ChampSchool", type: "school", note: "Two day school", url: YC },
+  { d: "2027-02-12", t: "chuckwalla", org: "Apex Assassins", type: "day", url: AA },
   { d: "2027-02-13", e: "2027-02-14", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/february-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-388813" },
   { d: "2027-02-14", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-02-17", e: "2027-02-18", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Thu with training $800", url: "https://racersedgeperformance.com/products/january-14th-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy" },
@@ -98,12 +104,15 @@ window.EVENTS = [
   { d: "2027-03-06", e: "2027-03-07", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
   { d: "2027-03-08", t: "whp", cfg: "West CCW", org: "Brake Free", type: "day", price: "$169", url: BF },
   { d: "2027-03-13", e: "2027-03-14", t: "chuckwalla", cfg: "CW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/march-saturday-chuckwalla-cw-valley-raceway-race-pace-track-days-349612" },
+  { d: "2027-03-13", e: "2027-03-14", t: "lvms", org: "Apex Assassins", type: "day", url: AA },
   { d: "2027-03-14", t: "whp", cfg: "West", org: "XCEL", type: "day", note: "Schedule says West; old register link says East. Confirm", url: TR },
   { d: "2027-03-14", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-03-17", e: "2027-03-18", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Thu with training $800", url: "https://racersedgeperformance.com/products/january-14th-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy-1" },
+  { d: "2027-03-26", e: "2027-03-27", t: "lvms", org: "Yamaha ChampSchool", type: "school", note: "ChampSchool, ChampStreet or ChampPrecision", url: YC },
   { d: "2027-03-28", t: "podium", cfg: "CW", org: "Brake Free", type: "day", price: "$259", note: "MOTOFEST", url: BF },
   { d: "2027-03-28", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-03-29", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$259", note: "MOTOFEST", url: BF },
+  { d: "2027-04-02", t: "chuckwalla", org: "Apex Assassins", type: "day", url: AA },
   { d: "2027-04-03", t: "whp", cfg: "Main", org: "XCEL", type: "day", note: "8 AM to 4 PM", url: TR },
   { d: "2027-04-03", e: "2027-04-04", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/april-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-404051" },
   { d: "2027-04-03", e: "2027-04-04", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
@@ -116,6 +125,7 @@ window.EVENTS = [
   { d: "2027-04-18", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-04-19", t: "inde", cfg: "CW", org: "Brake Free", type: "day", price: "$239", url: BF },
   { d: "2027-04-25", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-05-01", e: "2027-05-02", t: "podium", org: "Apex Assassins", type: "day", note: "Joint event with Brake Free", url: AA },
   { d: "2027-05-02", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-05-04", e: "2027-05-05", t: "inde", org: "Yamaha ChampSchool", type: "school", note: "ChampGrad, semi private", url: YC },
   { d: "2027-05-08", e: "2027-05-09", t: "chuckwalla", cfg: "CW", org: "Race Pace", type: "day", price: "~$295/day", note: "Beat the Heat", url: "https://racepace.motorsportreg.com/events/may-saturday-chuckwalla-cw-beat-heat-valley-raceway-race-pace-track-days-935349" },
@@ -130,17 +140,44 @@ window.EVENTS = [
   { d: "2027-06-14", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$199", note: "Beat the Heat", url: BF },
   { d: "2027-06-20", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-06-27", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-07-04", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-07-11", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-07-18", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-07-25", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-08-01", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-08-08", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-08-15", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-08-22", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-08-29", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-09-05", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-09-12", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-09-18", e: "2027-09-19", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", note: "Beat the Heat", url: "https://racepace.motorsportreg.com/events/september-saturday-chuckwalla-ccw-beat-heat-valley-raceway-race-pace-880631" },
+  { d: "2027-09-19", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-09-26", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-10-02", t: "willow", cfg: "CCW", org: "California Superbike School", type: "school", price: "$695 own / $895 rental", note: "Single day", url: CSS },
   { d: "2027-10-03", t: "willow", cfg: "CCW", org: "California Superbike School", type: "school", price: "$695 own / $895 rental", note: "Single day", url: CSS },
+  { d: "2027-10-03", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-10-04", e: "2027-10-05", t: "willow", cfg: "CCW", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
+  { d: "2027-10-10", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-10-12", e: "2027-10-13", t: "inde", org: "Yamaha ChampSchool", type: "school", note: "Two day school", url: YC },
   { d: "2027-10-13", e: "2027-10-14", t: "chuckwalla", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
+  { d: "2027-10-15", t: "chuckwalla", org: "Apex Assassins", type: "day", url: AA },
   { d: "2027-10-16", t: "podium", org: "California Superbike School", type: "school", price: "$695 own / $895 rental", note: "Single day", url: CSS },
-  { d: "2027-10-16", e: "2027-10-17", t: "chuckwalla", org: "Race Pace", type: "day", price: "~$295/day", url: RP },
+  { d: "2027-10-16", e: "2027-10-17", t: "chuckwalla", cfg: "CW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/october-saturday-chuckwalla-cw-valley-raceway-race-pace-track-days-291573" },
   { d: "2027-10-17", t: "podium", org: "California Superbike School", type: "school", price: "$695 own / $895 rental", note: "Single day", url: CSS },
+  { d: "2027-10-17", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-10-23", e: "2027-10-24", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
-  { d: "2027-11-06", e: "2027-11-07", t: "chuckwalla", org: "Race Pace", type: "day", price: "~$295/day", url: RP },
+  { d: "2027-10-24", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-10-29", e: "2027-10-31", t: "podium", org: "Apex Assassins", type: "day", note: "Trackday Massacre with Brake Free and Legion Moto", url: "https://trackdaymassacre.com/" },
+  { d: "2027-10-31", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-11-06", e: "2027-11-07", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/november-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-418682" },
+  { d: "2027-11-07", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-11-09", e: "2027-11-10", t: "inde", org: "Yamaha ChampSchool", type: "school", note: "ChampGrad, for returning students", url: YC },
   { d: "2027-11-11", e: "2027-11-12", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
-  { d: "2027-11-13", e: "2027-11-14", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS }
+  { d: "2027-11-13", e: "2027-11-14", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
+  { d: "2027-11-14", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-11-21", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-11-28", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK }
 ];
 
 // Bike limits shown on each event, by organizer (keep brief, general audience)
@@ -177,11 +214,11 @@ window.ORGS = [
   ["HVMC Events", "https://www.ridehvmc.com/events", "Chuckwalla · Oakland Valley"],
   ["TrackXperience", "https://www.txptrackdays.com/", "Spring Mountain · Chuckwalla"],
   ["California Superbike School", "https://superbikeschool.com/schedule/", "Podium · LVMS · Willow"],
-  ["Yamaha ChampSchool", "https://ridelikeachampion.com/", "Inde · Chuckwalla"],
+  ["Yamaha ChampSchool", "https://ridelikeachampion.com/schedule/", "Inde · Chuckwalla · Las Vegas"],
   ["ASMA", "https://www.asmaracing.com/", "Arroyo Seco"],
-  ["Musselman Honda Circuit", "https://mhcircuit.com/calendar/", "Tucson"],
+  ["Musselman Honda Circuit", "https://mhcircuit.com/calendar/", "Tucson · monthly motorcycle days"],
   ["SoCal Supermoto", "https://www.socalsupermoto.com/calendar", "Perris"],
   ["IMR Riders Club", "https://imrridersclub.com/", "Inde"],
   ["Compact Octane", "https://compactoctane.trackrabbit.com/", "Streets of Willow · Chuckwalla"],
-  ["Apex Assassins", "https://reach.dog/shop/apex-assassins", "Las Vegas · Podium"]
+  ["Apex Assassins", "https://apexassassins.com/", "Chuckwalla · Las Vegas · Podium"]
 ];

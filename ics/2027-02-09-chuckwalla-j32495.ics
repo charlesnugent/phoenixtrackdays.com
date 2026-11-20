@@ -9,13 +9,13 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2027-02-09-chuckwalla-j32495@phoenixtrackdays.com
-DTSTAMP:20261120T120000Z
+DTSTAMP:20261120T121430Z
 DTSTART;VALUE=DATE:20270209
 DTEND;VALUE=DATE:20270211
 SUMMARY:Chuckwalla: Yamaha ChampSchool
 LOCATION:Chuckwalla\, Desert Center\, CA
 DESCRIPTION:School · coaching\nTwo day school\nBook: https://ridelikeacham
- pion.com/\nMore dates: https://phoenixtrackdays.com/
-URL:https://ridelikeachampion.com/
+ pion.com/schedule/\nMore dates: https://phoenixtrackdays.com/
+URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 END:VCALENDAR

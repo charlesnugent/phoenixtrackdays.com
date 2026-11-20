@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Inde Motorsports Ranch: Yamaha ChampSchool
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-11-09-inde-1gxexn2@phoenixtrackdays.com
+DTSTAMP:20261120T121430Z
+DTSTART;VALUE=DATE:20271109
+DTEND;VALUE=DATE:20271111
+SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
+LOCATION:Inde Motorsports Ranch\, Willcox\, AZ
+DESCRIPTION:School · coaching\nChampGrad\, for returning students\nBook: h
+ ttps://ridelikeachampion.com/schedule/\nMore dates: https://phoenixtrackd
+ ays.com/
+URL:https://ridelikeachampion.com/schedule/
+END:VEVENT
+END:VCALENDAR

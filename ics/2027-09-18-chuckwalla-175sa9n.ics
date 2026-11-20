@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Chuckwalla: Race Pace
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-09-18-chuckwalla-175sa9n@phoenixtrackdays.com
+DTSTAMP:20261120T121430Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:Chuckwalla CCW: Race Pace
+LOCATION:Chuckwalla\, Desert Center\, CA
+DESCRIPTION:Advanced only\n~$295/day\nBeat the Heat\nLap time check\nBook:
+  https://racepace.motorsportreg.com/events/september-saturday-chuckwalla-
+ ccw-beat-heat-valley-raceway-race-pace-880631\nMore dates: https://phoeni
+ xtrackdays.com/
+URL:https://racepace.motorsportreg.com/events/september-saturday-chuckwall
+ a-ccw-beat-heat-valley-raceway-race-pace-880631
+END:VEVENT
+END:VCALENDAR

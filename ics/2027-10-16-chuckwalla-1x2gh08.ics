@@ -8,14 +8,16 @@ X-WR-TIMEZONE:America/Phoenix
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2027-10-16-chuckwalla-1e40aec@phoenixtrackdays.com
-DTSTAMP:20261120T120000Z
+UID:2027-10-16-chuckwalla-1x2gh08@phoenixtrackdays.com
+DTSTAMP:20261120T121430Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271018
-SUMMARY:Chuckwalla: Race Pace
+SUMMARY:Chuckwalla CW: Race Pace
 LOCATION:Chuckwalla\, Desert Center\, CA
 DESCRIPTION:Advanced only\n~$295/day\nLap time check\nBook: https://racepa
- ce.motorsportreg.com/\nMore dates: https://phoenixtrackdays.com/
-URL:https://racepace.motorsportreg.com/
+ ce.motorsportreg.com/events/october-saturday-chuckwalla-cw-valley-raceway
+ -race-pace-track-days-291573\nMore dates: https://phoenixtrackdays.com/
+URL:https://racepace.motorsportreg.com/events/october-saturday-chuckwalla-
+ cw-valley-raceway-race-pace-track-days-291573
 END:VEVENT
 END:VCALENDAR
