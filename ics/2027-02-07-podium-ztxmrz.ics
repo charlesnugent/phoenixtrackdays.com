@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Podium Club: Brake Free
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-02-07-podium-ztxmrz@phoenixtrackdays.com
+DTSTAMP:20261121T120803Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Podium Club: Brake Free
+LOCATION:Podium Club\, Casa Grande\, AZ
+DESCRIPTION:All levels · 4 groups\n8 AM to 5 PM. Listed on Podium Club's c
+ alendar\nBook: https://www.podiumclub.com/event-details/brake-free-track-
+ time-feb-7\nMore dates: https://phoenixtrackdays.com/
+URL:https://www.podiumclub.com/event-details/brake-free-track-time-feb-7
+END:VEVENT
+END:VCALENDAR

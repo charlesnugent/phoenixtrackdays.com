@@ -8,19 +8,8 @@ X-WR-TIMEZONE:America/Phoenix
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-20-chuckwalla-org4rk@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20261120
-DTEND;VALUE=DATE:20261121
-SUMMARY:Chuckwalla CCW: 2 Wheels Track Days
-LOCATION:Chuckwalla\, Desert Center\, CA
-DESCRIPTION:9 AM to 5 PM\nBook: https://www.2wheelstrackdays.com/events/no
- v-20-chuckwalla\nMore dates: https://phoenixtrackdays.com/
-URL:https://www.2wheelstrackdays.com/events/nov-20-chuckwalla
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-11-21-podium-1izsfa9@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Podium Club: California Superbike School
@@ -32,7 +21,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-podium-1og4g6a@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Podium Club: California Superbike School
@@ -44,7 +33,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-whp-q7v2de@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Wild Horse Pass West: XCEL
@@ -58,7 +47,7 @@ URL:https://xceltrackdays.trackrabbit.com/event/details/10019611-XCEL-Moto
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-pkra-1dgg5k0@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:PKRA: Southwest Supermoto
@@ -69,19 +58,20 @@ DESCRIPTION:$50\n1 to 6 PM. Pay at gate\nUnder 500cc or supermoto (any siz
 URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-28-chuckwalla-1nbud7z@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+UID:2026-11-28-chuckwalla-1lvok8i@phoenixtrackdays.com
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261130
-SUMMARY:Chuckwalla: TrackXperience
+SUMMARY:Chuckwalla Sat CW\, Sun CCW: TrackXperience
 LOCATION:Chuckwalla\, Desert Center\, CA
-DESCRIPTION:All levels\nBook: https://www.txptrackdays.com/chuckwalla-race
- way-november-28-29\nMore dates: https://phoenixtrackdays.com/
+DESCRIPTION:All levels\n$285/day\n8 AM to 4 PM. Sold out\nBook: https://ww
+ w.txptrackdays.com/chuckwalla-raceway-november-28-29\nMore dates: https:/
+ /phoenixtrackdays.com/
 URL:https://www.txptrackdays.com/chuckwalla-raceway-november-28-29
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-pkra-ipv4h3@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:PKRA: Southwest Supermoto
@@ -93,7 +83,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-04-lvms-20mbdr@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261206
 SUMMARY:Las Vegas Motor Speedway: Yamaha ChampSchool
@@ -104,7 +94,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-05-chuckwalla-1dxw1sm@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261207
 SUMMARY:Chuckwalla CCW: Race Pace
@@ -117,7 +107,7 @@ URL:https://racepace.motorsportreg.com/events/december-saturday-chuckwalla
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-06-whp-1jb9lif@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Wild Horse Pass West: XCEL
@@ -131,21 +121,21 @@ URL:https://xceltrackdays.trackrabbit.com/event/details/10019612-XCEL-Moto
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-09-chuckwalla-r0vwpo@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261211
 SUMMARY:Chuckwalla: Racers Edge
 LOCATION:Chuckwalla\, Desert Center\, CA
-DESCRIPTION:All levels\n$500 Wed / $350 Thu\nWeekday private days\, ride o
- nly\nBook: https://racersedgeperformance.com/products/december-9th-2026-r
- ide-only-private-track-day-at-chuckwalla-valley-raceway-copy\nMore dates:
-  https://phoenixtrackdays.com/
+DESCRIPTION:All levels\n$500 Wed / $350 Thu\nRide only. Wed sold out\nBook
+ : https://racersedgeperformance.com/products/december-9th-2026-ride-only-
+ private-track-day-at-chuckwalla-valley-raceway-copy\nMore dates: https://
+ phoenixtrackdays.com/
 URL:https://racersedgeperformance.com/products/december-9th-2026-ride-only
  -private-track-day-at-chuckwalla-valley-raceway-copy
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-12-podium-1af1eqq@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:Podium Club CCW: Brake Free
@@ -156,7 +146,7 @@ URL:https://brakefreetracktime.com/products/registration
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-13-podium-25t70o@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:Podium Club CW: Brake Free
@@ -167,7 +157,7 @@ URL:https://brakefreetracktime.com/products/registration
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-13-pkra-1xrdb8h@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:PKRA: Southwest Supermoto
@@ -179,7 +169,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-14-chuckwalla-r7ejxr@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:Chuckwalla CW: 2 Wheels Track Days
@@ -190,7 +180,7 @@ URL:https://www.2wheelstrackdays.com/events/dec-14-chuckwalla
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-20-musselman-1epv9iq@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:Musselman Honda Circuit: Musselman Honda Circuit
@@ -202,7 +192,7 @@ URL:https://mhcircuit.com/event/motorcycle-day-2026-12-20/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-27-pkra-1m4o9s4@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261227
 DTEND;VALUE=DATE:20261228
 SUMMARY:PKRA: Southwest Supermoto
@@ -214,7 +204,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-03-pkra-vvc0rn@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:PKRA: Southwest Supermoto
@@ -226,7 +216,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-06-chuckwalla-1llsfy2@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270108
 SUMMARY:Chuckwalla: Racers Edge
@@ -239,19 +229,8 @@ URL:https://racersedgeperformance.com/products/dec-4-ride-only-private-tra
  ck-day-at-chuckwalla-valley-raceway
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-01-11-podium-kvlruq@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270111
-DTEND;VALUE=DATE:20270112
-SUMMARY:Podium Club CCW: Brake Free
-LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\n$259\nBook: https://brakefreetracktime.
- com/products/registration\nMore dates: https://phoenixtrackdays.com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-01-16-chuckwalla-1he50c6@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270118
 SUMMARY:Chuckwalla CW: Race Pace
@@ -264,7 +243,7 @@ URL:https://racepace.motorsportreg.com/events/january-saturday-chuckwalla-
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-24-whp-mih3b8@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:Wild Horse Pass West: XCEL
@@ -276,7 +255,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-24-pkra-13ciyxu@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:PKRA: Southwest Supermoto
@@ -288,7 +267,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-31-pkra-1mgeyke@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:PKRA: Southwest Supermoto
@@ -299,20 +278,20 @@ DESCRIPTION:$50\n1 to 6 PM. Pay at gate\nUnder 500cc or supermoto (any siz
 URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-02-07-whp-1rijc34@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+UID:2027-02-07-podium-ztxmrz@phoenixtrackdays.com
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270207
 DTEND;VALUE=DATE:20270208
-SUMMARY:Wild Horse Pass West CCW: Brake Free
-LOCATION:Wild Horse Pass\, Chandler\, AZ
-DESCRIPTION:All levels · 4 groups\n$169\nPodium's calendar also lists a Br
- ake Free Feb 7; confirm venue\nBook: https://brakefreetracktime.com/produ
- cts/registration\nMore dates: https://phoenixtrackdays.com/
-URL:https://brakefreetracktime.com/products/registration
+SUMMARY:Podium Club: Brake Free
+LOCATION:Podium Club\, Casa Grande\, AZ
+DESCRIPTION:All levels · 4 groups\n8 AM to 5 PM. Listed on Podium Club's c
+ alendar\nBook: https://www.podiumclub.com/event-details/brake-free-track-
+ time-feb-7\nMore dates: https://phoenixtrackdays.com/
+URL:https://www.podiumclub.com/event-details/brake-free-track-time-feb-7
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-09-chuckwalla-j32495@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270209
 DTEND;VALUE=DATE:20270211
 SUMMARY:Chuckwalla: Yamaha ChampSchool
@@ -323,7 +302,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-12-chuckwalla-akqajt@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Chuckwalla: Apex Assassins
@@ -334,7 +313,7 @@ URL:https://apexassassins.com/#events-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-13-chuckwalla-vdz07t@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270213
 DTEND;VALUE=DATE:20270215
 SUMMARY:Chuckwalla CCW: Race Pace
@@ -347,7 +326,7 @@ URL:https://racepace.motorsportreg.com/events/february-saturday-chuckwalla
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-14-pkra-17qxehu@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:PKRA: Southwest Supermoto
@@ -359,7 +338,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-17-chuckwalla-jjvm0p@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270217
 DTEND;VALUE=DATE:20270219
 SUMMARY:Chuckwalla: Racers Edge
@@ -373,7 +352,7 @@ URL:https://racersedgeperformance.com/products/january-14th-ride-only-priv
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-21-whp-29a82o@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:Wild Horse Pass West: XCEL
@@ -385,7 +364,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-23-inde-lwg6t4@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270223
 DTEND;VALUE=DATE:20270225
 SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
@@ -396,7 +375,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-28-pkra-w48d1h@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:PKRA: Southwest Supermoto
@@ -408,7 +387,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-06-lvms-dtyoya@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270308
 SUMMARY:Las Vegas Motor Speedway: California Superbike School
@@ -419,19 +398,8 @@ DESCRIPTION:All levels · coaching\n$2\,935 own / $3\,235 rental\nTwo day c
 URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-03-08-whp-oy5n4g@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270308
-DTEND;VALUE=DATE:20270309
-SUMMARY:Wild Horse Pass West CCW: Brake Free
-LOCATION:Wild Horse Pass\, Chandler\, AZ
-DESCRIPTION:All levels · 4 groups\n$169\nBook: https://brakefreetracktime.
- com/products/registration\nMore dates: https://phoenixtrackdays.com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-03-13-chuckwalla-5yqje9@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270315
 SUMMARY:Chuckwalla CW: Race Pace
@@ -444,7 +412,7 @@ URL:https://racepace.motorsportreg.com/events/march-saturday-chuckwalla-cw
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-13-lvms-1wl5wca@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270315
 SUMMARY:Las Vegas Motor Speedway: Apex Assassins
@@ -455,7 +423,7 @@ URL:https://apexassassins.com/#events-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-14-whp-1x0a82r@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
 SUMMARY:Wild Horse Pass West: XCEL
@@ -467,7 +435,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-14-pkra-17xny2p@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
 SUMMARY:PKRA: Southwest Supermoto
@@ -479,7 +447,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-17-chuckwalla-fc7q1k@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270317
 DTEND;VALUE=DATE:20270319
 SUMMARY:Chuckwalla: Racers Edge
@@ -493,7 +461,7 @@ URL:https://racersedgeperformance.com/products/january-14th-ride-only-priv
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-03-26-lvms-cvr0rk@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270326
 DTEND;VALUE=DATE:20270328
 SUMMARY:Las Vegas Motor Speedway: Yamaha ChampSchool
@@ -504,20 +472,8 @@ DESCRIPTION:School · coaching\nChampSchool\, ChampStreet or ChampPrecision
 URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-03-28-podium-s8dbvp@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270328
-DTEND;VALUE=DATE:20270329
-SUMMARY:Podium Club CW: Brake Free
-LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\n$259\nMOTOFEST\nBook: https://brakefree
- tracktime.com/products/registration\nMore dates: https://phoenixtrackdays
- .com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-03-28-pkra-waywmc@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270328
 DTEND;VALUE=DATE:20270329
 SUMMARY:PKRA: Southwest Supermoto
@@ -528,20 +484,8 @@ DESCRIPTION:$50\n1 to 6 PM. Pay at gate\nUnder 500cc or supermoto (any siz
 URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-03-29-podium-17f86lj@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270329
-DTEND;VALUE=DATE:20270330
-SUMMARY:Podium Club CCW: Brake Free
-LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\n$259\nMOTOFEST\nBook: https://brakefree
- tracktime.com/products/registration\nMore dates: https://phoenixtrackdays
- .com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-04-02-chuckwalla-apsfsa@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270402
 DTEND;VALUE=DATE:20270403
 SUMMARY:Chuckwalla: Apex Assassins
@@ -552,7 +496,7 @@ URL:https://apexassassins.com/#events-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-03-whp-100vhbg@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Wild Horse Pass Main: XCEL
@@ -563,7 +507,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-03-chuckwalla-12erfh6@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270405
 SUMMARY:Chuckwalla CCW: Race Pace
@@ -576,7 +520,7 @@ URL:https://racepace.motorsportreg.com/events/april-saturday-chuckwalla-cc
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-03-lvms-q9a9ta@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270405
 SUMMARY:Las Vegas Motor Speedway: California Superbike School
@@ -588,7 +532,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-04-whp-1oyfjql@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:Wild Horse Pass Main: XCEL
@@ -599,7 +543,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-04-pkra-1cc2dmp@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:PKRA: Southwest Supermoto
@@ -611,7 +555,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-07-chuckwalla-am2z14@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270407
 DTEND;VALUE=DATE:20270409
 SUMMARY:Chuckwalla: Racers Edge
@@ -625,7 +569,7 @@ URL:https://racersedgeperformance.com/products/february-17th-ride-only-pri
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-15-willow-1t1l8y@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270417
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -637,7 +581,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-17-willow-1e5f1xs@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -649,7 +593,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-18-willow-3ahqb3@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -661,7 +605,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-04-18-pkra-10pdc6c@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:PKRA: Southwest Supermoto
@@ -672,19 +616,8 @@ DESCRIPTION:$50\n1 to 6 PM. Pay at gate\nUnder 500cc or supermoto (any siz
 URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-04-19-inde-31avm6@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270419
-DTEND;VALUE=DATE:20270420
-SUMMARY:Inde Motorsports Ranch CW: Brake Free
-LOCATION:Inde Motorsports Ranch\, Willcox\, AZ
-DESCRIPTION:All levels · 4 groups\n$239\nBook: https://brakefreetracktime.
- com/products/registration\nMore dates: https://phoenixtrackdays.com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-04-25-pkra-1jt9bsw@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:PKRA: Southwest Supermoto
@@ -696,7 +629,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-01-podium-15jycq1@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270503
 SUMMARY:Podium Club: Apex Assassins
@@ -708,7 +641,7 @@ URL:https://apexassassins.com/#events-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-02-pkra-gprgym@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:PKRA: Southwest Supermoto
@@ -720,7 +653,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-04-inde-ozubo8@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270504
 DTEND;VALUE=DATE:20270506
 SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
@@ -731,7 +664,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-08-chuckwalla-12cp1ed@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270510
 SUMMARY:Chuckwalla CW: Race Pace
@@ -744,19 +677,8 @@ URL:https://racepace.motorsportreg.com/events/may-saturday-chuckwalla-cw-b
  eat-heat-valley-raceway-race-pace-track-days-935349
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-05-09-podium-1anya5j@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270509
-DTEND;VALUE=DATE:20270510
-SUMMARY:Podium Club CCW: Brake Free
-LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\n$259\nBook: https://brakefreetracktime.
- com/products/registration\nMore dates: https://phoenixtrackdays.com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-05-09-whp-r2jj0n@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:Wild Horse Pass West: XCEL
@@ -767,7 +689,7 @@ URL:https://xceltrackdays.trackrabbit.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-09-pkra-1l0ahut@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:PKRA: Southwest Supermoto
@@ -779,7 +701,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-16-pkra-532fi9@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
 SUMMARY:PKRA: Southwest Supermoto
@@ -791,7 +713,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-23-pkra-o6yf4t@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:PKRA: Southwest Supermoto
@@ -803,7 +725,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-05-30-pkra-17auerd@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:PKRA: Southwest Supermoto
@@ -815,7 +737,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-06-06-pkra-9hgv29@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:PKRA: Southwest Supermoto
@@ -827,7 +749,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-06-13-pkra-slcuot@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270613
 DTEND;VALUE=DATE:20270614
 SUMMARY:PKRA: Southwest Supermoto
@@ -838,20 +760,8 @@ DESCRIPTION:$50\n1 to 6 PM. Pay at gate\nUnder 500cc or supermoto (any siz
 URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:2027-06-14-podium-e64wbk@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
-DTSTART;VALUE=DATE:20270614
-DTEND;VALUE=DATE:20270615
-SUMMARY:Podium Club CCW: Brake Free
-LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\n$199\nBeat the Heat\nBook: https://brak
- efreetracktime.com/products/registration\nMore dates: https://phoenixtrac
- kdays.com/
-URL:https://brakefreetracktime.com/products/registration
-END:VEVENT
-BEGIN:VEVENT
 UID:2027-06-20-pkra-1bp8ubd@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:PKRA: Southwest Supermoto
@@ -863,7 +773,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-06-27-pkra-gynt8g@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:PKRA: Southwest Supermoto
@@ -875,7 +785,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-07-04-pkra-1cwa0da@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270704
 DTEND;VALUE=DATE:20270705
 SUMMARY:PKRA: Southwest Supermoto
@@ -887,7 +797,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-07-11-pkra-1w05zzu@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270711
 DTEND;VALUE=DATE:20270712
 SUMMARY:PKRA: Southwest Supermoto
@@ -899,7 +809,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-07-18-pkra-119kywx@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270718
 DTEND;VALUE=DATE:20270719
 SUMMARY:PKRA: Southwest Supermoto
@@ -911,7 +821,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-07-25-pkra-1kdgyjh@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270725
 DTEND;VALUE=DATE:20270726
 SUMMARY:PKRA: Southwest Supermoto
@@ -923,7 +833,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-08-01-pkra-1dgdkq@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:PKRA: Southwest Supermoto
@@ -935,7 +845,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-08-08-pkra-15nzegx@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270808
 DTEND;VALUE=DATE:20270809
 SUMMARY:PKRA: Southwest Supermoto
@@ -947,7 +857,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-08-15-pkra-1orve3h@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270815
 DTEND;VALUE=DATE:20270816
 SUMMARY:PKRA: Southwest Supermoto
@@ -959,7 +869,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-08-22-pkra-8unbqx@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270822
 DTEND;VALUE=DATE:20270823
 SUMMARY:PKRA: Southwest Supermoto
@@ -971,7 +881,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-08-29-pkra-1d56cn4@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:PKRA: Southwest Supermoto
@@ -983,7 +893,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-09-05-pkra-1t69tnh@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:PKRA: Southwest Supermoto
@@ -995,7 +905,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-09-12-pkra-d91rax@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270912
 DTEND;VALUE=DATE:20270913
 SUMMARY:PKRA: Southwest Supermoto
@@ -1007,7 +917,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-09-18-chuckwalla-175sa9n@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270920
 SUMMARY:Chuckwalla CCW: Race Pace
@@ -1021,7 +931,7 @@ URL:https://racepace.motorsportreg.com/events/september-saturday-chuckwall
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-09-19-pkra-1hjks74@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270919
 DTEND;VALUE=DATE:20270920
 SUMMARY:PKRA: Southwest Supermoto
@@ -1033,7 +943,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-09-26-pkra-1mcpuk@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270927
 SUMMARY:PKRA: Southwest Supermoto
@@ -1045,7 +955,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-02-willow-192j4i7@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271002
 DTEND;VALUE=DATE:20271003
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -1057,7 +967,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-03-willow-1x8puum@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271003
 DTEND;VALUE=DATE:20271004
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -1069,7 +979,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-03-pkra-11hgc5h@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271003
 DTEND;VALUE=DATE:20271004
 SUMMARY:PKRA: Southwest Supermoto
@@ -1081,7 +991,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-04-willow-mdsj7x@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271004
 DTEND;VALUE=DATE:20271006
 SUMMARY:Streets of Willow CCW: California Superbike School
@@ -1093,7 +1003,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-10-pkra-1klcbs1@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271010
 DTEND;VALUE=DATE:20271011
 SUMMARY:PKRA: Southwest Supermoto
@@ -1105,7 +1015,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-12-inde-1hs01th@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271012
 DTEND;VALUE=DATE:20271014
 SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
@@ -1116,7 +1026,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-13-chuckwalla-16sv6sj@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271013
 DTEND;VALUE=DATE:20271015
 SUMMARY:Chuckwalla: California Superbike School
@@ -1128,7 +1038,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-15-chuckwalla-o4dgmb@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
 SUMMARY:Chuckwalla: Apex Assassins
@@ -1139,7 +1049,7 @@ URL:https://apexassassins.com/#events-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-16-podium-no017t@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271017
 SUMMARY:Podium Club: California Superbike School
@@ -1151,7 +1061,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-16-chuckwalla-1x2gh08@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271018
 SUMMARY:Chuckwalla CW: Race Pace
@@ -1164,7 +1074,7 @@ URL:https://racepace.motorsportreg.com/events/october-saturday-chuckwalla-
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-17-podium-t4c23u@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271017
 DTEND;VALUE=DATE:20271018
 SUMMARY:Podium Club: California Superbike School
@@ -1176,7 +1086,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-17-pkra-purap4@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271017
 DTEND;VALUE=DATE:20271018
 SUMMARY:PKRA: Southwest Supermoto
@@ -1188,7 +1098,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-23-lvms-12iusoh@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271023
 DTEND;VALUE=DATE:20271025
 SUMMARY:Las Vegas Motor Speedway: California Superbike School
@@ -1200,7 +1110,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-24-pkra-18ynabo@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271024
 DTEND;VALUE=DATE:20271025
 SUMMARY:PKRA: Southwest Supermoto
@@ -1212,7 +1122,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-29-podium-mbbu65@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271029
 DTEND;VALUE=DATE:20271101
 SUMMARY:Podium Club: Apex Assassins
@@ -1224,7 +1134,7 @@ URL:https://trackdaymassacre.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-10-31-pkra-1s2j9y8@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271031
 DTEND;VALUE=DATE:20271101
 SUMMARY:PKRA: Southwest Supermoto
@@ -1236,7 +1146,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-06-chuckwalla-5qxu37@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271106
 DTEND;VALUE=DATE:20271108
 SUMMARY:Chuckwalla CCW: Race Pace
@@ -1249,7 +1159,7 @@ URL:https://racepace.motorsportreg.com/events/november-saturday-chuckwalla
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-07-pkra-u95q94@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271107
 DTEND;VALUE=DATE:20271108
 SUMMARY:PKRA: Southwest Supermoto
@@ -1261,7 +1171,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-09-inde-1gxexn2@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271109
 DTEND;VALUE=DATE:20271111
 SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
@@ -1273,7 +1183,7 @@ URL:https://ridelikeachampion.com/schedule/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-11-lvms-1b8bptb@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271111
 DTEND;VALUE=DATE:20271113
 SUMMARY:Las Vegas Motor Speedway: California Superbike School
@@ -1285,7 +1195,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-13-lvms-x9tr01@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271113
 DTEND;VALUE=DATE:20271115
 SUMMARY:Las Vegas Motor Speedway: California Superbike School
@@ -1297,7 +1207,7 @@ URL:https://superbikeschool.com/sign-up/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-14-pkra-1dd1pvo@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271114
 DTEND;VALUE=DATE:20271115
 SUMMARY:PKRA: Southwest Supermoto
@@ -1309,7 +1219,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-21-pkra-1wgxpi8@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271121
 DTEND;VALUE=DATE:20271122
 SUMMARY:PKRA: Southwest Supermoto
@@ -1321,7 +1231,7 @@ URL:https://pkra.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-11-28-pkra-11qcofb@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20271128
 DTEND;VALUE=DATE:20271129
 SUMMARY:PKRA: Southwest Supermoto

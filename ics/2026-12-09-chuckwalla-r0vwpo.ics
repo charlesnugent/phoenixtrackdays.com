@@ -9,15 +9,15 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-12-09-chuckwalla-r0vwpo@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261211
 SUMMARY:Chuckwalla: Racers Edge
 LOCATION:Chuckwalla\, Desert Center\, CA
-DESCRIPTION:All levels\n$500 Wed / $350 Thu\nWeekday private days\, ride o
- nly\nBook: https://racersedgeperformance.com/products/december-9th-2026-r
- ide-only-private-track-day-at-chuckwalla-valley-raceway-copy\nMore dates:
-  https://phoenixtrackdays.com/
+DESCRIPTION:All levels\n$500 Wed / $350 Thu\nRide only. Wed sold out\nBook
+ : https://racersedgeperformance.com/products/december-9th-2026-ride-only-
+ private-track-day-at-chuckwalla-valley-raceway-copy\nMore dates: https://
+ phoenixtrackdays.com/
 URL:https://racersedgeperformance.com/products/december-9th-2026-ride-only
  -private-track-day-at-chuckwalla-valley-raceway-copy
 END:VEVENT

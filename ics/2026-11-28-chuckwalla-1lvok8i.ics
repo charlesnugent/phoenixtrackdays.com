@@ -8,14 +8,15 @@ X-WR-TIMEZONE:America/Phoenix
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-28-chuckwalla-1nbud7z@phoenixtrackdays.com
-DTSTAMP:20261120T121430Z
+UID:2026-11-28-chuckwalla-1lvok8i@phoenixtrackdays.com
+DTSTAMP:20261121T120803Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261130
-SUMMARY:Chuckwalla: TrackXperience
+SUMMARY:Chuckwalla Sat CW\, Sun CCW: TrackXperience
 LOCATION:Chuckwalla\, Desert Center\, CA
-DESCRIPTION:All levels\nBook: https://www.txptrackdays.com/chuckwalla-race
- way-november-28-29\nMore dates: https://phoenixtrackdays.com/
+DESCRIPTION:All levels\n$285/day\n8 AM to 4 PM. Sold out\nBook: https://ww
+ w.txptrackdays.com/chuckwalla-raceway-november-28-29\nMore dates: https:/
+ /phoenixtrackdays.com/
 URL:https://www.txptrackdays.com/chuckwalla-raceway-november-28-29
 END:VEVENT
 END:VCALENDAR
