@@ -145,6 +145,7 @@ select.chip-btn.set{background-color:var(--chalk);color:#111}
 .share{display:none}.share.on{display:inline-block}
 .copied{font-family:var(--data);font-size:11.5px;color:var(--green)}
 details.newbie{background:var(--tarmac);border:1px solid var(--line);margin:0 0 6px}
+details.past .log{border:0;border-top:1px solid var(--line)}
 details.newbie summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 details.newbie summary::-webkit-details-marker{display:none}
 details.newbie summary b{font-family:var(--display);font-weight:900;font-style:italic;font-size:26px;text-transform:uppercase;line-height:1}
@@ -269,8 +270,10 @@ footer p{margin:6px 0;max-width:80ch}
   </section>
 
   <section class="block">
-    <div class="block-h"><h3>Last 6 Months</h3><p>Recent events, for reference on what runs when</p></div>
-    <div class="log" id="past"></div>
+    <details class="newbie past">
+      <summary><div><b>Last 6 Months</b><br><span id="pastcount">Recent events, for reference on what runs when</span></div></summary>
+      <div class="log" id="past"></div>
+    </details>
   </section>
 
   <section class="block">
@@ -458,6 +461,7 @@ function renderSchedule(){
   out.innerHTML = groups.map(g => `<div class="month"><h2>${g.m} <em>${String(g.y).slice(2)}</em></h2><div class="rows">${g.items.map(row).join("")}</div></div>`).join("");
 }
 function renderPast(){
+  const pc = document.getElementById("pastcount"); if (pc) pc.textContent = `${past.length} events · tap to show`;
   if (!past.length) { document.getElementById("past").innerHTML = `<div class="empty">Nothing logged yet.</div>`; return; }
   let yr = null, rows = "";
   past.forEach(e => { const d = parse(e.d), tr = T[e.t];
