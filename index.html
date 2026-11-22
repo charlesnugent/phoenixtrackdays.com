@@ -192,6 +192,7 @@ details.newbie[open] summary::after{content:"–"}
 .sponsor a:hover{background:#fff}
 footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:var(--data);letter-spacing:.04em}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px}
+.legend.key{font-family:var(--data);font-size:12px;letter-spacing:.04em;color:var(--soft);gap:8px 16px;margin:-4px 0 12px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:10px;display:inline-block}
 footer p{margin:6px 0;max-width:80ch}
@@ -249,6 +250,13 @@ footer p{margin:6px 0;max-width:80ch}
 
   <section class="block" id="schedule-block">
     <div class="block-h"><h3>Next 12 Months</h3><p id="range"></p></div>
+    <div class="legend key">
+      <span><i style="background:var(--green)"></i>Track day</span>
+      <span><i style="background:var(--yellow)"></i>School</span>
+      <span><i style="background:var(--blue)"></i>Kart track / supermoto</span>
+      <span><i style="background:repeating-linear-gradient(90deg,var(--heat) 0 3px,var(--yellow) 3px 6px)"></i>Desert heat, May to Sep</span>
+    </div>
+
     <div class="toolbar" role="toolbar" aria-label="Filter schedule">
       <div class="grp" id="f-type">
         <button class="chip-btn" data-v="all" aria-pressed="true">All</button>
@@ -289,12 +297,6 @@ footer p{margin:6px 0;max-width:80ch}
   </aside>
 
   <footer>
-    <div class="legend">
-      <span><i style="background:var(--green)"></i>Track day</span>
-      <span><i style="background:var(--yellow)"></i>School</span>
-      <span><i style="background:var(--blue)"></i>Kart track / supermoto</span>
-      <span><i style="background:repeating-linear-gradient(90deg,var(--heat) 0 3px,var(--yellow) 3px 6px)"></i>Desert heat, May to Sep</span>
-    </div>
     <p>Compiled from organizer websites and calendars. Dates, prices and track configs change: always confirm with the organizer before you book or drive. Yellow tags show bike or rider limits.</p>
     <p>Subscribe to every date in Apple Calendar, Google or Outlook: <a href="webcal://phoenixtrackdays.com/calendar.ics" style="color:var(--chalk)">webcal://phoenixtrackdays.com/calendar.ics</a></p>
     <p id="updated"></p>
