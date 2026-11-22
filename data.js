@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-21";
+window.UPDATED = "2026-11-22";
 
 window.TRACKS = {
   pkra:      { name: "PKRA",                     city: "Glendale, AZ",       lat: 33.69, lon: -112.15, mi: 25,  hr: 0.5, facts: "0.75 mi · 12 turns · kart track, CW/CCW",  site: "https://pkra.com/calendar/" },
@@ -170,7 +170,14 @@ window.EVENTS = [
   { d: "2027-11-13", e: "2027-11-14", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
   { d: "2027-11-14", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-11-21", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
-  { d: "2027-11-28", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK }
+  { d: "2027-11-28", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-12-04", e: "2027-12-05", t: "chuckwalla", cfg: "CW", org: "Race Pace", type: "day", price: "~$295/day", url: RP },
+  { d: "2027-12-05", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-12-11", e: "2027-12-12", t: "lvms", org: "Yamaha ChampSchool", type: "school", note: "Two day school", url: "https://ridelikeachampion.com/veg-december-2027/" },
+  { d: "2027-12-12", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-12-18", e: "2027-12-19", t: "podium", org: "Apex Assassins", type: "day", url: AA },
+  { d: "2027-12-19", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2027-12-26", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK }
 ];
 
 // Bike limits shown on each event, by organizer (keep brief, general audience)
