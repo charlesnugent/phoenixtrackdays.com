@@ -289,6 +289,7 @@ footer p{margin:6px 0;max-width:80ch}
       </div>
       <div class="sep"></div>
       <select class="chip-btn" id="f-track" aria-label="Track"></select>
+      <select class="chip-btn" id="f-org" aria-label="Organizer"></select>
       <button class="chip-btn share" id="share">Copy link to this track</button><span class="copied" id="copied" aria-live="polite"></span>
     </div>
     <div id="schedule"></div>
@@ -358,7 +359,7 @@ const upcoming = EV.filter(e => endOf(e) >= TODAY && parse(e.d) <= END);
 const past = EV.filter(e => endOf(e) < TODAY && parse(e.d) >= START).reverse();
 const TYPE = { day: "Track day", school: "School", moto: "Kart track" };
 
-const state = { type: "all", drive: "all", track: "all" };
+const state = { type: "all", drive: "all", track: "all", org: "all" };
 try { const s = JSON.parse(localStorage.getItem("phx-td-f") || "{}"); if (s.type) state.type = s.type; if (s.drive) state.drive = s.drive; } catch(e) {}
 const save = () => { try { localStorage.setItem("phx-td-f", JSON.stringify({type: state.type, drive: state.drive})); } catch(e) {} };
 
@@ -452,6 +453,7 @@ function matches(e){
   if (state.drive === "1" && T[e.t].hr > 1) return false;
   if (state.drive === "3" && T[e.t].hr > 3.5) return false;
   if (state.track !== "all" && e.t !== state.track) return false;
+  if (state.org !== "all" && e.org !== state.org) return false;
   return true;
 }
 function row(e){
@@ -505,6 +507,7 @@ function syncAll(){
   document.querySelectorAll("#f-type .chip-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.type));
   document.querySelectorAll("#f-drive .chip-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.drive));
   const sel = document.getElementById("f-track"); sel.value = state.track; sel.classList.toggle("set", state.track !== "all");
+  const os = document.getElementById("f-org"); os.value = state.org; os.classList.toggle("set", state.org !== "all");
   document.querySelectorAll("#mapsvg .pin, #maplist tr[data-t]").forEach(n => n.classList.toggle("on", n.dataset.t === state.track));
   document.getElementById("share").classList.toggle("on", state.track !== "all");
   document.getElementById("copied").textContent = "";
@@ -515,6 +518,9 @@ function initFilters(){
   const sel = document.getElementById("f-track");
   sel.innerHTML = `<option value="all">All tracks</option>` + Object.keys(T).sort((a,b) => T[a].hr - T[b].hr).map(k => `<option value="${k}">${esc(T[k].name)}</option>`).join("");
   sel.addEventListener("change", () => { state.track = sel.value; syncAll(); });
+  const os = document.getElementById("f-org");
+  os.innerHTML = `<option value="all">All organizers</option>` + [...new Set(upcoming.map(e => e.org))].sort((a,b) => a.localeCompare(b)).map(o => `<option value="${esc(o)}">${esc(o)}</option>`).join("");
+  os.addEventListener("change", () => { state.org = os.value; syncAll(); });
   document.getElementById("share").addEventListener("click", async () => {
     const url = SHARE_BASE + "#" + state.track, out = document.getElementById("copied");
     try { await navigator.clipboard.writeText(url); out.textContent = "Copied"; } catch(e) { out.textContent = url; }
