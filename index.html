@@ -7,6 +7,11 @@
 <meta property="og:title" content="Phoenix Area Motorcycle Track Days">
 <meta property="og:description" content="Track days, schools and kart track days within 6 hours of Phoenix. Updated daily.">
 <meta property="og:url" content="https://phoenixtrackdays.com/">
+<meta property="og:image" content="https://phoenixtrackdays.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700;900&family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600&display=swap">
 <style>
@@ -197,15 +202,25 @@ footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:va
 .legend i{width:14px;height:10px;display:inline-block}
 footer p{margin:6px 0;max-width:80ch}
 @media (prefers-reduced-motion:no-preference){.count{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{text-shadow:0 0 22px rgba(43,212,107,.35)}}}
+.brand{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
+.brandtxt{display:grid;gap:8px;min-width:0}
+.logo{width:150px;height:150px;flex:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+@media (max-width:560px){.brand{grid-template-columns:1fr;gap:14px}.logo{width:104px;height:104px}}
 </style>
 </head>
 <body>
 <div class="checker"></div>
 <header>
-  <div class="wrap">
-    <div class="eyebrow">Within 6 hours of Phoenix, AZ &nbsp;·&nbsp; Updated weekly</div>
+  <div class="wrap brand">
+    <svg viewBox="-210 -210 420 420" class="logo" role="img" aria-label="Phoenix Track Days saguaro logo" role="img" aria-label="saguaro badge"><circle r="200" fill="#121212"/><circle r="190" fill="none" stroke="#f2f1ec" stroke-width="4"/>
+<clipPath id="scIn"><circle r="128"/></clipPath><g clip-path="url(#scIn)"><rect x="-130" y="-130" width="260" height="260" fill="#f2f1ec"/><clipPath id="scs"><circle cx="0" cy="-6" r="96"/></clipPath><g clip-path="url(#scs)"><circle cx="0" cy="-6" r="96" fill="#c8102e"/><rect x="-96" y="2" width="192" height="3" fill="#f2f1ec"/><rect x="-96" y="18" width="192" height="5" fill="#f2f1ec"/><rect x="-96" y="38" width="192" height="7" fill="#f2f1ec"/><rect x="-96" y="62" width="192" height="9" fill="#f2f1ec"/><rect x="-96" y="90" width="192" height="11" fill="#f2f1ec"/><rect x="-96" y="122" width="192" height="13" fill="#f2f1ec"/></g><rect x="-130" y="96" width="260" height="40" fill="#121212"/><g transform="translate(0,-4) scale(0.82)"><g transform="skewX(-10)" fill="none" stroke="#121212" stroke-linejoin="miter" stroke-linecap="butt"><path d="M 0 122 L 0 -150" stroke-width="42"/><path d="M -12 28 L -62 0 L -62 -88" stroke-width="26"/><path d="M 12 58 L 58 34 L 58 -42" stroke-width="26"/></g></g></g><defs><path id="scTop" d="M -158 0 A 158 158 0 0 1 158 0"/><path id="scBot" d="M -166 0 A 166 166 0 0 0 166 0"/></defs>
+<text font-family="Saira Extra Condensed" font-weight="900" font-size="40" letter-spacing="5" fill="#f2f1ec"><textPath href="#scTop" startOffset="50%" text-anchor="middle">PHOENIX</textPath></text>
+<text font-family="Chakra Petch" font-weight="600" font-size="22" letter-spacing="8" fill="#f2f1ec"><textPath href="#scBot" startOffset="50%" text-anchor="middle">TRACK DAYS · AZ</textPath></text></svg>
+    <div class="brandtxt">
+    <div class="eyebrow">Within 6 hours of Phoenix, AZ &nbsp;·&nbsp; Updated daily</div>
     <h1>Phoenix Area <span>Motorcycle</span> Track Days</h1>
     <p class="lede">Every public motorcycle track day, school and supermoto day we can find at tracks within a 6 hour drive of Phoenix. Tap Book to register directly with the organizer.</p>
+  </div>
   </div>
 </header>
 
