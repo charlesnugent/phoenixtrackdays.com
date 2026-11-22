@@ -10,11 +10,11 @@ window.TRACKS = {
   musselman: { name: "Musselman Honda Circuit",  city: "Tucson, AZ",         lat: 32.10, lon: -110.93, mi: 115, hr: 1.75, facts: "0.79 mi · 13 turns", map: "https://lapmeta.com/en/track/variation/619/track_map", site: "https://mhcircuit.com/motorcycles/" },
   inde:      { name: "Inde Motorsports Ranch",   city: "Willcox, AZ",        lat: 32.22, lon: -109.88, mi: 195, hr: 3.0, facts: "2.75 mi · 21 turns · 40+ configs", map: "https://indemotorsports.com/the-ranch/track/",  site: "https://indemotorsports.com/about/calendar/" },
   chuckwalla:{ name: "Chuckwalla",               city: "Desert Center, CA",  lat: 33.78, lon: -115.36, mi: 205, hr: 3.25, facts: "2.68 mi · 17 turns · CW/CCW", map: "https://lapmeta.com/en/track/variation/143/track_map", site: "https://www.ridehvmc.com/events" },
-  arroyo:    { name: "Arroyo Seco Raceway",      city: "Deming, NM",         lat: 32.20, lon: -107.72, mi: 300, hr: 4.5, facts: "1.4 mi · 12 turns · CW/CCW",  site: "https://www.asmaracing.com/" },
+  arroyo:    { name: "Arroyo Seco Raceway",      city: "Deming, NM",         lat: 32.20, lon: -107.72, mi: 300, hr: 4.5, facts: "1.4 mi · 12 turns · CW/CCW",  site: "https://www.asmaracing.com/", map: "https://lapmeta.com/en/track/variation/525/track_map" },
   perris:    { name: "Apex Motorsports Park",    city: "Perris, CA",         lat: 33.79, lon: -117.22, mi: 305, hr: 4.5, facts: "Kart track",  site: "https://www.socalsupermoto.com/calendar" },
-  lvms:      { name: "Las Vegas Motor Speedway", city: "Las Vegas, NV",      lat: 36.27, lon: -115.01, mi: 300, hr: 4.75, facts: "Outside road course 2.4 mi · 12 turns", site: "https://superbikeschool.com/schedule/" },
-  spring:    { name: "Spring Mountain",          city: "Pahrump, NV",        lat: 36.13, lon: -115.90, mi: 360, hr: 5.5, facts: "Up to 6.1 mi · North/South courses",  site: "https://www.txptrackdays.com/" },
-  willow:    { name: "Streets of Willow",        city: "Rosamond, CA",       lat: 34.87, lon: -118.26, mi: 365, hr: 5.75, facts: "1.8 mi · CW/CCW", site: "https://superbikeschool.com/schedule/" }
+  lvms:      { name: "Las Vegas Motor Speedway", city: "Las Vegas, NV",      lat: 36.27, lon: -115.01, mi: 300, hr: 4.75, facts: "Outside road course 2.4 mi · 12 turns", site: "https://superbikeschool.com/schedule/", map: "https://lapmeta.com/en/track/variation/247/track_map" },
+  spring:    { name: "Spring Mountain",          city: "Pahrump, NV",        lat: 36.13, lon: -115.90, mi: 360, hr: 5.5, facts: "Up to 6.1 mi · North/South courses",  site: "https://www.txptrackdays.com/", map: "https://www.springmountainmotorsports.com/facility/race-track" },
+  willow:    { name: "Streets of Willow",        city: "Rosamond, CA",       lat: 34.87, lon: -118.26, mi: 365, hr: 5.75, facts: "1.8 mi · CW/CCW", site: "https://superbikeschool.com/schedule/", map: "https://willowspringsraceway.com/tracks/" }
 };
 
 const BF = "https://brakefreetracktime.com/products/registration";
