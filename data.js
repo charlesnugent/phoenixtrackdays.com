@@ -106,7 +106,7 @@ window.EVENTS = [
   { d: "2027-03-06", e: "2027-03-07", t: "lvms", org: "California Superbike School", type: "school", price: "$2,935 own / $3,235 rental", note: "Two day camp", url: CSS },
   { d: "2027-03-13", e: "2027-03-14", t: "chuckwalla", cfg: "CW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/march-saturday-chuckwalla-cw-valley-raceway-race-pace-track-days-349612" },
   { d: "2027-03-13", e: "2027-03-14", t: "lvms", org: "Apex Assassins", type: "day", url: AA },
-  { d: "2027-03-14", t: "whp", cfg: "West", org: "XCEL", type: "day", note: "Schedule says West; old register link says East. Confirm", url: TR },
+  { d: "2027-03-14", t: "whp", cfg: "West", org: "XCEL", type: "day", note: "9 AM to 5 PM. Find the event on TrackRabbit", url: TR },
   { d: "2027-03-14", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
   { d: "2027-03-17", e: "2027-03-18", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Thu with training $800", url: "https://racersedgeperformance.com/products/january-14th-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy-1" },
   { d: "2027-03-26", e: "2027-03-27", t: "lvms", org: "Yamaha ChampSchool", type: "school", note: "ChampSchool, ChampStreet or ChampPrecision", url: YC },
