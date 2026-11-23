@@ -216,16 +216,16 @@ footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:va
 footer p{margin:6px 0;max-width:80ch}
 /* Featured */
 .feats{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
-.fcard{scroll-snap-align:start;position:relative;background:var(--tarmac);border:1px solid var(--line);border-top:3px solid var(--chalk);padding:14px 16px 16px;display:grid;gap:6px;align-content:start;overflow:hidden}
+.fcard{scroll-snap-align:start;position:relative;background:var(--tarmac);border:1px solid var(--line);border-top:3px solid var(--chalk);padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
 .fcard::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;transform:rotate(18deg);background:conic-gradient(var(--chalk) 25%,transparent 0 50%,var(--chalk) 0 75%,transparent 0) 0 0/22px 22px;opacity:.07;pointer-events:none}
 .fcard .fl{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk)}
 .fcard h4{margin:0;font-family:var(--display);font-weight:900;font-style:italic;font-size:32px;line-height:.92;text-transform:uppercase}
 .fcard .fw{font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;line-height:1}
 .fcard .fm{color:var(--dim);font-size:13.5px}
-.fcard .fd{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-top:6px}
+.fcard .fd{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-top:auto;padding-top:8px}
 .fcard .fd b{font-family:var(--data);font-size:14px;font-weight:600}
 .fcard .fd span{font-family:var(--data);font-size:12px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
-.fcard .book{justify-self:start;margin-top:6px}
+.fcard .book{align-self:flex-start;margin-top:6px}
 .fcard{cursor:pointer}.fcard:hover{border-color:var(--dim);border-top-color:var(--chalk)}
 .fcard .jump{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-left:12px}
 .row.flash{animation:flash 2.2s ease-out}
