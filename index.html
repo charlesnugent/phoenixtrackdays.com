@@ -21,7 +21,7 @@
 :root{
   --asphalt:#0b0b0b; --tarmac:#262626; --kerb:#333333; --line:#4a4a4a;
   --chalk:#f2f1ec; --dim:#a9a99f; --soft:#e4e4da;
-  --green:#ceff00; --yellow:#ff8cc6; --heat:#ff6a2b; --blue:#b9c8ea;
+  --green:#ceff00; --note:#ff8cc6; --school:#4fd1e8; --kart:#b49cff; --heat:#ff6a2b;
   --display:"Saira Extra Condensed","Arial Narrow",Impact,sans-serif;
   --body:"Barlow","Helvetica Neue",Arial,sans-serif;
   --data:"Chakra Petch",ui-monospace,Menlo,monospace;
@@ -57,7 +57,7 @@ h1 span{color:var(--green)}
 .stat{background:var(--tarmac);padding:14px 16px;display:grid;gap:2px;align-content:start}
 .stat b{font-family:var(--display);font-size:40px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
 .stat span{font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.stat.g b{color:var(--green)}.stat.y b{color:var(--yellow)}
+.stat.g b{color:var(--green)}.stat.y b{color:var(--chalk)}
 
 section.block{padding-block:26px 8px}
 .block-h{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--green);padding-bottom:6px;margin-bottom:14px;flex-wrap:wrap}
@@ -106,7 +106,7 @@ section.block{padding-block:26px 8px}
 .chip-btn{font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--tarmac);color:var(--dim);border:1px solid var(--line);padding:7px 11px;cursor:pointer}
 .chip-btn:hover{color:var(--chalk);border-color:var(--dim)}
 .chip-btn[aria-pressed="true"]{background:var(--chalk);color:#111;border-color:var(--chalk)}
-.chip-btn:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+.chip-btn:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
 select.chip-btn{appearance:none;padding-right:26px;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 13px) 50%,calc(100% - 8px) 50%;background-size:5px 5px;background-repeat:no-repeat}
 select.chip-btn.set{background-color:var(--chalk);color:#111}
 @media (max-width:600px){
@@ -127,7 +127,7 @@ select.chip-btn.set{background-color:var(--chalk);color:#111}
 @media (max-width:560px){.month{grid-template-columns:1fr}.month h2{writing-mode:horizontal-tb;transform:none;justify-self:start;font-size:26px;margin-bottom:6px}}
 .row{display:grid;grid-template-columns:78px 1fr auto;align-items:stretch;background:var(--tarmac);border:1px solid var(--line);position:relative;min-width:0}
 .row::before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:5px;background:var(--flag,var(--line))}
-.row.day{--flag:var(--green)}.row.school{--flag:var(--yellow)}.row.moto{--flag:var(--blue)}
+.row.day{--flag:var(--green)}.row.school{--flag:var(--school)}.row.moto{--flag:var(--kart)}
 .row.today{border-color:rgba(206,255,0,.6);background:linear-gradient(90deg,rgba(206,255,0,.16),rgba(206,255,0,0) 45%),var(--tarmac)}
 .date{display:grid;place-content:center;text-align:center;padding:10px 4px 10px 10px;border-right:1px solid var(--line)}
 .date .dow{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
@@ -140,10 +140,10 @@ select.chip-btn.set{background-color:var(--chalk);color:#111}
 .sub{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--dim);font-size:13.5px;align-items:center}
 .sub .org{color:var(--chalk);font-weight:600}
 .type{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--line)}
-.type.day{border-color:#6b8500;color:#e6ff80}.type.school{border-color:#9a5a7c;color:#ffc9e4}.type.moto{border-color:#5a6b8c;color:var(--blue)}
-.limit{font-family:var(--data);font-size:11.5px;letter-spacing:.04em;color:#111;background:var(--yellow);padding:2px 7px;font-weight:600}
+.type.day{border-color:#6b8500;color:#e6ff80}.type.school{border-color:#2f7f8c;color:#a6ecf5}.type.moto{border-color:#6a5a9c;color:#d3c7ff}
+.limit{font-family:var(--data);font-size:11.5px;letter-spacing:.04em;color:#111;background:var(--note);padding:2px 7px;font-weight:600}
 .heat{font-family:var(--data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--heat);display:inline-flex;align-items:center;gap:5px}
-.heat::before{content:"";width:12px;height:9px;background:repeating-linear-gradient(90deg,var(--heat) 0 3px,var(--yellow) 3px 6px)}
+.heat::before{content:"";width:12px;height:9px;background:repeating-linear-gradient(90deg,var(--heat) 0 3px,#5a260f 3px 6px)}
 .right{display:grid;align-content:center;justify-items:end;gap:7px;padding:10px 14px;text-align:right;max-width:210px}
 .price{font-family:var(--data);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
 .book{font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);text-decoration:none;border:1px solid var(--chalk);padding:5px 12px;white-space:nowrap}
@@ -214,6 +214,22 @@ footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:va
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:10px;display:inline-block}
 footer p{margin:6px 0;max-width:80ch}
+/* Featured */
+.feats{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.fcard{scroll-snap-align:start;position:relative;background:var(--tarmac);border:1px solid var(--line);border-top:3px solid var(--chalk);padding:14px 16px 16px;display:grid;gap:6px;align-content:start;overflow:hidden}
+.fcard::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;transform:rotate(18deg);background:conic-gradient(var(--chalk) 25%,transparent 0 50%,var(--chalk) 0 75%,transparent 0) 0 0/22px 22px;opacity:.07;pointer-events:none}
+.fcard .fl{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk)}
+.fcard h4{margin:0;font-family:var(--display);font-weight:900;font-style:italic;font-size:32px;line-height:.92;text-transform:uppercase}
+.fcard .fw{font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;line-height:1}
+.fcard .fm{color:var(--dim);font-size:13.5px}
+.fcard .fd{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-top:6px}
+.fcard .fd b{font-family:var(--data);font-size:14px;font-weight:600}
+.fcard .fd span{font-family:var(--data);font-size:12px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
+.fcard .book{justify-self:start;margin-top:6px}
+.row.feat{border-color:rgba(242,241,236,.55);box-shadow:0 0 0 1px rgba(242,241,236,.2),0 0 18px rgba(242,241,236,.1)}
+.featb{font-family:var(--display);font-weight:700;font-style:italic;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk);line-height:1}
+.date .len{font-family:var(--data);font-size:10px;letter-spacing:.12em;color:var(--green);margin-top:4px;text-transform:uppercase}
+
 @media (prefers-reduced-motion:no-preference){.count{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{text-shadow:0 0 22px rgba(206,255,0,.35)}}}
 .brand{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
 .brandtxt{display:grid;gap:8px;min-width:0}
@@ -242,6 +258,11 @@ footer p{margin:6px 0;max-width:80ch}
     <div class="next" id="next"></div>
     <div class="stats" id="stats"></div>
   </div>
+
+  <section class="block" id="feat-block">
+    <div class="block-h"><h3>Featured Events</h3><p>Special weekends worth planning around</p></div>
+    <div class="feats" id="feats"></div>
+  </section>
 
   <details class="newbie">
     <summary><div><b>First track day?</b><br><span>What to pick, wear and bring</span></div></summary>
@@ -280,9 +301,11 @@ footer p{margin:6px 0;max-width:80ch}
     <div class="block-h"><h3>Next 12 Months</h3><p id="range"></p></div>
     <div class="legend key">
       <span><i style="background:var(--green)"></i>Track day</span>
-      <span><i style="background:var(--yellow)"></i>School</span>
-      <span><i style="background:var(--blue)"></i>Kart track / supermoto</span>
-      <span><i style="background:repeating-linear-gradient(90deg,var(--heat) 0 3px,var(--yellow) 3px 6px)"></i>Desert heat, May to Sep</span>
+      <span><i style="background:var(--school)"></i>School</span>
+      <span><i style="background:var(--kart)"></i>Kart track / supermoto</span>
+      <span><i style="background:var(--note)"></i>Bike or rider limit</span>
+      <span>★ Featured</span>
+      <span><i style="background:repeating-linear-gradient(90deg,var(--heat) 0 3px,#5a260f 3px 6px)"></i>Desert heat, May to Sep</span>
     </div>
 
     <div class="toolbar" role="toolbar" aria-label="Filter schedule">
@@ -403,6 +426,26 @@ function renderHero(){
     <div class="stat"><b>${new Set(EV.map(e => e.org)).size}</b><span>Organizers</span></div>`;
 }
 
+/* ---------- Featured ---------- */
+// Featured events: matched by the start of each event's note, so the daily data refresh needs no extra field.
+const FEATURED = ["Trackday Massacre", "MOTOFest", "Chuckwalla Bike Week", "Beat the Heat", "Motorcycle Day"];
+EV.forEach(e => { if (!e.feat) { const f = FEATURED.find(n => (e.note || "").startsWith(n)); if (f) e.feat = f; } });
+function renderFeatured(){
+  const f = upcoming.filter(e => e.feat), groups = [];
+  f.forEach(e => { const g = groups.find(x => x.feat === e.feat && x.t === e.t && (parse(e.d) - parse(x.end)) <= 2*86400000);
+    if (g) { if (endOf(e) > parse(g.end)) g.end = e.e || e.d; if (!g.orgs.includes(e.org)) g.orgs.push(e.org); }
+    else groups.push({ feat: e.feat, t: e.t, d: e.d, end: e.e || e.d, orgs: [e.org], url: e.url }); });
+  if (!groups.length) { document.getElementById("feat-block").hidden = true; return; }
+  document.getElementById("feats").innerHTML = groups.map(g => { const tr = T[g.t], s = parse(g.d), en = parse(g.end), days = Math.round((s - TODAY)/86400000);
+    const n = Math.round((en - s)/86400000) + 1;
+    const dates = n > 1 ? (s.getMonth() === en.getMonth() ? `${MONTHS[s.getMonth()]} ${s.getDate()}–${en.getDate()}` : `${MONTHS[s.getMonth()]} ${s.getDate()} – ${MONTHS[en.getMonth()]} ${en.getDate()}`) : `${DOW[s.getDay()]} ${MONTHS[s.getMonth()]} ${s.getDate()}`;
+    const href = g.url || tr.site;
+    return `<div class="fcard"><div class="fl">★ Featured${n > 1 ? ` · ${n} days` : ""}</div><h4>${esc(g.feat)}</h4>
+      <div class="fw">${esc(tr.name)}</div><div class="fm">${g.orgs.filter(o => o !== tr.name).map(o => esc(o) + " · ").join("")}${esc(tr.city)} · ${fmtHr(tr.hr)}</div>
+      <div class="fd"><b>${dates}, ${s.getFullYear()}</b><span>${days <= 0 ? "On now" : days === 1 ? "Tomorrow" : "In " + days + " days"}</span></div>
+      ${href ? `<a class="book" href="${esc(href)}" target="_blank" rel="noopener">Details <span aria-hidden="true">↗</span></a>` : ""}</div>`; }).join("");
+}
+
 /* ---------- Map ---------- */
 const PHX = { lat: 33.4484, lon: -112.074 };
 const B = { w: -119.2, e: -107.0, n: 37.3, s: 31.0 }, W = 900, K = Math.cos(33.4 * Math.PI/180);
@@ -475,9 +518,11 @@ function row(e){
   const isToday = d <= TODAY && endOf(e) >= TODAY;
   const limit = e.bike || RULES[e.org];
   const href = e.url || tr.site;
-  return `<article class="row ${e.type}${isToday ? " today" : ""}">
-    <div class="date"><div class="dow">${dow}</div>${dt}</div>
+  const nd = e.e ? Math.round((parse(e.e) - d)/86400000) + 1 : 1;
+  return `<article class="row ${e.type}${isToday ? " today" : ""}${e.feat ? " feat" : ""}">
+    <div class="date"><div class="dow">${dow}</div>${dt}${nd > 1 ? `<div class="len">${nd} days</div>` : ""}</div>
     <div class="body">
+      ${e.feat ? `<div class="featb">★ ${esc(e.feat)}</div>` : ""}
       <div class="track">${esc(tr.name)}${e.cfg ? `<span class="cfg">${esc(e.cfg)}</span>` : ""}<span class="drive">${esc(tr.city)} · ${fmtHr(tr.hr)}</span></div>
       <div class="sub">
         <span class="type ${e.type}">${TYPE[e.type]}</span>
@@ -545,7 +590,7 @@ function initFilters(){
 document.getElementById("range").textContent = `${fmtD(TODAY)}, ${TODAY.getFullYear()} to ${MONTHS[END.getMonth()]} ${END.getDate()}, ${END.getFullYear()}`;
 const up = parse(window.UPDATED || "2026-11-20");
 document.getElementById("updated").textContent = `Last refreshed ${MONTHS[up.getMonth()]} ${up.getDate()}, ${up.getFullYear()}.`;
-renderHero(); renderMap(); initFilters(); renderPast(); renderOrgs(); syncAll();
+renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); renderOrgs(); syncAll();
 </script>
 <script data-goatcounter="https://phoenixtrackdays.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
