@@ -427,8 +427,8 @@ function renderHero(){
 }
 
 /* ---------- Featured ---------- */
-// Featured events: matched by the start of each event's note, so the daily data refresh needs no extra field.
-const FEATURED = ["Trackday Massacre", "MOTOFest", "Chuckwalla Bike Week", "Beat the Heat", "Motorcycle Day"];
+// Featured events: window.FEATURED in data.js lists event names; an event is featured when its note starts with one of them.
+const FEATURED = window.FEATURED || ["Trackday Massacre", "MOTOFest", "Chuckwalla Bike Week", "Beat the Heat", "Motorcycle Day"];
 EV.forEach(e => { if (!e.feat) { const f = FEATURED.find(n => (e.note || "").startsWith(n)); if (f) e.feat = f; } });
 function renderFeatured(){
   const f = upcoming.filter(e => e.feat), groups = [];
