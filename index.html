@@ -226,6 +226,10 @@ footer p{margin:6px 0;max-width:80ch}
 .fcard .fd b{font-family:var(--data);font-size:14px;font-weight:600}
 .fcard .fd span{font-family:var(--data);font-size:12px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
 .fcard .book{justify-self:start;margin-top:6px}
+.fcard{cursor:pointer}.fcard:hover{border-color:var(--dim);border-top-color:var(--chalk)}
+.fcard .jump{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-left:12px}
+.row.flash{animation:flash 2.2s ease-out}
+@keyframes flash{0%,35%{box-shadow:0 0 0 2px var(--chalk),0 0 28px rgba(242,241,236,.35)}100%{box-shadow:0 0 0 1px rgba(242,241,236,.2),0 0 18px rgba(242,241,236,.1)}}
 .row.feat{border-color:rgba(242,241,236,.55);box-shadow:0 0 0 1px rgba(242,241,236,.2),0 0 18px rgba(242,241,236,.1)}
 .featb{font-family:var(--display);font-weight:700;font-style:italic;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk);line-height:1}
 .date .len{font-family:var(--data);font-size:10px;letter-spacing:.12em;color:var(--green);margin-top:4px;text-transform:uppercase}
@@ -440,10 +444,22 @@ function renderFeatured(){
     const n = Math.round((en - s)/86400000) + 1;
     const dates = n > 1 ? (s.getMonth() === en.getMonth() ? `${MONTHS[s.getMonth()]} ${s.getDate()}–${en.getDate()}` : `${MONTHS[s.getMonth()]} ${s.getDate()} – ${MONTHS[en.getMonth()]} ${en.getDate()}`) : `${DOW[s.getDay()]} ${MONTHS[s.getMonth()]} ${s.getDate()}`;
     const href = g.url || tr.site;
-    return `<div class="fcard"><div class="fl">★ Featured${n > 1 ? ` · ${n} days` : ""}</div><h4>${esc(g.feat)}</h4>
+    return `<div class="fcard" data-k="${g.d}|${g.t}" tabindex="0" role="button" aria-label="Show ${esc(g.feat)} in the schedule"><div class="fl">★ Featured${n > 1 ? ` · ${n} days` : ""}</div><h4>${esc(g.feat)}</h4>
       <div class="fw">${esc(tr.name)}</div><div class="fm">${g.orgs.filter(o => o !== tr.name).map(o => esc(o) + " · ").join("")}${esc(tr.city)} · ${fmtHr(tr.hr)}</div>
       <div class="fd"><b>${dates}, ${s.getFullYear()}</b><span>${days <= 0 ? "On now" : days === 1 ? "Tomorrow" : "In " + days + " days"}</span></div>
       ${href ? `<a class="book" href="${esc(href)}" target="_blank" rel="noopener">Details <span aria-hidden="true">↗</span></a>` : ""}</div>`; }).join("");
+  document.querySelectorAll(".fcard").forEach(c => {
+    const go = () => jumpTo(c.dataset.k);
+    c.addEventListener("click", ev => { if (!ev.target.closest("a")) go(); });
+    c.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); go(); } });
+  });
+}
+function jumpTo(k){
+  let r = document.querySelector(`.row[data-k="${k}"]`);
+  if (!r) { state.type = "all"; state.drive = "all"; state.track = "all"; state.org = "all"; syncAll(); r = document.querySelector(`.row[data-k="${k}"]`); }
+  if (!r) return;
+  r.scrollIntoView({ behavior: "smooth", block: "center" });
+  r.classList.remove("flash"); void r.offsetWidth; r.classList.add("flash");
 }
 
 /* ---------- Map ---------- */
@@ -519,7 +535,7 @@ function row(e){
   const limit = e.bike || RULES[e.org];
   const href = e.url || tr.site;
   const nd = e.e ? Math.round((parse(e.e) - d)/86400000) + 1 : 1;
-  return `<article class="row ${e.type}${isToday ? " today" : ""}${e.feat ? " feat" : ""}">
+  return `<article class="row ${e.type}${isToday ? " today" : ""}${e.feat ? " feat" : ""}" data-k="${e.d}|${e.t}">
     <div class="date"><div class="dow">${dow}</div>${dt}${nd > 1 ? `<div class="len">${nd} days</div>` : ""}</div>
     <div class="body">
       ${e.feat ? `<div class="featb">★ ${esc(e.feat)}</div>` : ""}
