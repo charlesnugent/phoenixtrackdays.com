@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-22";
+window.UPDATED = "2026-11-23";
 
 window.TRACKS = {
   pkra:      { name: "PKRA",                     city: "Glendale, AZ",       lat: 33.69, lon: -112.15, mi: 25,  hr: 0.5, facts: "0.75 mi · 12 turns · kart track, CW/CCW",  site: "https://pkra.com/calendar/" },
