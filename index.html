@@ -19,9 +19,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700;900&family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600&display=swap">
 <style>
 :root{
-  --asphalt:#c8102e; --tarmac:#121212; --kerb:#232323; --line:#2b2b2b;
-  --chalk:#f2f1ec; --dim:#e8b4b9; --soft:#ffe3e5;
-  --green:#2bd46b; --yellow:#ffd23f; --heat:#ff6a2b; --blue:#b9c8ea;
+  --asphalt:#0b0b0b; --tarmac:#121212; --kerb:#232323; --line:#2b2b2b;
+  --chalk:#f2f1ec; --dim:#a9a99f; --soft:#e4e4da;
+  --green:#ceff00; --yellow:#ffd23f; --heat:#ff6a2b; --blue:#b9c8ea;
   --display:"Saira Extra Condensed","Arial Narrow",Impact,sans-serif;
   --body:"Barlow","Helvetica Neue",Arial,sans-serif;
   --data:"Chakra Petch",ui-monospace,Menlo,monospace;
@@ -38,7 +38,7 @@ a{color:inherit}
 header .wrap{padding-block:28px 20px;display:grid;gap:8px}
 .eyebrow{font-family:var(--data);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
 h1{font-family:var(--display);font-weight:900;font-size:clamp(42px,8.5vw,88px);line-height:.88;margin:0;text-transform:uppercase;font-style:italic;text-wrap:balance}
-h1 span{color:#111}
+h1 span{color:var(--green)}
 .lede{margin:4px 0 0;color:var(--soft);max-width:62ch;font-size:15px}
 
 .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;padding-block:8px 28px}
@@ -46,7 +46,7 @@ h1 span{color:#111}
 .next{position:relative;overflow:hidden;background:var(--tarmac);border:1px solid var(--line);padding:20px 22px 22px;display:grid;gap:10px;min-width:0}
 .next::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;transform:rotate(18deg);background:conic-gradient(var(--chalk) 25%,transparent 0 50%,var(--chalk) 0 75%,transparent 0) 0 0/30px 30px;opacity:.1;pointer-events:none}
 .next .label{font-family:var(--data);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:8px}
-.next .label i{width:10px;height:10px;background:var(--green);border-radius:50%;box-shadow:0 0 0 4px rgba(43,212,107,.18)}
+.next .label i{width:10px;height:10px;background:var(--green);border-radius:50%;box-shadow:0 0 0 4px rgba(206,255,0,.18)}
 .count{font-family:var(--display);font-weight:900;font-size:clamp(64px,12vw,120px);line-height:.8;font-style:italic;font-variant-numeric:tabular-nums}
 .count small{font-size:.32em;font-weight:700;color:var(--dim);letter-spacing:.06em;margin-left:6px;font-style:normal}
 .next .what{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;line-height:1}
@@ -60,7 +60,7 @@ h1 span{color:#111}
 .stat.g b{color:var(--green)}.stat.y b{color:var(--yellow)}
 
 section.block{padding-block:26px 8px}
-.block-h{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--chalk);padding-bottom:6px;margin-bottom:14px;flex-wrap:wrap}
+.block-h{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--green);padding-bottom:6px;margin-bottom:14px;flex-wrap:wrap}
 .block-h h3{margin:0;font-family:var(--display);font-weight:900;font-style:italic;font-size:36px;line-height:.9;text-transform:uppercase}
 .block-h p{margin:0;color:var(--soft);font-size:13px}
 
@@ -75,7 +75,7 @@ section.block{padding-block:26px 8px}
 .mapbox .coast{fill:none;stroke:#3a5a7a;stroke-width:1.4}
 .mapbox .ring{fill:none;stroke:var(--chalk);stroke-opacity:.22;stroke-dasharray:3 5}
 .mapbox .ringlbl{font-family:var(--data);font-size:10px;fill:var(--chalk);fill-opacity:.5;letter-spacing:.08em}
-.mapbox .spoke{stroke:var(--asphalt);stroke-width:1.2;stroke-opacity:.55}
+.mapbox .spoke{stroke:var(--green);stroke-width:1.2;stroke-opacity:.55}
 .mapbox .stlbl{font-family:var(--display);font-weight:700;font-size:15px;fill:#5c5c5c;letter-spacing:.12em}
 .mapbox .pin{cursor:pointer}
 .mapbox .pin circle.dot{fill:var(--chalk);stroke:#111;stroke-width:2}
@@ -83,7 +83,7 @@ section.block{padding-block:26px 8px}
 .mapbox .pin text.sub{font-family:var(--data);font-weight:500;font-size:10.5px;fill:var(--soft);letter-spacing:.04em}
 .mapbox .pin:hover circle.dot,.mapbox .pin.on circle.dot{fill:var(--green)}
 .mapbox .pin.on text{fill:var(--green)}
-.mapbox .phx circle{fill:var(--asphalt);stroke:var(--chalk);stroke-width:2.5}
+.mapbox .phx circle{fill:var(--green);stroke:#111;stroke-width:2.5}
 .mapbox .phx text{font-family:var(--display);font-weight:900;font-style:italic;font-size:20px;fill:var(--chalk);paint-order:stroke;stroke:#121212;stroke-width:4px}
 .maplist{background:var(--tarmac);border:1px solid var(--line);overflow:hidden}
 .maplist table{break-inside:avoid}
@@ -102,7 +102,7 @@ section.block{padding-block:26px 8px}
 /* Toolbar */
 .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:2px 10px}
 .toolbar .grp{display:flex;flex-wrap:wrap;gap:6px}
-.toolbar .sep{width:1px;height:22px;background:#111;opacity:.4;margin-inline:4px}
+.toolbar .sep{width:1px;height:22px;background:var(--chalk);opacity:.4;margin-inline:4px}
 .chip-btn{font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--tarmac);color:var(--dim);border:1px solid var(--line);padding:7px 11px;cursor:pointer}
 .chip-btn:hover{color:var(--chalk);border-color:var(--dim)}
 .chip-btn[aria-pressed="true"]{background:var(--chalk);color:#111;border-color:var(--chalk)}
@@ -121,14 +121,14 @@ select.chip-btn.set{background-color:var(--chalk);color:#111}
 
 /* Schedule rows */
 .month{display:grid;grid-template-columns:74px 1fr;gap:0 14px;margin-bottom:18px}
-.month h2{margin:0;font-family:var(--display);font-weight:900;font-size:34px;line-height:.9;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);justify-self:end;align-self:start;color:#111;letter-spacing:.04em}
+.month h2{margin:0;font-family:var(--display);font-weight:900;font-size:34px;line-height:.9;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);justify-self:end;align-self:start;color:var(--green);letter-spacing:.04em}
 .month h2 em{font-style:normal;color:var(--soft);font-size:.55em}
 .rows{display:grid;gap:6px;min-width:0}
 @media (max-width:560px){.month{grid-template-columns:1fr}.month h2{writing-mode:horizontal-tb;transform:none;justify-self:start;font-size:26px;margin-bottom:6px}}
 .row{display:grid;grid-template-columns:78px 1fr auto;align-items:stretch;background:var(--tarmac);border:1px solid var(--line);position:relative;min-width:0}
 .row::before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:5px;background:var(--flag,var(--line))}
 .row.day{--flag:var(--green)}.row.school{--flag:var(--yellow)}.row.moto{--flag:var(--blue)}
-.row.today{border-color:rgba(43,212,107,.6);background:linear-gradient(90deg,rgba(43,212,107,.16),rgba(43,212,107,0) 45%),var(--tarmac)}
+.row.today{border-color:rgba(206,255,0,.6);background:linear-gradient(90deg,rgba(206,255,0,.16),rgba(206,255,0,0) 45%),var(--tarmac)}
 .date{display:grid;place-content:center;text-align:center;padding:10px 4px 10px 10px;border-right:1px solid var(--line)}
 .date .dow{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
 .date .d{font-family:var(--display);font-weight:900;font-size:34px;line-height:.95;font-variant-numeric:tabular-nums}
@@ -140,7 +140,7 @@ select.chip-btn.set{background-color:var(--chalk);color:#111}
 .sub{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--dim);font-size:13.5px;align-items:center}
 .sub .org{color:var(--chalk);font-weight:600}
 .type{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--line)}
-.type.day{border-color:#2f7a4a;color:#9ff0bd}.type.school{border-color:#7a6d3a;color:#e8d999}.type.moto{border-color:#5a6b8c;color:var(--blue)}
+.type.day{border-color:#6b8500;color:#e6ff80}.type.school{border-color:#7a6d3a;color:#e8d999}.type.moto{border-color:#5a6b8c;color:var(--blue)}
 .limit{font-family:var(--data);font-size:11.5px;letter-spacing:.04em;color:#111;background:var(--yellow);padding:2px 7px;font-weight:600}
 .heat{font-family:var(--data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--heat);display:inline-flex;align-items:center;gap:5px}
 .heat::before{content:"";width:12px;height:9px;background:repeating-linear-gradient(90deg,var(--heat) 0 3px,var(--yellow) 3px 6px)}
@@ -178,7 +178,7 @@ details.newbie[open] summary::after{content:"–"}
 .nb p{margin:0;padding:12px 18px;font-size:12.5px;color:var(--dim);background:var(--tarmac);grid-column:1/-1}
 .maplist .facts{display:block;font-size:12px;color:var(--chalk);opacity:.8}
 .maplist .facts a{color:var(--green);text-decoration:none;margin-left:6px;font-family:var(--data);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-.empty{color:var(--soft);padding:18px;border:1px dashed #111;text-align:center;font-family:var(--data);font-size:13px}
+.empty{color:var(--soft);padding:18px;border:1px dashed #555;text-align:center;font-family:var(--data);font-size:13px}
 
 .alts{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 .alt{background:var(--tarmac);border:1px solid var(--line);padding:12px 14px;display:grid;gap:6px;align-content:start}
@@ -214,7 +214,7 @@ footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:va
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:10px;display:inline-block}
 footer p{margin:6px 0;max-width:80ch}
-@media (prefers-reduced-motion:no-preference){.count{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{text-shadow:0 0 22px rgba(43,212,107,.35)}}}
+@media (prefers-reduced-motion:no-preference){.count{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{text-shadow:0 0 22px rgba(206,255,0,.35)}}}
 .brand{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
 .brandtxt{display:grid;gap:8px;min-width:0}
 .logo{width:150px;height:150px;flex:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
@@ -226,7 +226,7 @@ footer p{margin:6px 0;max-width:80ch}
 <header>
   <div class="wrap brand">
     <svg viewBox="-210 -210 420 420" class="logo" role="img" aria-label="Phoenix Track Days saguaro logo" role="img" aria-label="saguaro badge"><circle r="200" fill="#121212"/><circle r="190" fill="none" stroke="#f2f1ec" stroke-width="4"/>
-<clipPath id="scIn"><circle r="128"/></clipPath><g clip-path="url(#scIn)"><rect x="-130" y="-130" width="260" height="260" fill="#f2f1ec"/><clipPath id="scs"><circle cx="0" cy="-6" r="96"/></clipPath><g clip-path="url(#scs)"><circle cx="0" cy="-6" r="96" fill="#c8102e"/><rect x="-96" y="2" width="192" height="3" fill="#f2f1ec"/><rect x="-96" y="18" width="192" height="5" fill="#f2f1ec"/><rect x="-96" y="38" width="192" height="7" fill="#f2f1ec"/><rect x="-96" y="62" width="192" height="9" fill="#f2f1ec"/><rect x="-96" y="90" width="192" height="11" fill="#f2f1ec"/><rect x="-96" y="122" width="192" height="13" fill="#f2f1ec"/></g><rect x="-130" y="96" width="260" height="40" fill="#121212"/><g transform="translate(0,-4) scale(0.82)"><g transform="skewX(-10)" fill="none" stroke="#121212" stroke-linejoin="miter" stroke-linecap="butt"><path d="M 0 122 L 0 -150" stroke-width="42"/><path d="M -12 28 L -62 0 L -62 -88" stroke-width="26"/><path d="M 12 58 L 58 34 L 58 -42" stroke-width="26"/></g></g></g><defs><path id="scTop" d="M -158 0 A 158 158 0 0 1 158 0"/><path id="scBot" d="M -166 0 A 166 166 0 0 0 166 0"/></defs>
+<clipPath id="scIn"><circle r="128"/></clipPath><g clip-path="url(#scIn)"><rect x="-130" y="-130" width="260" height="260" fill="#f2f1ec"/><clipPath id="scs"><circle cx="0" cy="-6" r="96"/></clipPath><g clip-path="url(#scs)"><circle cx="0" cy="-6" r="96" fill="#ceff00"/><rect x="-96" y="2" width="192" height="3" fill="#f2f1ec"/><rect x="-96" y="18" width="192" height="5" fill="#f2f1ec"/><rect x="-96" y="38" width="192" height="7" fill="#f2f1ec"/><rect x="-96" y="62" width="192" height="9" fill="#f2f1ec"/><rect x="-96" y="90" width="192" height="11" fill="#f2f1ec"/><rect x="-96" y="122" width="192" height="13" fill="#f2f1ec"/></g><rect x="-130" y="96" width="260" height="40" fill="#121212"/><g transform="translate(0,-4) scale(0.82)"><g transform="skewX(-10)" fill="none" stroke="#121212" stroke-linejoin="miter" stroke-linecap="butt"><path d="M 0 122 L 0 -150" stroke-width="42"/><path d="M -12 28 L -62 0 L -62 -88" stroke-width="26"/><path d="M 12 58 L 58 34 L 58 -42" stroke-width="26"/></g></g></g><defs><path id="scTop" d="M -158 0 A 158 158 0 0 1 158 0"/><path id="scBot" d="M -166 0 A 166 166 0 0 0 166 0"/></defs>
 <text font-family="Saira Extra Condensed" font-weight="900" font-size="40" letter-spacing="5" fill="#f2f1ec"><textPath href="#scTop" startOffset="50%" text-anchor="middle">PHOENIX</textPath></text>
 <text font-family="Chakra Petch" font-weight="600" font-size="22" letter-spacing="8" fill="#f2f1ec"><textPath href="#scBot" startOffset="50%" text-anchor="middle">TRACK DAYS · AZ</textPath></text></svg>
     <div class="brandtxt">
