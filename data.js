@@ -4,7 +4,7 @@
 window.UPDATED = "2026-11-23";
 
 // Featured events: named special events (not regular track days or schools). An event is featured when its note starts with one of these names.
-window.FEATURED = ["Trackday Massacre", "MOTOFest", "Chuckwalla Bike Week", "Beat the Heat", "Motorcycle Day"];
+window.FEATURED = ["Trackday Massacre", "MOTOFest", "Chuckwalla Bike Week", "Motorcycle Day"];
 
 window.TRACKS = {
   pkra:      { name: "PKRA",                     city: "Glendale, AZ",       lat: 33.69, lon: -112.15, mi: 25,  hr: 0.5, facts: "0.75 mi · 12 turns · kart track, CW/CCW",  site: "https://pkra.com/calendar/" },
