@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Chuckwalla: Racers Edge
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2027-10-20-chuckwalla-1vc0aok@phoenixtrackdays.com
+DTSTAMP:20261123T215451Z
+DTSTART;VALUE=DATE:20271020
+DTEND;VALUE=DATE:20271022
+SUMMARY:Chuckwalla: Racers Edge
+LOCATION:Chuckwalla\, Desert Center\, CA
+DESCRIPTION:All levels\nChuckwalla Bike Week. Registration not open yet\nB
+ ook: https://chuckwalla.com/chuckwalla-bike-weeks/\nMore dates: https://p
+ hoenixtrackdays.com/
+URL:https://chuckwalla.com/chuckwalla-bike-weeks/
+END:VEVENT
+END:VCALENDAR

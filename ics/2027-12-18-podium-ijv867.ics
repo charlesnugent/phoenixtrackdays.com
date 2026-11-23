@@ -9,13 +9,14 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2027-12-18-podium-ijv867@phoenixtrackdays.com
-DTSTAMP:20261123T122112Z
+DTSTAMP:20261123T215451Z
 DTSTART;VALUE=DATE:20271218
 DTEND;VALUE=DATE:20271220
 SUMMARY:Podium Club: Apex Assassins
 LOCATION:Podium Club\, Casa Grande\, AZ
-DESCRIPTION:All levels · 4 groups\nBook: https://apexassassins.com/#events
- -2027\nMore dates: https://phoenixtrackdays.com/
-URL:https://apexassassins.com/#events-2027
+DESCRIPTION:All levels · 4 groups\nBook: https://apexassassins.com/?view=r
+ egistration-2027#event-16431139455057\nMore dates: https://phoenixtrackda
+ ys.com/
+URL:https://apexassassins.com/?view=registration-2027#event-16431139455057
 END:VEVENT
 END:VCALENDAR

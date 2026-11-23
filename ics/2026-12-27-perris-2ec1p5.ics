@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//phoenixtrackdays.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Apex Motorsports Park: SoCal Supermoto
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2026-12-27-perris-2ec1p5@phoenixtrackdays.com
+DTSTAMP:20261123T215451Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Apex Motorsports Park: SoCal Supermoto
+LOCATION:Apex Motorsports Park\, Perris\, CA
+DESCRIPTION:Supermoto school\nSupermoto only\nBook: https://www.socalsuper
+ moto.com/calendar\nMore dates: https://phoenixtrackdays.com/
+URL:https://www.socalsupermoto.com/calendar
+END:VEVENT
+END:VCALENDAR

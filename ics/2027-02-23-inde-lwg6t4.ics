@@ -9,13 +9,13 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2027-02-23-inde-lwg6t4@phoenixtrackdays.com
-DTSTAMP:20261123T122112Z
+DTSTAMP:20261123T215451Z
 DTSTART;VALUE=DATE:20270223
 DTEND;VALUE=DATE:20270225
 SUMMARY:Inde Motorsports Ranch: Yamaha ChampSchool
 LOCATION:Inde Motorsports Ranch\, Willcox\, AZ
 DESCRIPTION:School · coaching\nTwo day school\nBook: https://ridelikeacham
- pion.com/schedule/\nMore dates: https://phoenixtrackdays.com/
-URL:https://ridelikeachampion.com/schedule/
+ pion.com/inde-feb-2027/\nMore dates: https://phoenixtrackdays.com/
+URL:https://ridelikeachampion.com/inde-feb-2027/
 END:VEVENT
 END:VCALENDAR
