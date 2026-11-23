@@ -225,6 +225,7 @@ footer p{margin:6px 0;max-width:80ch}
 .fcard .fd{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-top:auto;padding-top:8px}
 .fcard .fd b{font-family:var(--data);font-size:14px;font-weight:600}
 .fcard .fd span{font-family:var(--data);font-size:12px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
+.fcard .forgs{font-size:14px;font-weight:600;color:var(--chalk);line-height:1.3}
 .fcard .book{align-self:flex-start;margin-top:6px}
 .fcard{cursor:pointer}.fcard:hover{border-color:var(--dim);border-top-color:var(--chalk)}
 .fcard .jump{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-left:12px}
@@ -434,18 +435,24 @@ function renderHero(){
 // Featured events: window.FEATURED in data.js lists event names; an event is featured when its note starts with one of them.
 const FEATURED = window.FEATURED || ["Trackday Massacre", "MOTOFest"];
 EV.forEach(e => { if (!e.feat) { const f = FEATURED.find(n => (e.note || "").startsWith(n)); if (f) e.feat = f; } });
+// All organizers of a featured event: the main org plus any named right after its name, e.g. "MOTOFest with Apex Assassins".
+const orgsOf = e => { if (!e._orgs) { const m = e.feat && (e.note || "").startsWith(e.feat) && e.note.slice(e.feat.length).match(/\bwith (.+?)(?:[.;]|$)/), co = m ? m[1].split(/,\s*(?:and\s+)?|\s+and\s+|\s*&\s*/).map(x => x.trim()).filter(Boolean) : [];
+  e._orgs = [e.org, ...co.filter(o => o !== e.org)]; } return e._orgs; };
+const andList = a => a.length < 2 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+const noteShown = e => { if (!e.note) return ""; if (!e.feat || !e.note.startsWith(e.feat)) return e.note;
+  return e.note.slice(e.feat.length).replace(/^\s*with .+?(?:[.;]|$)/, "").replace(/^[\s.,;]+/, ""); };
 function renderFeatured(){
   const f = upcoming.filter(e => e.feat), groups = [];
   f.forEach(e => { const g = groups.find(x => x.feat === e.feat && x.t === e.t && (parse(e.d) - parse(x.end)) <= 2*86400000);
-    if (g) { if (endOf(e) > parse(g.end)) g.end = e.e || e.d; if (!g.orgs.includes(e.org)) g.orgs.push(e.org); }
-    else groups.push({ feat: e.feat, t: e.t, d: e.d, end: e.e || e.d, orgs: [e.org], url: e.url }); });
+    if (g) { if (endOf(e) > parse(g.end)) g.end = e.e || e.d; orgsOf(e).forEach(o => { if (!g.orgs.includes(o)) g.orgs.push(o); }); }
+    else groups.push({ feat: e.feat, t: e.t, d: e.d, end: e.e || e.d, orgs: [...orgsOf(e)], url: e.url }); });
   if (!groups.length) { document.getElementById("feat-block").hidden = true; return; }
   document.getElementById("feats").innerHTML = groups.map(g => { const tr = T[g.t], s = parse(g.d), en = parse(g.end), days = Math.round((s - TODAY)/86400000);
     const n = Math.round((en - s)/86400000) + 1;
     const dates = n > 1 ? (s.getMonth() === en.getMonth() ? `${MONTHS[s.getMonth()]} ${s.getDate()}–${en.getDate()}` : `${MONTHS[s.getMonth()]} ${s.getDate()} – ${MONTHS[en.getMonth()]} ${en.getDate()}`) : `${DOW[s.getDay()]} ${MONTHS[s.getMonth()]} ${s.getDate()}`;
     const href = g.url || tr.site;
     return `<div class="fcard" data-k="${g.d}|${g.t}" tabindex="0" role="button" aria-label="Show ${esc(g.feat)} in the schedule"><div class="fl">★ Featured${n > 1 ? ` · ${n} days` : ""}</div><h4>${esc(g.feat)}</h4>
-      <div class="fw">${esc(tr.name)}</div><div class="fm">${g.orgs.filter(o => o !== tr.name).map(o => esc(o) + " · ").join("")}${esc(tr.city)} · ${fmtHr(tr.hr)}</div>
+      <div class="fw">${esc(tr.name)}</div>${g.orgs.filter(o => o !== tr.name).length ? `<div class="forgs">${esc(andList(g.orgs.filter(o => o !== tr.name)))}</div>` : ""}<div class="fm">${esc(tr.city)} · ${fmtHr(tr.hr)}</div>
       <div class="fd"><b>${dates}, ${s.getFullYear()}</b><span>${days <= 0 ? "On now" : days === 1 ? "Tomorrow" : "In " + days + " days"}</span></div>
       ${href ? `<a class="book" href="${esc(href)}" target="_blank" rel="noopener">Details <span aria-hidden="true">↗</span></a>` : ""}</div>`; }).join("");
   document.querySelectorAll(".fcard").forEach(c => {
@@ -523,7 +530,7 @@ function matches(e){
   if (state.drive === "1" && T[e.t].hr > 1) return false;
   if (state.drive === "3" && T[e.t].hr > 3.5) return false;
   if (state.track !== "all" && e.t !== state.track) return false;
-  if (state.org !== "all" && e.org !== state.org) return false;
+  if (state.org !== "all" && !orgsOf(e).includes(state.org)) return false;
   return true;
 }
 function row(e){
@@ -542,10 +549,10 @@ function row(e){
       <div class="track">${esc(tr.name)}${e.cfg ? `<span class="cfg">${esc(e.cfg)}</span>` : ""}<span class="drive">${esc(tr.city)} · ${fmtHr(tr.hr)}</span></div>
       <div class="sub">
         <span class="type ${e.type}">${TYPE[e.type]}</span>
-        <span class="org">${esc(e.org)}</span>
+        <span class="org">${esc(e.feat ? andList(orgsOf(e)) : e.org)}</span>
         ${LV[e.org] ? `<span class="lvl">${esc(LV[e.org])}</span>` : ""}
         ${limit ? `<span class="limit">${esc(limit)}</span>` : ""}
-        ${e.note ? `<span>${esc(e.note)}</span>` : ""}
+        ${noteShown(e) ? `<span>${esc(noteShown(e))}</span>` : ""}
         ${isHeat(e) && tr.hr < 4 ? `<span class="heat">Heat: hydrate, run mornings</span>` : ""}
       </div>
     </div>
@@ -591,7 +598,7 @@ function initFilters(){
   sel.innerHTML = `<option value="all">All tracks</option>` + Object.keys(T).sort((a,b) => T[a].hr - T[b].hr).map(k => `<option value="${k}">${esc(T[k].name)}</option>`).join("");
   sel.addEventListener("change", () => { state.track = sel.value; syncAll(); });
   const os = document.getElementById("f-org");
-  os.innerHTML = `<option value="all">All organizers</option>` + [...new Set(upcoming.map(e => e.org))].sort((a,b) => a.localeCompare(b)).map(o => `<option value="${esc(o)}">${esc(o)}</option>`).join("");
+  os.innerHTML = `<option value="all">All organizers</option>` + [...new Set(upcoming.flatMap(orgsOf))].sort((a,b) => a.localeCompare(b)).map(o => `<option value="${esc(o)}">${esc(o)}</option>`).join("");
   os.addEventListener("change", () => { state.org = os.value; syncAll(); });
   document.getElementById("share").addEventListener("click", async () => {
     const url = SHARE_BASE + "#" + state.track, out = document.getElementById("copied");
