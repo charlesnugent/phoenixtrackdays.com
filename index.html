@@ -28,7 +28,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 62px)}
 body{margin:0;background:var(--asphalt);color:var(--chalk);font-family:var(--body);font-size:15px;line-height:1.45;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--asphalt)}
 a{color:inherit}
@@ -338,10 +338,72 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
 .cf-note{font-size:12.5px;color:var(--dim);margin:0}
 .cf-msg{font-family:var(--data);font-size:13px;margin:0}.cf-msg.ok{color:var(--green)}.cf-msg.err{color:var(--heat)}
 .cf .hp{position:absolute;left:-9999px}
+
+/* ---- Section bar ---- */
+.snav{position:fixed;left:0;right:0;top:0;z-index:20;background:rgba(11,11,11,.96);border-bottom:2px solid var(--green);transform:translateY(-110%);transition:transform .2s ease;padding-top:env(safe-area-inset-top,0px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.snav.on{transform:none}
+@media (prefers-reduced-motion:reduce){.snav{transition:none}}
+.snav .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:10px;height:50px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.snav .home{flex:none;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--chalk);font-family:var(--display);font-weight:900;font-style:italic;font-size:20px;text-transform:uppercase;line-height:1;white-space:nowrap}
+.snav .home i{width:22px;height:22px;border-radius:50%;background:conic-gradient(var(--green) 0 25%,#111 0 50%,var(--green) 0 75%,#111 0) 0 0/8px 8px;border:2px solid var(--chalk);flex:none}
+.snav .home b{color:var(--green);font-weight:900}
+.snav .links2{flex:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0;justify-content:center}
+.snav .links2::-webkit-scrollbar{display:none}
+.snav .links2 a{flex:none;font-family:var(--data);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:0 11px;height:50px;display:flex;align-items:center;border-bottom:3px solid transparent;margin-bottom:-2px}
+.snav .links2 a:hover{color:var(--chalk)}
+.snav .links2 a.cur{color:var(--green);border-bottom-color:var(--green)}
+.snav select{flex:none;font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--tarmac);color:var(--chalk);border:1px solid var(--line);border-radius:0;height:34px;padding:0 26px 0 10px;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 13px) 50%,calc(100% - 8px) 50%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+.snav .top{flex:none;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);color:var(--chalk);text-decoration:none;font-size:15px;background:var(--tarmac)}
+.snav .top:hover,.snav select:hover{border-color:var(--chalk)}
+@media (max-width:900px){.snav .home span{display:none}.snav .links2{justify-content:flex-start}}
+@media (max-width:600px){
+  .snav .in{gap:6px;height:46px}
+  .snav .home{display:none}
+  .snav .links2 a{padding:0 9px;font-size:11.5px;letter-spacing:.06em;height:46px}
+  .snav select{font-size:11.5px;padding:0 22px 0 8px;max-width:96px;height:32px;background-position:calc(100% - 11px) 50%,calc(100% - 6px) 50%}
+  .snav .top{width:32px;height:32px}
+  .snav .links2{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+}
+/* ---- Phone: tighter schedule rows ---- */
+@media (max-width:560px){
+  .row{grid-template-columns:62px 1fr;grid-template-rows:auto auto}
+  .row .date{grid-row:1/3;padding:8px 2px 8px 8px}
+  .body{padding:9px 12px 4px;gap:4px}
+  .right{grid-column:2;border-top:0;padding:2px 12px 10px;gap:12px;grid-template-columns:1fr auto auto}
+  .right .book{padding:4px 10px;font-size:11.5px}
+  .sub{gap:3px 10px;font-size:13px}
+}
+/* ---- Phone: organizer cards open on tap ---- */
+.otog{display:none}
+@media (max-width:760px){
+  .of tr{padding:0}
+  .of td:first-child{position:relative;padding:12px 14px}
+  .otog{display:block;position:absolute;inset:0;background:none;border:0;cursor:pointer;color:var(--dim);font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:right;padding:14px 14px 0 0}
+  .otog::after{content:"Details \25BE"}
+  .of tr.open .otog::after{content:"Close \25B4"}
+  .of .onm{position:relative;z-index:1}
+  .of tr:not(.open) td:not(:first-child){display:none}
+  .of tr.open td:first-child{border-bottom:1px solid var(--line)}
+  .of tr.open td:last-child{padding-bottom:12px}
+}
 </style>
 </head>
 <body>
 <div class="checker"></div>
+<nav class="snav" id="snav" aria-label="Sections">
+  <div class="in">
+    <a class="home" href="#" data-top><i></i><span>Phoenix <b>Track Days</b></span></a>
+    <div class="links2" id="snav-links">
+      <a href="#ftd" data-s="ftd">First day</a>
+      <a href="#feat-block" data-s="feat-block">Featured</a>
+      <a href="#map" data-s="map">Map</a>
+      <a href="#schedule-block" data-s="schedule-block">Schedule</a>
+      <a href="#orgs-block" data-s="orgs-block">Organizers</a>
+    </div>
+    <select id="snav-month" aria-label="Jump to month"></select>
+    <a class="top" href="#" data-top aria-label="Back to top">&uarr;</a>
+  </div>
+</nav>
 <header>
   <div class="wrap brand">
     <svg viewBox="-210 -210 420 420" class="logo" role="img" aria-label="Phoenix Track Days saguaro logo" role="img" aria-label="saguaro badge"><circle r="200" fill="#121212"/><circle r="190" fill="none" stroke="#f2f1ec" stroke-width="4"/>
@@ -362,7 +424,7 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <div class="stats" id="stats"></div>
   </div>
 
-  <details class="newbie ftd">
+  <details class="newbie ftd" id="ftd">
     <summary><div><b>First track day?</b><br><span>Where to start, gear, bike prep, the day, flags</span></div></summary>
 
     <ol class="ftd-steps">
@@ -747,10 +809,11 @@ function row(e){
 }
 function renderSchedule(){
   const list = upcoming.filter(matches), out = document.getElementById("schedule");
-  if (!list.length) { out.innerHTML = `<div class="empty">No dates match these filters in the next 12 months.</div>`; return; }
+  if (!list.length) { out.innerHTML = `<div class="empty">No dates match these filters in the next 12 months.</div>`; navMonths(); return; }
   const groups = [];
   list.forEach(e => { const d = parse(e.d), key = d.getFullYear()+"-"+d.getMonth(); let g = groups.find(x => x.key === key); if (!g) groups.push(g = { key, m: MONTHS[d.getMonth()], y: d.getFullYear(), items: [] }); g.items.push(e); });
-  out.innerHTML = groups.map(g => `<div class="month"><h2>${g.m} <em>${String(g.y).slice(2)}</em></h2><div class="rows">${g.items.map(row).join("")}</div></div>`).join("");
+  out.innerHTML = groups.map(g => `<div class="month" id="m-${g.y}-${g.key.split("-")[1]}" data-ml="${g.m} ${String(g.y).slice(2)}"><h2>${g.m} <em>${String(g.y).slice(2)}</em></h2><div class="rows">${g.items.map(row).join("")}</div></div>`).join("");
+  navMonths();
 }
 function renderPast(){
   const pc = document.getElementById("pastcount"); if (pc) pc.textContent = `${past.length} events · tap to show`;
@@ -777,7 +840,7 @@ function renderOrgs(){
   box.className = "";
   box.innerHTML = `<table class="of"><thead><tr><th>Organizer</th><th>Format</th><th>Groups</th><th>Coaching and new riders</th><th>Price</th><th>If you cancel</th></tr></thead><tbody>` +
     F.filter(o => ofType === "all" || o.t === ofType).map(o => `<tr>
-    <td><a class="onm" href="${esc(tag(o.u))}" data-gc="org" target="_blank" rel="noopener">${esc(o.n)}</a><span class="owh">${esc(o.w)}</span><span class="type ${esc(o.t)}">${OT[o.t] || ""}</span></td>
+    <td><button class="otog" type="button" aria-expanded="false" aria-label="Show details for ${esc(o.n)}"></button><a class="onm" href="${esc(tag(o.u))}" data-gc="org" target="_blank" rel="noopener">${esc(o.n)}</a><span class="owh">${esc(o.w)}</span><span class="type ${esc(o.t)}">${OT[o.t] || ""}</span></td>
     <td data-l="Format">${v(o.f)}${o.lim ? `<br><span class="limit">${esc(o.lim)}</span>` : ""}</td>
     <td data-l="Groups">${v(o.g)}</td><td data-l="Coaching and new riders">${v(o.c)}</td><td data-l="Price" class="opr">${v(o.p)}</td><td data-l="If you cancel">${v(o.x)}</td></tr>`).join("") + `</tbody></table>`;
   const ck = window.ORG_FACTS_CHECKED ? parse(window.ORG_FACTS_CHECKED) : null;
@@ -819,7 +882,44 @@ function initFilters(){
 document.getElementById("range").textContent = `${fmtD(TODAY)}, ${TODAY.getFullYear()} to ${MONTHS[END.getMonth()]} ${END.getDate()}, ${END.getFullYear()}`;
 const up = parse(window.UPDATED || "2026-11-20");
 document.getElementById("updated").textContent = `Last refreshed ${MONTHS[up.getMonth()]} ${up.getDate()}, ${up.getFullYear()}.`;
-renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); renderOrgs(); syncAll();
+
+/* ---------- Section bar ---------- */
+function navMonths(){
+  const sel = document.getElementById("snav-month"); if (!sel) return;
+  const ms = [...document.querySelectorAll("#schedule .month")];
+  sel.innerHTML = `<option value="">Month</option>` + ms.map(m => `<option value="${m.id}">${esc(m.dataset.ml)}</option>`).join("");
+  sel.disabled = !ms.length;
+}
+function initNav(){ (() => {
+  const bar = document.getElementById("snav"), head = document.querySelector("header");
+  new IntersectionObserver(([en]) => bar.classList.toggle("on", !en.isIntersecting), { rootMargin: "0px 0px -40% 0px" }).observe(head);
+  bar.querySelectorAll("[data-top]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }));
+  const links = [...bar.querySelectorAll("#snav-links a")];
+  links.forEach(a => a.addEventListener("click", ev => {
+    const t = document.getElementById(a.dataset.s); if (!t) return; ev.preventDefault();
+    if (t.tagName === "DETAILS") t.open = true;
+    t.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+  const sel = document.getElementById("snav-month");
+  sel.addEventListener("change", () => { const m = document.getElementById(sel.value); if (m) m.scrollIntoView({ behavior: "smooth", block: "start" }); });
+  // highlight the section in view and keep the month picker in step
+  const secs = links.map(a => document.getElementById(a.dataset.s)).filter(Boolean);
+  let raf = 0;
+  const spy = () => { raf = 0;
+    const y = 90; let cur = null;
+    secs.forEach(s => { if (s.getBoundingClientRect().top <= y) cur = s; });
+    links.forEach(a => { const on = cur && a.dataset.s === cur.id; if (on !== a.classList.contains("cur")) { a.classList.toggle("cur", on); if (on) a.scrollIntoView({ block: "nearest", inline: "center" }); } });
+    let m = ""; document.querySelectorAll("#schedule .month").forEach(x => { if (x.getBoundingClientRect().top <= y) m = x.id; });
+    const sb = document.getElementById("schedule-block").getBoundingClientRect();
+    if (sb.bottom < y) m = "";
+    if (sel.value !== m && document.activeElement !== sel) sel.value = m;
+  };
+  addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(spy); }, { passive: true });
+  spy();
+  // organizer cards on phones
+  document.getElementById("orgs").addEventListener("click", ev => { const b = ev.target.closest(".otog"); if (!b) return; const tr = b.closest("tr"); tr.classList.toggle("open"); b.setAttribute("aria-expanded", tr.classList.contains("open")); });
+})(); }
+renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); renderOrgs(); syncAll(); initNav();
 </script>
 <dialog class="contact" id="contact" aria-labelledby="cf-title">
   <form class="cf" id="cf" novalidate>
