@@ -586,6 +586,13 @@ const orgsOf = e => { if (!e._orgs) { const m = e.feat && (e.note || "").startsW
 const andList = a => a.length < 2 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
 const noteShown = e => { if (!e.note) return ""; if (!e.feat || !e.note.startsWith(e.feat)) return e.note;
   return e.note.slice(e.feat.length).replace(/^\s*with .+?(?:[.;]|$)/, "").replace(/^[\s.,;]+/, ""); };
+const tag = u => { try { const x = new URL(u); if (!/^https?:$/.test(x.protocol)) return u; x.searchParams.set("utm_source", "phoenixtrackdays"); x.searchParams.set("utm_medium", "referral"); return x.toString(); } catch (_) { return u; } };
+document.addEventListener("click", ev => { const a = ev.target.closest("a[data-gc]"); if (!a || !window.goatcounter || !window.goatcounter.count) return;
+  let path, title; const kind = a.dataset.gc;
+  if (kind === "org") { path = "org: " + a.firstChild.textContent.trim(); title = path; }
+  else { const box = a.closest("[data-k]"), k = ((box && box.dataset.k) || "|").split("|"), tr = T[k[1]] || {}, o = box && box.dataset.o;
+    path = (kind === "feat" ? "featured: " : "book: ") + (o ? o + " · " : "") + (tr.name || k[1]); title = path + " · " + k[0]; }
+  try { window.goatcounter.count({ path, title, event: true }); } catch (_) {} });
 function renderFeatured(){
   const f = upcoming.filter(e => e.feat), groups = [];
   f.forEach(e => { const g = groups.find(x => x.feat === e.feat && x.t === e.t && (parse(e.d) - parse(x.end)) <= 2*86400000);
@@ -599,7 +606,7 @@ function renderFeatured(){
     return `<div class="fcard" data-k="${g.d}|${g.t}" tabindex="0" role="button" aria-label="Show ${esc(g.feat)} in the schedule"><div class="fl">★ Featured${n > 1 ? ` · ${n} days` : ""}</div><h4>${esc(g.feat)}</h4>
       <div class="fw">${esc(tr.name)}</div>${g.orgs.filter(o => o !== tr.name).length ? `<div class="forgs">${esc(andList(g.orgs.filter(o => o !== tr.name)))}</div>` : ""}<div class="fm">${esc(tr.city)} · ${fmtHr(tr.hr)}</div>
       <div class="fd"><b>${dates}, ${s.getFullYear()}</b><span>${days <= 0 ? "On now" : days === 1 ? "Tomorrow" : "In " + days + " days"}</span></div>
-      ${href ? `<a class="book" href="${esc(href)}" target="_blank" rel="noopener">Details <span aria-hidden="true">↗</span></a>` : ""}</div>`; }).join("");
+      ${href ? `<a class="book" href="${esc(tag(href))}" data-gc="feat" target="_blank" rel="noopener">Details <span aria-hidden="true">↗</span></a>` : ""}</div>`; }).join("");
   document.querySelectorAll(".fcard").forEach(c => {
     const go = () => jumpTo(c.dataset.k);
     c.addEventListener("click", ev => { if (!ev.target.closest("a")) go(); });
@@ -703,7 +710,7 @@ function row(e){
       </div>
     </div>
     <div class="right">${e.price ? `<div class="price">${esc(e.price)}</div>` : `<div class="price" style="color:var(--dim)">See site for price</div>`}
-      ${href ? `<a class="book" href="${esc(href)}" target="_blank" rel="noopener">Book <span aria-hidden="true">↗</span></a>` : ""}
+      ${href ? `<a class="book" href="${esc(tag(href))}" data-gc="book" target="_blank" rel="noopener">Book <span aria-hidden="true">↗</span></a>` : ""}
       <details class="cal"><summary aria-label="Add to calendar">+ Cal</summary><div class="calpop"><a href="${esc(gcal(e))}" target="_blank" rel="noopener">Google</a><a href="${esc(ocal(e))}" target="_blank" rel="noopener">Outlook</a><a href="ics/${evId(e)}.ics">Apple / iCal</a></div></details></div>
   </article>`;
 }
@@ -726,7 +733,7 @@ function renderPast(){
   document.getElementById("past").innerHTML = `<table><thead><tr><th>Date</th><th>Track</th><th>Type</th><th>Organizer</th><th>Notes</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 function renderOrgs(){
-  document.getElementById("orgs").innerHTML = (window.ORGS || []).map(([n,u,w]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} <span>${esc(w)}</span></a>`).join("");
+  document.getElementById("orgs").innerHTML = (window.ORGS || []).map(([n,u,w]) => `<a href="${esc(tag(u))}" data-gc="org" target="_blank" rel="noopener">${esc(n)} <span>${esc(w)}</span></a>`).join("");
 }
 function syncAll(){
   document.querySelectorAll("#f-type .chip-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.type));
