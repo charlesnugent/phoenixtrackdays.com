@@ -221,8 +221,7 @@ window.LEVELS = {
   "Yamaha ChampSchool": "School · coaching",
   "HVMC Motard Monday": "Beginner and expert sessions",
   "ASMA": "All levels · rider training",
-  "Apex Assassins": "All levels · 4 groups",
-  "Compact Octane": "4 groups · beginner group under 500cc",
+  "Apex Assassins": "All levels · 3 or 4 groups",
   "IMR Riders Club": "All levels"
 };
 
@@ -243,4 +242,66 @@ window.ORGS = [
   ["IMR Riders Club", "https://imrridersclub.com/events", "Inde"],
   ["Compact Octane", "https://compactoctane.trackrabbit.com/", "Streets of Willow · Chuckwalla"],
   ["Apex Assassins", "https://apexassassins.com/#events-2027", "Chuckwalla · Las Vegas · Podium"]
+];
+
+// Organizers section facts (from each organizer's own pages). n must match the
+// organizer name riders see; null means the organizer's site doesn't say.
+// t: day | school | moto. lim: pink limit tag. Checked date shows under the table.
+window.ORG_FACTS_CHECKED = "2026-11-23";
+window.ORG_FACTS = [
+  { n: "Southwest Supermoto", u: "https://pkra.com/calendar/", w: "PKRA, Glendale", t: "moto",
+    f: "Open kart track riding, Sundays 1 to 6 PM", lim: "Under 500cc or supermoto · trailer in",
+    g: null, c: null, p: "$50 at the gate", x: "Nothing to cancel. No online signup, pay at the gate" },
+  { n: "XCEL Trackdays", u: "https://xceltrackdays.com/new-riders/", w: "Firebird", t: "day",
+    f: "Sessions. 4 groups rotate every 15 min", g: "A, B1, B2, C (Novice) by lap time. 20 riders max per group",
+    c: "Free coaches for all groups, plus mini clinics. Novice gets classroom and on track instructors",
+    p: "$169 to $199", x: "Credit, less 10%, if 14+ days out. Inside 14 days you can sell your spot. Weather cancel = credit" },
+  { n: "Brake Free Track Time", u: "https://brakefreetracktime.com/pages/rider-groups", w: "Podium · Firebird · Inde", t: "day",
+    f: "Sessions. About 20 min, 6+ per day", g: "4 groups: A, two B groups, C. Lap time guide for each track",
+    c: "Coaches on track for general help. New Rider Clinic for first timers. Coach for a day +$199 (2 riders per coach)",
+    p: "$179 to $269", x: "No refunds or transfers" },
+  { n: "California Superbike School", u: "https://superbikeschool.com/schedule/", w: "Podium · Las Vegas · Streets of Willow", t: "school",
+    f: "Podium: one day school, 5 riding sessions. Las Vegas and Willow also run two day camps", g: "Levels 1 to 4 in order. Everyone starts at Level 1",
+    c: "3 riders per coach (one day). Not for brand new riders. BMW S1000RR rental",
+    p: "Podium $675 own bike, $875 rental. Camps $2,895+", x: "Full refund less 3% if 15+ days out. 8 to 14 days: lose deposit. 7 days or less: lose all" },
+  { n: "IMR Riders Club", u: "https://imrridersclub.com/", w: "Inde", t: "day",
+    f: "Joins Inde member days. At least 20 min per hour, two 30 min groups if no cars", g: "Up to 20 non-member riders",
+    c: "YCRS instructor runs safety. ChampSchool grads can rent a bike",
+    p: "$500 weekend with lunches and a dinner", x: null },
+  { n: "Yamaha ChampSchool", u: "https://ridelikeachampion.com/schedule/", w: "Inde · Chuckwalla · Las Vegas", t: "school",
+    f: "Two day school", g: null, c: "4 riders per instructor. Bring your bike or ride a Yamaha", p: null,
+    x: "30+ days: refund less 10% or reschedule. 15 to 29 days: reschedule once, 10% fee. 14 days or less: none" },
+  { n: "Apex Assassins", u: "https://apexassassins.com/#events-2027", w: "Podium · Chuckwalla · Las Vegas", t: "day",
+    f: "Sessions. 20 min each", g: "A, B, C. Some events run 4",
+    c: "Staff riders help on track and in the pits. C group gets a first session overview. 1 on 1 extra",
+    p: "$280 Chuckwalla day. Multi day packs", x: "More than 7 days out: may get credit. Within 7 days: no refund" },
+  { n: "Musselman Honda Circuit", u: "https://mhcircuit.com/calendar/", w: "Tucson", t: "day",
+    f: "Motorcycle Day, 10 AM to 4 PM", g: null, c: null, p: "$100", x: null },
+  { n: "Race Pace", u: "https://racepace.motorsportreg.com/", w: "Chuckwalla", t: "day",
+    f: "No sessions. Advanced riders only", lim: "Lap time check",
+    g: "Verified riders ride all day. Unverified: first 20 min each hour, vest and transponder. Slower than 2:35 not eligible",
+    c: null, p: "$295/day", x: "Not posted. No refund if asked to stop riding for safety" },
+  { n: "Racers Edge", u: "https://racersedgeperformance.com/collections/track-days", w: "Chuckwalla", t: "day",
+    f: "Two 30 min groups", g: "Advanced Training (8 max) and Premium Riding (15 max)",
+    c: "Training group gets a track tour and video review with an instructor",
+    p: "$350 to $500 ride only. $800 with training", x: null },
+  { n: "2 Wheels Track Days", u: "https://www.2wheelstrackdays.com/", w: "Chuckwalla", t: "day",
+    f: "Sessions", g: "C group for new riders",
+    c: "Free TOP program for C group: 4 short classroom talks between sessions",
+    p: "$245", x: "10+ business days: refund less 10% or full credit. 5 to 9: half refund less 10% or credit. Under 5: none" },
+  { n: "TrackXperience", u: "https://www.txptrackdays.com/info-policies", w: "Chuckwalla · Spring Mountain", t: "day",
+    f: "Sessions. 3 groups, 20 min each", g: "Levels 1, 2, 3. First timers in Level 1. 18+, 6 months riding",
+    c: "Free new rider school with Level 1, about 3 riders per instructor, lead follow laps",
+    p: "$285/day", x: "8+ days: full refund. 3 to 7 days: 50% credit. 2 days or less: none" },
+  { n: "Compact Octane", u: "https://compactoctane.com/", w: "Chuckwalla · Streets of Willow", t: "day",
+    f: null, g: null, c: "Free coaching all day. New rider orientation mentioned",
+    p: "$249, Streets of Willow $299", x: null },
+  { n: "HVMC", u: "https://www.ridehvmc.com/events", w: "Oakland Valley", t: "moto",
+    f: "Motard Monday. Two 30 min sessions per hour, 10 AM to 6 PM", lim: "Supermoto only",
+    g: "Beginner and expert", c: null, p: null, x: "Weather call made within 24 hours" },
+  { n: "ASMA", u: "https://www.asmaracing.com/online-signups", w: "Arroyo Seco", t: "day",
+    f: "Track days and race weekends", g: null, c: null, p: null, x: null },
+  { n: "SoCal Supermoto", u: "https://www.socalsupermoto.com/", w: "Perris", t: "moto",
+    f: "Supermoto school", lim: "School bikes", g: null,
+    c: "School bikes and loaner gear provided. All levels", p: null, x: null }
 ];
