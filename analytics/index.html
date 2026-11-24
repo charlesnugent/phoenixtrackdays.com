@@ -38,6 +38,9 @@ header .wrap{padding-block:28px 20px;display:grid;gap:8px}
 h1{font-family:var(--display);font-weight:900;font-size:clamp(42px,8.5vw,80px);line-height:.88;margin:0;text-transform:uppercase;font-style:italic}
 h1 span{color:var(--green)}
 .lede{margin:4px 0 0;color:var(--soft);max-width:62ch}
+.stamp{justify-self:start;margin-top:6px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--tarmac);padding:6px 10px;font-family:var(--data);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.stamp i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
+.stamp.old i{background:var(--heat)}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:8px 0 28px}
 @media (max-width:720px){.tiles{grid-template-columns:1fr 1fr}}
 .tile{background:var(--tarmac);padding:16px 16px 14px;display:grid;gap:2px;align-content:start}
@@ -88,6 +91,7 @@ footer a{color:var(--green)}
     <div class="eyebrow">phoenixtrackdays.com &nbsp;·&nbsp; Updated daily</div>
     <h1>Site <span>Stats</span></h1>
     <p class="lede">Who's using the Phoenix track day schedule: visits, taps through to organizers, and where riders come from. No cookies, no personal data.</p>
+    <div class="stamp" id="stamp"><i></i><span>Loading stats…</span></div>
   </div>
 </header>
 
@@ -160,6 +164,9 @@ fetch("stats.json", { cache: "no-store" }).then(r => r.json()).then(S => {
   document.getElementById("split").innerHTML = parts.map(p => `<i style="width:${p[1] / devT * 100}%;background:${p[2]}"></i>`).join("");
   document.getElementById("devlegend").innerHTML = parts.map(p => `<span><i style="background:${p[2]}"></i>${p[0]} ${Math.round(p[1] / devT * 100)}%</span>`).join("");
   const u = new Date(S.updated);
+  const st = document.getElementById("stamp"), ageH = (Date.now() - u) / 36e5;
+  st.querySelector("span").textContent = "Updated " + u.toLocaleString("en-US", { timeZone: "America/Phoenix", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " Arizona";
+  if (ageH > 30) { st.classList.add("old"); st.title = "Stats are more than a day old"; }
   document.getElementById("updated").textContent = "Last updated " + u.toLocaleString("en-US", { timeZone: "America/Phoenix", month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }) + " Arizona time.";
 }).catch(() => { document.getElementById("tiles").innerHTML = `<div class="tile"><span>Stats are loading slowly. Try again in a minute.</span></div>`; });
 </script>
