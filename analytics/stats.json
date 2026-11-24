@@ -1,0 +1,79 @@
+{
+ "updated": "2026-11-24T05:12:39.124Z",
+ "today": "2026-11-23",
+ "since": "2026-11-20",
+ "since30": "2026-11-20",
+ "visits": {
+  "all": 121,
+  "last7": 121,
+  "prev7": 0,
+  "last30": 121
+ },
+ "daily": [
+  {
+   "d": "2026-11-20",
+   "n": 27
+  },
+  {
+   "d": "2026-11-21",
+   "n": 51
+  },
+  {
+   "d": "2026-11-22",
+   "n": 17
+  },
+  {
+   "d": "2026-11-23",
+   "n": 26
+  }
+ ],
+ "clicks": {
+  "booking": 0,
+  "book": 0,
+  "featured": 0,
+  "org": 0,
+  "byOrg": [],
+  "top": []
+ },
+ "refs": [
+  [
+   "Direct or unknown",
+   101
+  ],
+  [
+   "facebook.com",
+   20
+  ]
+ ],
+ "devices": {
+  "phone": 69,
+  "tablet": 5,
+  "desktop": 45
+ },
+ "locations": [
+  [
+   "United States",
+   106
+  ],
+  [
+   "Netherlands",
+   3
+  ],
+  [
+   "Germany",
+   2
+  ],
+  [
+   "United Kingdom",
+   2
+  ],
+  [
+   "Austria",
+   1
+  ],
+  [
+   "Canada",
+   1
+  ]
+ ]
+}

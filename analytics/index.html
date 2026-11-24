@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Site stats · Phoenix Area Motorcycle Track Days</title>
+<meta name="description" content="Visitor and booking click stats for phoenixtrackdays.com.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="phoenixtrackdays.com site stats">
+<meta property="og:description" content="Visitors, booking clicks and where riders come from. Updated daily.">
+<meta property="og:url" content="https://phoenixtrackdays.com/analytics/">
+<meta property="og:image" content="https://phoenixtrackdays.com/og-image.png">
+<link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700;900&family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600&display=swap">
+<style>
+:root{
+  --asphalt:#0b0b0b; --tarmac:#262626; --kerb:#333333; --line:#4a4a4a;
+  --chalk:#f2f1ec; --dim:#a9a99f; --soft:#e4e4da;
+  --green:#ceff00; --note:#ff8cc6; --school:#4fd1e8; --kart:#b49cff; --heat:#ff6a2b;
+  --display:"Saira Extra Condensed","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --data:"Chakra Petch",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--asphalt);color:var(--chalk);font-family:var(--body);font-size:15px;line-height:1.45;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+.checker{height:28px;background:conic-gradient(var(--chalk) 25%,#111 0 50%,var(--chalk) 0 75%,#111 0) 0 0/28px 28px}
+.checker.thin{height:14px;background-size:14px 14px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .wrap{padding-block:28px 20px;display:grid;gap:8px}
+.back{font-family:var(--data);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);text-decoration:none;justify-self:start;border-bottom:1px solid var(--line)}
+.back:hover{color:var(--green);border-color:var(--green)}
+.eyebrow{font-family:var(--data);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(42px,8.5vw,80px);line-height:.88;margin:0;text-transform:uppercase;font-style:italic}
+h1 span{color:var(--green)}
+.lede{margin:4px 0 0;color:var(--soft);max-width:62ch}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:8px 0 28px}
+@media (max-width:720px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{background:var(--tarmac);padding:16px 16px 14px;display:grid;gap:2px;align-content:start}
+.tile b{font-family:var(--display);font-size:48px;line-height:1;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}
+.tile span{font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.tile em{font-style:normal;font-size:13px;color:var(--soft)}
+.tile em.up{color:var(--green)}.tile em.down{color:var(--heat)}
+section{padding-block:8px 26px}
+.block-h{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--green);padding-bottom:6px;margin-bottom:14px}
+.block-h h3{font-family:var(--display);font-weight:900;font-size:30px;text-transform:uppercase;font-style:italic;margin:0;line-height:1}
+.block-h p{margin:0;color:var(--dim);font-size:13px;text-align:right}
+.card{background:var(--tarmac);border:1px solid var(--line);padding:16px 18px}
+.chart{display:flex;align-items:flex-end;gap:6px;height:180px;padding-top:22px}
+.bar{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.bar i{display:block;width:100%;max-width:56px;background:var(--green);min-height:2px;position:relative}
+.bar i::after{content:attr(data-n);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--data);font-size:12px;color:var(--soft)}
+.bar small{font-family:var(--data);font-size:11px;color:var(--dim);white-space:nowrap}
+.bar.today i{background:var(--chalk)}
+.many .bar small{font-size:0}.many .bar:nth-child(5n+1) small{font-size:11px}
+.many .bar i::after{display:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.rows{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.row .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .nm small{color:var(--dim);font-size:13px}
+.row .n{font-family:var(--data);font-size:14px;font-variant-numeric:tabular-nums}
+.row .track{grid-column:1/-1;height:6px;background:var(--kerb)}
+.row .track i{display:block;height:100%;background:var(--green)}
+.row.alt .track i,.row.alt2 .track i{background:var(--soft)}
+.empty{color:var(--dim);font-size:14px}
+.split{display:flex;height:14px;margin:4px 0 12px;background:var(--kerb)}
+.split i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--data);font-size:12px;color:var(--soft)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:10px;display:inline-block}
+.card h4{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 12px;line-height:1}
+footer{padding-block:10px 28px;color:var(--soft);font-size:12.5px;font-family:var(--data);letter-spacing:.04em}
+footer p{margin:6px 0;max-width:80ch}
+footer a{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="checker"></div>
+<header>
+  <div class="wrap">
+    <a class="back" href="/">← Phoenix Area Motorcycle Track Days</a>
+    <div class="eyebrow">phoenixtrackdays.com &nbsp;·&nbsp; Updated daily</div>
+    <h1>Site <span>Stats</span></h1>
+    <p class="lede">Who's using the Phoenix track day schedule: visits, taps through to organizers, and where riders come from. No cookies, no personal data.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <div class="block-h"><h3>Daily Visits</h3><p id="range"></p></div>
+    <div class="card"><div class="chart" id="chart"></div></div>
+  </section>
+
+  <section>
+    <div class="block-h"><h3>Booking Clicks</h3><p>Taps on Book and Details, last 30 days</p></div>
+    <div class="grid2">
+      <div class="card"><h4>By organizer</h4><div class="rows" id="byorg"></div></div>
+      <div class="card"><h4>Top events</h4><div class="rows" id="topev"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="block-h"><h3>The Audience</h3><p>Last 30 days</p></div>
+    <div class="grid2">
+      <div class="card"><h4>Where they come from</h4><div class="rows" id="refs"></div></div>
+      <div class="card"><h4>Where they are</h4><div class="rows" id="locs"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h4>Devices</h4><div class="split" id="split"></div><div class="legend" id="devlegend"></div></div>
+  </section>
+
+  <footer>
+    <p>Booking clicks are taps through to an organizer's site, not confirmed bookings. Every outbound link carries utm_source=phoenixtrackdays, so organizers can see these riders in their own analytics.</p>
+    <p>Counted with GoatCounter: privacy friendly, no cookies, no tracking across sites. Tracking started Nov 20, 2026.</p>
+    <p id="updated"></p>
+    <p>Want to reach these riders? <a href="/">Sponsor the page</a> from the main site.</p>
+  </footer>
+</main>
+<div class="checker thin"></div>
+
+<script>
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const pd = d => new Date(d + "T12:00:00");
+const md = d => { const x = pd(d); return `${MON[x.getMonth()]} ${x.getDate()}`; };
+const fmt = n => Number(n).toLocaleString("en-US");
+function rows(el, data, cls) {
+  if (!data.length) { el.innerHTML = `<div class="empty">Nothing yet. Check back soon.</div>`; return; }
+  const max = Math.max(...data.map(r => r[1]));
+  el.innerHTML = data.map(([nm, n, sub]) => `<div class="row ${cls || ""}"><div class="nm">${esc(nm)}${sub ? ` <small>${esc(sub)}</small>` : ""}</div><div class="n">${fmt(n)}</div><div class="track"><i style="width:${Math.max(2, n / max * 100)}%"></i></div></div>`).join("");
+}
+fetch("stats.json", { cache: "no-store" }).then(r => r.json()).then(S => {
+  const v = S.visits, c = S.clicks, dv = S.devices, devT = dv.phone + dv.tablet + dv.desktop || 1;
+  const days = S.daily.length, avg = days ? Math.round(v.all / days) : 0;
+  let wow = "";
+  if (v.prev7) { const p = Math.round((v.last7 - v.prev7) / v.prev7 * 100); wow = `<em class="${p >= 0 ? "up" : "down"}">${p >= 0 ? "+" : ""}${p}% vs prior week</em>`; }
+  else wow = `<em>First week of tracking</em>`;
+  document.getElementById("tiles").innerHTML = `
+    <div class="tile"><b>${fmt(v.all)}</b><span>Visits since ${md(S.since)}</span><em>About ${fmt(avg)} a day</em></div>
+    <div class="tile"><b>${fmt(v.last7)}</b><span>Last 7 days</span>${wow}</div>
+    <div class="tile"><b>${fmt(c.booking)}</b><span>Booking clicks</span><em>Last 30 days</em></div>
+    <div class="tile"><b>${Math.round((dv.phone + dv.tablet) / devT * 100)}%</b><span>On phones</span><em>Riders check it on the go</em></div>`;
+  document.getElementById("range").textContent = days ? `${md(S.daily[0].d)} to ${md(S.daily[days - 1].d)}` : "";
+  const mx = Math.max(1, ...S.daily.map(d => d.n)), ch = document.getElementById("chart");
+  if (days > 14) ch.classList.add("many");
+  ch.innerHTML = S.daily.map(d => `<div class="bar${d.d === S.today ? " today" : ""}" title="${md(d.d)}: ${d.n} visits"><i data-n="${d.n}" style="height:${Math.max(1, d.n / mx * 100)}%"></i><small>${DOW[pd(d.d).getDay()]} ${pd(d.d).getDate()}</small></div>`).join("");
+  rows(document.getElementById("byorg"), c.byOrg);
+  rows(document.getElementById("topev"), c.top.map(t => [t.track, t.n, t.org]));
+  rows(document.getElementById("refs"), S.refs, "alt");
+  rows(document.getElementById("locs"), S.locations, "alt2");
+  const parts = [["Phone", dv.phone, "var(--green)"], ["Tablet", dv.tablet, "var(--soft)"], ["Desktop", dv.desktop, "var(--dim)"]].filter(p => p[1]);
+  document.getElementById("split").innerHTML = parts.map(p => `<i style="width:${p[1] / devT * 100}%;background:${p[2]}"></i>`).join("");
+  document.getElementById("devlegend").innerHTML = parts.map(p => `<span><i style="background:${p[2]}"></i>${p[0]} ${Math.round(p[1] / devT * 100)}%</span>`).join("");
+  const u = new Date(S.updated);
+  document.getElementById("updated").textContent = "Last updated " + u.toLocaleString("en-US", { timeZone: "America/Phoenix", month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }) + " Arizona time.";
+}).catch(() => { document.getElementById("tiles").innerHTML = `<div class="tile"><span>Stats are loading slowly. Try again in a minute.</span></div>`; });
+</script>
+</body>
+</html>

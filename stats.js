@@ -1,0 +1,72 @@
+// Builds analytics/stats.json for the public /analytics page from the GoatCounter API.
+// Usage: GC_TOKEN=... node stats.js   (the token is read from the environment and never written out)
+const fs = require("fs");
+const path = require("path");
+
+const TOKEN = process.env.GC_TOKEN;
+if (!TOKEN) { console.error("GC_TOKEN is not set"); process.exit(1); }
+const BASE = "https://phoenixtrackdays.goatcounter.com/api/v0";
+const LAUNCH = "2026-11-20";
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function api(p) {
+  for (let i = 0; i < 4; i++) {
+    const r = await fetch(BASE + "/" + p, { headers: { Authorization: "Bearer " + TOKEN } });
+    const t = await r.text();
+    if (r.status === 401 || r.status === 403) throw new Error("GoatCounter token rejected (" + r.status + ")");
+    try { const j = JSON.parse(t); await sleep(400); return j; } catch (_) { await sleep(3000); }
+  }
+  throw new Error("GoatCounter API failed: " + p);
+}
+
+// Arizona has no DST: UTC-7 all year.
+const azToday = () => new Date(Date.now() - 7 * 3600e3).toISOString().slice(0, 10);
+const addDays = (d, n) => { const x = new Date(d + "T00:00:00Z"); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+const maxDate = (a, b) => (a > b ? a : b);
+const rng = (s, e) => `start=${s}&end=${e}`;
+const merge = rows => { const m = new Map(); rows.forEach(([k, n]) => m.set(k, (m.get(k) || 0) + n)); return [...m].sort((a, b) => b[1] - a[1]); };
+
+(async () => {
+  const T = azToday(), END = addDays(T, 1);
+  const s30 = maxDate(LAUNCH, addDays(T, -29));
+
+  const all = await api(`stats/total?${rng(LAUNCH, END)}`);
+  const w = await api(`stats/total?${rng(addDays(T, -6), END)}`);
+  const pw = await api(`stats/total?${rng(addDays(T, -13), addDays(T, -7))}`);
+  const m30 = await api(`stats/total?${rng(s30, END)}`);
+
+  const daily = (all.stats || []).filter(s => s.day >= LAUNCH && s.day <= T).map(s => ({ d: s.day, n: s.daily })).slice(-30);
+
+  const hits = await api(`stats/hits?${rng(s30, END)}&limit=100`);
+  const ev = (hits.hits || []).filter(h => h.event);
+  const kind = p => p.startsWith("book: ") ? "book" : p.startsWith("featured: ") ? "featured" : p.startsWith("org: ") ? "org" : "other";
+  const sum = k => ev.filter(h => kind(h.path) === k).reduce((a, h) => a + h.count, 0);
+  const booking = ev.filter(h => ["book", "featured"].includes(kind(h.path)));
+  const byOrg = merge(ev.filter(h => kind(h.path) === "book").map(h => [h.path.slice(6).split(" · ")[0], h.count]));
+  const top = booking.sort((a, b) => b.count - a.count).slice(0, 8).map(h => {
+    const p = h.path.replace(/^(book|featured): /, ""), parts = p.split(" · ");
+    return { org: parts.length > 1 ? parts[0] : "Featured", track: parts[parts.length - 1], n: h.count };
+  });
+
+  const refs = await api(`stats/toprefs?${rng(s30, END)}&limit=20`);
+  const refRows = merge((refs.stats || []).map(r => [r.name ? r.name.replace(/^www\./, "").replace(/^(l|m)\.facebook\.com$/, "facebook.com") : "Direct or unknown", r.count])).slice(0, 6);
+
+  const sizes = await api(`stats/sizes?${rng(s30, END)}`);
+  const dev = { phone: 0, tablet: 0, desktop: 0 };
+  (sizes.stats || []).forEach(s => { if (s.id === "phone") dev.phone += s.count; else if (s.id === "tablet") dev.tablet += s.count; else if (/desktop/.test(s.id)) dev.desktop += s.count; });
+
+  const locs = await api(`stats/locations?${rng(s30, END)}&limit=20`);
+  const locRows = (locs.stats || []).filter(l => l.count).map(l => [l.name || "Unknown", l.count]).slice(0, 6);
+
+  const out = {
+    updated: new Date().toISOString(),
+    today: T, since: LAUNCH, since30: s30,
+    visits: { all: all.total || 0, last7: w.total || 0, prev7: pw.total || 0, last30: m30.total || 0 },
+    daily,
+    clicks: { booking: sum("book") + sum("featured"), book: sum("book"), featured: sum("featured"), org: sum("org"), byOrg: byOrg.slice(0, 8), top },
+    refs: refRows, devices: dev, locations: locRows,
+  };
+  fs.mkdirSync(path.join(__dirname, "analytics"), { recursive: true });
+  fs.writeFileSync(path.join(__dirname, "analytics", "stats.json"), JSON.stringify(out, null, 1) + "\n");
+  console.log(`stats.json: ${out.visits.all} visits since ${LAUNCH}, ${out.clicks.booking} booking clicks (30 days)`);
+})().catch(e => { console.error(e.message); process.exit(1); });
