@@ -216,7 +216,7 @@ footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:va
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:10px;display:inline-block}
 footer p{margin:6px 0;max-width:80ch}
-footer .cbtn{display:inline-block;margin:6px 0 4px;font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);text-decoration:none;border:1px solid var(--chalk);padding:7px 14px}footer .cbtn:hover{background:var(--chalk);color:#111}
+footer .cbtn{display:inline-block;margin:6px 0 4px 8px;font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);text-decoration:none;border:1px solid var(--chalk);padding:7px 14px}footer .cbtn:hover{background:var(--chalk);color:#111}
 footer .fixes a{color:var(--chalk);text-underline-offset:3px}footer .fixes a:hover{color:var(--green)}
 /* Featured */
 .feats{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
@@ -381,13 +381,11 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <h4>Your shop here</h4>
     <p>Reach Phoenix area track riders every time they check the schedule. Dealers, tire, suspension and trackside services welcome.</p>
     <a href="mailto:sponsor@phoenixtrackdays.com?subject=Sponsor%20phoenixtrackdays.com" data-contact="sponsor">Sponsor this page</a>
-    <p class="sp-alt">Or email <a class="plain" href="mailto:sponsor@phoenixtrackdays.com?subject=Sponsor%20phoenixtrackdays.com">sponsor@phoenixtrackdays.com</a></p>
   </aside>
 
   <footer>
     <p>Compiled from organizer websites and calendars. Dates, prices and track configs change: always confirm with the organizer before you book or drive. Pink tags show bike or rider limits.</p>
-    <p><a class="cbtn" href="mailto:events@phoenixtrackdays.com?subject=phoenixtrackdays.com" data-contact="other">Contact</a></p>
-    <p class="fixes">Missing an event, or see a wrong date? Organizers and riders: <a href="mailto:events@phoenixtrackdays.com?subject=Event%20update%20for%20phoenixtrackdays.com" data-contact="event">send an update</a> or email <a href="mailto:events@phoenixtrackdays.com?subject=Event%20update%20for%20phoenixtrackdays.com">events@phoenixtrackdays.com</a>.</p>
+    <p class="fixes">Run track days, spotted a missing event or a wrong date, or want to sponsor? <a class="cbtn" href="mailto:events@phoenixtrackdays.com?subject=phoenixtrackdays.com" data-contact="event">Contact</a></p>
     <p>Subscribe to every date in Apple Calendar, Google or Outlook: <a href="webcal://phoenixtrackdays.com/calendar.ics" style="color:var(--chalk)">webcal://phoenixtrackdays.com/calendar.ics</a></p>
     <p id="updated"></p>
   </footer>
