@@ -209,6 +209,7 @@ details.newbie[open] summary::after{content:"–"}
 .sponsor p{margin:0;color:var(--dim);font-size:14px}
 .sponsor a{justify-self:start;margin-top:4px;display:inline-flex;align-items:center;gap:8px;background:var(--chalk);color:#121212;text-decoration:none;font-family:var(--data);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px}
 .sponsor a:hover{background:#fff}
+.sponsor .sp-alt{font-size:12.5px;color:var(--dim);margin:2px 0 0}.sponsor .sp-alt a.plain{display:inline;background:none;color:var(--chalk);padding:0;margin:0;font:inherit;letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:3px}
 footer{padding-block:30px 24px;color:var(--soft);font-size:12.5px;font-family:var(--data);letter-spacing:.04em}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px}
 .legend.key{font-family:var(--data);font-size:12px;letter-spacing:.04em;color:var(--soft);gap:8px 16px;margin:-4px 0 12px}
@@ -242,6 +243,32 @@ footer .fixes a{color:var(--chalk);text-underline-offset:3px}footer .fixes a:hov
 .brandtxt{display:grid;gap:8px;min-width:0}
 .logo{width:150px;height:150px;flex:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
 @media (max-width:560px){.brand{grid-template-columns:1fr;gap:14px}.logo{width:104px;height:104px}}
+
+/* Contact form */
+dialog.contact{width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:var(--tarmac);color:var(--chalk);border:1px solid var(--line);border-top:3px solid var(--chalk);padding:0}
+dialog.contact::backdrop{background:rgba(0,0,0,.72)}
+.cf{display:grid;gap:12px;padding:20px 20px 22px}
+.cf-h{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.cf-h h4{margin:0;font-family:var(--display);font-weight:900;font-style:italic;font-size:32px;line-height:.95;text-transform:uppercase}
+.cf-x{background:none;border:0;color:var(--dim);font-size:28px;line-height:1;cursor:pointer;padding:0 4px}.cf-x:hover{color:var(--chalk)}
+.cf-topic{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.cf-topic label{position:relative;text-align:center;font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 4px;cursor:pointer;color:var(--dim)}
+.cf-topic label+label{border-left:1px solid var(--line)}
+.cf-topic input{position:absolute;opacity:0;pointer-events:none}
+.cf-topic label:has(input:checked){background:var(--chalk);color:#111}
+.cf-topic label:has(input:focus-visible){outline:2px solid var(--chalk);outline-offset:2px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.cf-row{grid-template-columns:1fr}}
+.cf label.f{display:grid;gap:4px;font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.cf input.t,.cf textarea{font:16px var(--body);color:var(--chalk);background:var(--asphalt);border:1px solid var(--line);padding:9px 10px;width:100%;border-radius:0}
+.cf input.t:focus,.cf textarea:focus{outline:none;border-color:var(--chalk)}
+.cf textarea{min-height:110px;resize:vertical}
+.cf .grp[hidden]{display:none}
+.cf-send{justify-self:start;font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--chalk);color:#111;border:0;padding:11px 18px;cursor:pointer}
+.cf-send:hover{background:#fff}.cf-send:disabled{opacity:.5;cursor:wait}
+.cf-note{font-size:12.5px;color:var(--dim);margin:0}
+.cf-msg{font-family:var(--data);font-size:13px;margin:0}.cf-msg.ok{color:var(--green)}.cf-msg.err{color:var(--heat)}
+.cf .hp{position:absolute;left:-9999px}
 </style>
 </head>
 <body>
@@ -352,12 +379,13 @@ footer .fixes a{color:var(--chalk);text-underline-offset:3px}footer .fixes a:hov
     <div class="eyebrow">Supported by</div>
     <h4>Your shop here</h4>
     <p>Reach Phoenix area track riders every time they check the schedule. Dealers, tire, suspension and trackside services welcome.</p>
-    <a href="mailto:sponsor@phoenixtrackdays.com?subject=Sponsor%20phoenixtrackdays.com">Sponsor this page</a>
+    <a href="mailto:sponsor@phoenixtrackdays.com?subject=Sponsor%20phoenixtrackdays.com" data-contact="sponsor">Sponsor this page</a>
+    <p class="sp-alt">Or email <a class="plain" href="mailto:sponsor@phoenixtrackdays.com?subject=Sponsor%20phoenixtrackdays.com">sponsor@phoenixtrackdays.com</a></p>
   </aside>
 
   <footer>
     <p>Compiled from organizer websites and calendars. Dates, prices and track configs change: always confirm with the organizer before you book or drive. Pink tags show bike or rider limits.</p>
-    <p class="fixes">Missing an event, or see a wrong date? Organizers and riders: email <a href="mailto:events@phoenixtrackdays.com?subject=Event%20update%20for%20phoenixtrackdays.com">events@phoenixtrackdays.com</a>.</p>
+    <p class="fixes">Missing an event, or see a wrong date? Organizers and riders: <a href="mailto:events@phoenixtrackdays.com?subject=Event%20update%20for%20phoenixtrackdays.com" data-contact="event">send an update</a> or email <a href="mailto:events@phoenixtrackdays.com?subject=Event%20update%20for%20phoenixtrackdays.com">events@phoenixtrackdays.com</a>.</p>
     <p>Subscribe to every date in Apple Calendar, Google or Outlook: <a href="webcal://phoenixtrackdays.com/calendar.ics" style="color:var(--chalk)">webcal://phoenixtrackdays.com/calendar.ics</a></p>
     <p id="updated"></p>
   </footer>
@@ -622,6 +650,80 @@ document.getElementById("range").textContent = `${fmtD(TODAY)}, ${TODAY.getFullY
 const up = parse(window.UPDATED || "2026-11-20");
 document.getElementById("updated").textContent = `Last refreshed ${MONTHS[up.getMonth()]} ${up.getDate()}, ${up.getFullYear()}.`;
 renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); renderOrgs(); syncAll();
+</script>
+<dialog class="contact" id="contact" aria-labelledby="cf-title">
+  <form class="cf" id="cf" novalidate>
+    <div class="cf-h"><h4 id="cf-title">Contact</h4><button type="button" class="cf-x" id="cf-x" aria-label="Close">×</button></div>
+    <div class="cf-topic" role="radiogroup" aria-label="What is this about?">
+      <label><input type="radio" name="topic" value="event" checked>Event update</label>
+      <label><input type="radio" name="topic" value="sponsor">Sponsorship</label>
+      <label><input type="radio" name="topic" value="other">Other</label>
+    </div>
+    <div class="cf-row">
+      <label class="f">Your name<input class="t" name="name" required autocomplete="name"></label>
+      <label class="f">Email<input class="t" type="email" name="email" required autocomplete="email"></label>
+    </div>
+    <div class="grp" data-for="event">
+      <div class="cf-row">
+        <label class="f">Organizer<input class="t" name="organizer"></label>
+        <label class="f">Track<input class="t" name="track" list="cf-tracks"></label>
+      </div>
+      <div class="cf-row" style="margin-top:10px">
+        <label class="f">Date(s)<input class="t" name="dates" placeholder="e.g. Mar 6 to 7, 2027"></label>
+        <label class="f">Event link<input class="t" type="url" name="event_link" placeholder="https://"></label>
+      </div>
+    </div>
+    <div class="grp" data-for="sponsor" hidden>
+      <div class="cf-row">
+        <label class="f">Business<input class="t" name="business" autocomplete="organization"></label>
+        <label class="f">Website<input class="t" type="url" name="website" placeholder="https://"></label>
+      </div>
+    </div>
+    <label class="f"><span id="cf-mlabel">What's missing or wrong?</span><textarea name="message" required></textarea></label>
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <button class="cf-send" id="cf-send" type="submit">Send</button>
+    <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
+    <p class="cf-note">Goes straight to the site owner. Replies come from a real person, usually within a few days.</p>
+  </form>
+  <datalist id="cf-tracks"></datalist>
+</dialog>
+<script>
+(() => {
+  const KEY = "0a497f05-62f8-4d75-bf61-52a42f775663";
+  const dlg = document.getElementById("contact"), f = document.getElementById("cf"), msg = document.getElementById("cf-msg"), send = document.getElementById("cf-send");
+  if (!dlg.showModal) return;
+  const LABEL = { event: "What's missing or wrong?", sponsor: "What are you interested in?", other: "Message" };
+  const TITLE = { event: "Event update", sponsor: "Sponsorship", other: "Contact" };
+  document.getElementById("cf-tracks").innerHTML = Object.values(window.TRACKS || {}).map(t => `<option value="${t.name.replace(/"/g, "&quot;")}">`).join("");
+  const setTopic = v => { f.topic.value = v; f.querySelectorAll(".grp").forEach(g => g.hidden = g.dataset.for !== v);
+    document.getElementById("cf-mlabel").textContent = LABEL[v]; document.getElementById("cf-title").textContent = TITLE[v]; };
+  f.querySelectorAll('input[name="topic"]').forEach(r => r.addEventListener("change", () => setTopic(r.value)));
+  document.querySelectorAll("[data-contact]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); msg.textContent = ""; msg.className = "cf-msg"; send.disabled = false; f.hidden = false; setTopic(a.dataset.contact); dlg.showModal(); }));
+  document.getElementById("cf-x").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", ev => { if (ev.target === dlg) dlg.close(); });
+  f.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    if (!f.reportValidity()) return;
+    const v = Object.fromEntries(new FormData(f)), t = v.topic;
+    const tag = { event: "Event", sponsor: "Sponsor", other: "Other" }[t];
+    const what = t === "event" ? [v.organizer, v.track, v.dates].filter(Boolean).join(", ") : t === "sponsor" ? v.business : "";
+    const body = { access_key: KEY, subject: `[${tag}] ${what || v.name} (phoenixtrackdays.com)`, from_name: "phoenixtrackdays.com", replyto: v.email, botcheck: v.botcheck ? true : "",
+      Topic: tag, Name: v.name, Email: v.email };
+    if (t === "event") Object.assign(body, { Organizer: v.organizer, Track: v.track, "Date(s)": v.dates, "Event link": v.event_link });
+    if (t === "sponsor") Object.assign(body, { Business: v.business, Website: v.website });
+    body.Message = v.message;
+    send.disabled = true; msg.className = "cf-msg"; msg.textContent = "Sending…";
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json();
+      if (!j.success) throw new Error(j.message || "Send failed");
+      msg.className = "cf-msg ok"; msg.textContent = "Thanks, got it. We'll take a look."; f.reset(); setTopic(t);
+      setTimeout(() => { if (dlg.open) dlg.close(); }, 2500);
+    } catch (e) {
+      msg.className = "cf-msg err"; msg.textContent = `Couldn't send. Please email ${t === "sponsor" ? "sponsor" : "events"}@phoenixtrackdays.com instead.`;
+    } finally { send.disabled = false; }
+  });
+})();
 </script>
 <script data-goatcounter="https://phoenixtrackdays.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
