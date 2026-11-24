@@ -11,3 +11,4 @@ Refreshed daily.
 ## Analytics page
 
 https://phoenixtrackdays.com/analytics/ shows visits, booking clicks and audience from GoatCounter. It reads analytics/stats.json, which `GC_TOKEN=<token> node stats.js` rebuilds (the daily refresh runs it). The token is never written to the repo.
+`node shot.js` (Playwright) then saves analytics/dashboard.jpg, the screenshot the weekly email shows by URL. The daily refresh runs it on Fridays.
