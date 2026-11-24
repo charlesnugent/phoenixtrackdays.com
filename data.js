@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-23";
+window.UPDATED = "2026-11-24";
 
 // Featured events: named special events (not regular track days or schools). An event is featured when its note starts with one of these names.
 window.FEATURED = ["Trackday Massacre", "MOTOFest"];
@@ -58,9 +58,9 @@ window.EVENTS = [
   { d: "2026-10-24", e: "2026-10-25", t: "lvms", org: "California Superbike School", type: "school" },
   { d: "2026-10-25", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50" },
   { d: "2026-10-30", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$239", note: "Trackday Massacre with Apex Assassins and Legion Moto" },
-  { d: "2026-10-31", t: "podium", cfg: "CW", org: "Brake Free", type: "day", price: "$259", note: "Trackday Massacre" },
+  { d: "2026-10-31", t: "podium", cfg: "CW", org: "Brake Free", type: "day", price: "$259", note: "Trackday Massacre with Apex Assassins and Legion Moto" },
   { d: "2026-10-31", e: "2026-11-01", t: "spring", cfg: "North/South", org: "TrackXperience", type: "day" },
-  { d: "2026-11-01", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$259", note: "Trackday Massacre" },
+  { d: "2026-11-01", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$259", note: "Trackday Massacre with Apex Assassins and Legion Moto" },
   { d: "2026-11-07", e: "2026-11-08", t: "chuckwalla", org: "Race Pace", type: "day" },
   { d: "2026-11-07", t: "willow", cfg: "CCW", org: "Compact Octane", type: "day", price: "$299" },
   { d: "2026-11-07", e: "2026-11-08", t: "whp", cfg: "West", org: "ASMA", type: "day", note: "Track days and advanced rider training" },
@@ -85,7 +85,7 @@ window.EVENTS = [
   { d: "2026-12-05", e: "2026-12-06", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/december-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-846067" },
   { d: "2026-12-06", t: "whp", cfg: "West", org: "XCEL", type: "day", price: "$169", note: "9 AM to 5 PM", url: "https://xceltrackdays.trackrabbit.com/event/details/10019612-XCEL-Motorcycle-Track-Day---Dec-6th-West-2026-12-06" },
   { d: "2026-12-06", t: "perris", org: "SoCal Supermoto", type: "school", note: "Supermoto school", url: "https://www.socalsupermoto.com/calendar" },
-  { d: "2026-12-09", e: "2026-12-10", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Ride only. Wed sold out", url: "https://racersedgeperformance.com/products/december-9th-2026-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy" },
+  { d: "2026-12-09", e: "2026-12-10", t: "chuckwalla", org: "Racers Edge", type: "day", price: "$500 Wed / $350 Thu", note: "Ride only", url: "https://racersedgeperformance.com/products/december-9th-2026-ride-only-private-track-day-at-chuckwalla-valley-raceway-copy" },
   { d: "2026-12-12", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$259", url: BF },
   { d: "2026-12-13", t: "podium", cfg: "CW", org: "Brake Free", type: "day", price: "$259", url: BF },
   { d: "2026-12-13", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
