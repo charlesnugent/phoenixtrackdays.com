@@ -177,6 +177,31 @@ details.newbie[open] summary::after{content:"–"}
 .nb ul{margin:0;padding-left:18px;font-size:14px;color:var(--chalk)}
 .nb li{margin:3px 0}
 .nb p{margin:0;padding:12px 18px;font-size:12.5px;color:var(--dim);background:var(--tarmac);grid-column:1/-1}
+.ftd-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.ftd-steps li{background:var(--tarmac)}
+.ftd-steps a{display:flex;align-items:center;gap:10px;padding:12px 14px;color:var(--chalk);text-decoration:none;font-family:var(--display);font-weight:700;font-size:17px;text-transform:uppercase;line-height:1.05;min-height:44px}
+.ftd-steps a:hover{background:var(--kerb)}
+.ftd-steps i{font-style:italic;font-weight:900;font-size:30px;color:var(--green);line-height:.8}
+.ftd-sec{border-top:1px solid var(--line);padding:14px 18px 4px}
+.ftd h4{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;color:var(--green)}
+.ftd-lede{margin:0 0 10px;color:var(--soft);font-size:14px}
+.ftd-tbl table{width:100%;border-collapse:collapse;font-size:13.5px}
+.ftd-tbl th{font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:left;font-weight:500;padding:8px 10px;border-bottom:1px solid var(--line)}
+.ftd-tbl td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.ftd-tbl td:first-child b{font-family:var(--display);font-size:18px;text-transform:uppercase;font-weight:700;line-height:1}
+.ftd-tbl td.c{font-family:var(--data);white-space:nowrap;font-variant-numeric:tabular-nums}
+.ftd-tbl .type{white-space:nowrap}
+.ftd-tbl .limit{display:inline-block;margin-top:4px}
+.ftd-wait{margin:10px 0;font-size:13px;color:var(--soft)}
+.ftd .nb{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ftd-time{margin:0;padding-left:20px;font-size:14px}.ftd-time li{margin:3px 0}
+.ftd-flags{list-style:none;padding-left:0!important}.ftd-flags li{display:flex;gap:8px;align-items:flex-start}
+.ftd-flags i{flex:none;width:16px;height:12px;margin-top:4px;border:1px solid #666}
+.f-g{background:#2fbf4a}.f-y{background:#ffd400}.f-r{background:#e02424}.f-b{background:#000}.f-c{background:conic-gradient(#fff 25%,#000 0 50%,#fff 0 75%,#000 0) 0 0/6px 6px}
+.ftd-src{margin:0;padding:12px 18px;font-size:12.5px;color:var(--dim);border-top:1px solid var(--line)}
+.ftd-src a{color:var(--green);text-decoration:none;font-family:var(--data);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-left:10px;white-space:nowrap}
+@media(max-width:760px){.ftd-steps{grid-template-columns:1fr 1fr}.ftd-steps li:last-child{grid-column:1/-1}}
+@media(max-width:640px){.ftd-tbl thead{display:none}.ftd-tbl tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}.ftd-tbl td{border:0;padding:3px 0}.ftd-tbl td:nth-child(2){color:var(--dim);font-size:12.5px}}
 .maplist .facts{display:block;font-size:12px;color:var(--chalk);opacity:.8}
 .maplist .facts a{color:var(--green);text-decoration:none;margin-left:6px;font-family:var(--data);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .empty{color:var(--soft);padding:18px;border:1px dashed #555;text-align:center;font-family:var(--data);font-size:13px}
@@ -294,28 +319,91 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <div class="stats" id="stats"></div>
   </div>
 
-  <details class="newbie">
-    <summary><div><b>First track day?</b><br><span>What to pick, wear and bring</span></div></summary>
-    <div class="nb">
-      <div><h4>Pick the right day</h4><ul>
-        <li><b>Track day:</b> you ride your own bike in groups by pace. Sign up for the novice or beginner group.</li>
-        <li><b>School:</b> structured coaching all day. The easiest way to start.</li>
-        <li><b>Kart track:</b> tight, slow, supermoto and small bike days. Great for learning body position.</li>
-        <li>Skip anything marked <b>Advanced only</b> until you have a few days in.</li></ul></div>
-      <div><h4>Gear</h4><ul>
-        <li>Leather suit, one piece or two piece zipped together. Some kart track days accept armored textile that zips together.</li>
-        <li>Full face helmet in good shape. Many organizers require Snell or a recent rating.</li>
-        <li>Gauntlet gloves and over the ankle boots. Back protector is often required.</li></ul></div>
-      <div><h4>Bike and tech</h4><ul>
-        <li>Tires with good tread, brakes and chain in good shape, no leaks.</li>
-        <li>Tape or remove mirrors. Tape lights.</li>
-        <li>Many tracks want coolant drained and replaced with water. Check your organizer's tech sheet.</li>
-        <li>Every bike passes tech inspection before it goes out.</li></ul></div>
-      <div><h4>No bike? No problem</h4><ul>
-        <li>California Superbike School rents BMW S1000RRs, and its two day camps include riding gear.</li>
-        <li>Bring water, food, shade, sunscreen and a tank of fuel. Desert days get hot from May to September, so ride the morning sessions.</li></ul></div>
-      <p>Rules vary by organizer. Read the event page before you go.</p>
+  <details class="newbie ftd">
+    <summary><div><b>First track day?</b><br><span>Where to start, gear, bike prep, the day, flags</span></div></summary>
+
+    <ol class="ftd-steps">
+      <li><a href="#ftd-start"><i>1</i>Pick a beginner day</a></li>
+      <li><a href="#ftd-gear"><i>2</i>Get the right gear</a></li>
+      <li><a href="#ftd-bike"><i>3</i>Prep the bike</a></li>
+      <li><a href="#ftd-day"><i>4</i>Arrive, tech, rider meeting</a></li>
+      <li><a href="#ftd-flags"><i>5</i>Ride your own pace</a></li>
+    </ol>
+
+    <div class="ftd-sec" id="ftd-start">
+      <h4>Where first timers start</h4>
+      <p class="ftd-lede">Book the beginner option, not just the slowest group. Street miles don't count; everyone starts at the bottom.</p>
+      <div class="ftd-tbl">
+      <table class="stack">
+        <thead><tr><th>Organizer</th><th>Tracks</th><th>Sign up for</th><th>Cost</th><th>Good to know</th></tr></thead>
+        <tbody>
+          <tr><td><b>Brake Free Track Time</b></td><td>Firebird, Podium, Inde</td><td><span class="type day">New Rider Clinic</span></td><td class="c">$179 to $269</td><td>Their C group is not for first timers. Clinic starts slow with heavy coaching. Add a dedicated coach for $199 (max 2 riders per coach). Suit rentals, US sizes 40 to 48.</td></tr>
+          <tr><td><b>XCEL Trackdays</b></td><td>Firebird</td><td><span class="type day">Group C Novice</span></td><td class="c">$169 to $199</td><td>Groups capped at 20 riders. Coaching and between session mini clinics included. Lunch provided. Novice passes on the outside only, 6 ft clear.</td></tr>
+          <tr><td><b>2 Wheels Track Days</b></td><td>Chuckwalla</td><td><span class="type day">C group + TOP</span></td><td class="c">See site</td><td>TOP is a free first day orientation: classroom plus on track sessions. Stay after the rider meeting when C group is called.</td></tr>
+          <tr><td><b>California Superbike School</b></td><td>Podium</td><td><span class="type school">One day school</span></td><td class="c">$675 own bike<br>$875 to $895 on theirs</td><td>Most structured day: 5 classroom and 5 track sessions. Rent a BMW S1000RR and a full gear kit ($85). <span class="limit">2,000+ mi street experience</span></td></tr>
+          <tr><td><b>IMR Riders Club</b></td><td>Inde</td><td><span class="type day">Guest spot</span></td><td class="c">$500 weekend</td><td>Two days with lunches and a dinner. Only 20 non member spots. All skill levels; a pro coach oversees safety.</td></tr>
+          <tr><td><b>Southwest Supermoto</b></td><td>PKRA Glendale</td><td><span class="type moto">Supermoto</span></td><td class="c">$50</td><td>Sunday afternoons on a kart track. Small bikes, slow speeds, great for body position. Pay at the gate.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="ftd-wait"><b>Wait on these:</b> Race Pace is advanced only with lap time verification at Chuckwalla. Racers Edge runs small no session groups for experienced riders.</p>
     </div>
+
+    <div class="nb">
+      <div id="ftd-gear"><h4>Gear</h4><ul>
+        <li><b>Helmet:</b> full face, DOT, ECE or Snell, no cracks. Brake Free and 2 Wheels want it made in the last 5 years. 2 Wheels bans modular (flip up) helmets.</li>
+        <li><b>Suit:</b> leather, one piece or two piece zipped together. Zip together textile is allowed in novice groups at XCEL and 2 Wheels; never mesh.</li>
+        <li><b>Gloves:</b> gauntlet style, covering the wrist and overlapping the suit.</li>
+        <li><b>Boots:</b> over the ankle riding boots. No work or cowboy boots.</li>
+        <li><b>Back protector:</b> strongly recommended. XCEL requires one above novice. CE Level 2 beats Level 1.</li>
+      </ul></div>
+      <div id="ftd-bike"><h4>Bike prep</h4><ul>
+        <li><b>Tires:</b> no cracks or dry rot. XCEL wants 75% tread, 2 Wheels 50%. Set pressures yourself; nobody checks.</li>
+        <li><b>Tape:</b> headlight, signals and every lens (painter's tape). Tape or remove mirrors. Tape wheel weights. Pull the plate.</li>
+        <li><b>Coolant:</b> regular coolant is fine for novices at XCEL and Brake Free. Water or a glycol free coolant (Engine Ice, Water Wetter) is required in faster XCEL groups.</li>
+        <li><b>Tech checks:</b> no leaks or loose bolts, kill switch works, throttle snaps shut, chain tension right, kickstand stays up.</li>
+        <li><b>Safety wire</b> on the drain plug, filter and fill cap is recommended, not required.</li>
+        <li>Cruisers, floorboards and bags aren't allowed at Brake Free.</li>
+      </ul></div>
+      <div id="ftd-day"><h4>How the day runs</h4><ol class="ftd-time">
+        <li><b>Gate:</b> sign the gate waiver. At Firebird with XCEL, gates open 7:30 AM Nov to Mar, 6:30 AM Apr to Oct. Don't show up early.</li>
+        <li><b>Pit:</b> grab a spot, unload, park the truck away from the pits.</li>
+        <li><b>Registration:</b> photo ID, card, rider waiver. You get a wristband or sticker.</li>
+        <li><b>Tech:</b> roll the bike and your gear over right away.</li>
+        <li><b>Rider meeting:</b> mandatory. Skip it and you don't ride.</li>
+        <li><b>Sessions:</b> groups rotate all day. XCEL runs 15 minutes each hour; Brake Free runs six or more 20 minute sessions.</li>
+      </ol></div>
+      <div id="ftd-flags"><h4>Flags</h4><ul class="ftd-flags">
+        <li><i class="f-g"></i><span><b>Green:</b> track is open.</span></li>
+        <li><i class="f-y"></i><span><b>Yellow:</b> trouble ahead. Roll off, no passing, be ready to change line.</span></li>
+        <li><i class="f-r"></i><span><b>Red:</b> session stopped. Hand up, slow to 30 to 40 mph, pit in.</span></li>
+        <li><i class="f-b"></i><span><b>Black:</b> pointed at you (if unsure, assume it is). Hand up, get off the line, pit in, see the marshal.</span></li>
+        <li><i class="f-c"></i><span><b>Checkered:</b> session over. Hold speed past the flag, then hand up, slow down, pit in.</span></li>
+      </ul></div>
+      <div><h4>What to bring</h4><ul>
+        <li><b>Shade.</b> Firebird, Podium and Inde have little or none. Canopy with weights; desert wind picks up fast.</li>
+        <li>Chairs, cooler, lots of water and electrolytes, snacks. No alcohol anywhere.</li>
+        <li>No power at the tracks. Bring a battery or generator for warmers and chargers.</li>
+        <li>Fuel, stands, basic tools, tire gauge, painter's and duct tape, zip ties.</li>
+        <li>ID, health insurance card, cash, sunscreen. And the bike key.</li>
+        <li>May to September: ride the cool morning sessions and drink before you're thirsty.</li>
+      </ul></div>
+      <div><h4>Before you book</h4><ul>
+        <li><b>Leave your phone in the pit.</b> Brake Free bans phones on track; a crash detection call can send fire and ambulance, billed to you (around $2,500).</li>
+        <li><b>No helmet cameras</b> at Brake Free or 2 Wheels. Bike mounted cameras need a tether.</li>
+        <li><b>Medical insurance</b> is required at Brake Free.</li>
+        <li><b>No refunds:</b> Brake Free is non refundable, non transferable and runs rain or shine. Check each organizer's policy.</li>
+        <li><b>Pick your real group.</b> At XCEL, signing up too high can end your day with no refund.</li>
+        <li><b>Chuckwalla</b> charges a $20 gate fee per adult visitor; kids 17 and under get in free with a guardian.</li>
+      </ul></div>
+    </div>
+    <p class="ftd-src">Checked Nov 23, 2026 against each organizer's rules. They change; read the event page before you go.
+      <a href="https://brakefreetracktime.com/pages/requirements" target="_blank" rel="noopener">Brake Free</a>
+      <a href="https://xceltrackdays.com/new-riders/" target="_blank" rel="noopener">XCEL</a>
+      <a href="https://www.2wheelstrackdays.com/trackday-safety-gear-requirements" target="_blank" rel="noopener">2 Wheels</a>
+      <a href="https://superbikeschool.com/faq/" target="_blank" rel="noopener">Superbike School</a>
+      <a href="https://imrridersclub.com/" target="_blank" rel="noopener">IMR Riders Club</a>
+      <a href="https://pkra.com/calendar/" target="_blank" rel="noopener">PKRA</a></p>
   </details>
 
   <section class="block" id="feat-block">
