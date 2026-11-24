@@ -110,12 +110,19 @@ section.block{padding-block:26px 8px}
 .chip-btn:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
 select.chip-btn{appearance:none;padding-right:26px;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 13px) 50%,calc(100% - 8px) 50%;background-size:5px 5px;background-repeat:no-repeat}
 select.chip-btn.set{background-color:var(--chalk);color:#111}
+.chip-btn .sw{display:inline-block;width:9px;height:9px;margin-right:7px;vertical-align:0}
+.chip-btn[aria-pressed="true"] .sw{outline:1px solid #111}
+select.chip-btn{border-radius:0;-webkit-appearance:none;max-width:200px;text-overflow:ellipsis}
+.toolbar .sels{margin-left:0}
 @media (max-width:600px){
   .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .toolbar .grp{grid-column:1/-1;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0}
   .toolbar .grp .chip-btn{padding:9px 4px;font-size:11px;letter-spacing:.05em;line-height:1.15;min-height:42px}
   .toolbar .grp .chip-btn+.chip-btn{border-left:0}
   .toolbar .sep{display:none}
+  .toolbar .sels{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-left:0}
+  .toolbar select.chip-btn{max-width:none}
+  .chip-btn .sw{display:block;width:14px;height:4px;margin:0 auto 5px}
   .toolbar select.chip-btn{width:100%;min-width:0;font-size:16px;letter-spacing:.02em;padding:8px 26px 8px 10px;min-height:42px;text-overflow:ellipsis}
   .toolbar .share,.toolbar .copied{grid-column:1/-1}
 }
@@ -423,9 +430,6 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
   <section class="block" id="schedule-block">
     <div class="block-h"><h3>Next 12 Months</h3><p id="range"></p></div>
     <div class="legend key">
-      <span><i style="background:var(--green)"></i>Track day</span>
-      <span><i style="background:var(--school)"></i>School</span>
-      <span><i style="background:var(--kart)"></i>Kart track / supermoto</span>
       <span><i style="background:var(--note)"></i>Bike or rider limit</span>
       <span>★ Featured</span>
       <span><i style="background:repeating-linear-gradient(90deg,var(--heat) 0 3px,#5a260f 3px 6px)"></i>Desert heat, May to Sep</span>
@@ -434,9 +438,9 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <div class="toolbar" role="toolbar" aria-label="Filter schedule">
       <div class="grp" id="f-type">
         <button class="chip-btn" data-v="all" aria-pressed="true">All</button>
-        <button class="chip-btn" data-v="day" aria-pressed="false">Track days</button>
-        <button class="chip-btn" data-v="school" aria-pressed="false">Schools</button>
-        <button class="chip-btn" data-v="moto" aria-pressed="false">Kart track / Supermoto</button>
+        <button class="chip-btn" data-v="day" aria-pressed="false"><i class="sw" style="background:var(--green)"></i>Track days</button>
+        <button class="chip-btn" data-v="school" aria-pressed="false"><i class="sw" style="background:var(--school)"></i>Schools</button>
+        <button class="chip-btn" data-v="moto" aria-pressed="false"><i class="sw" style="background:var(--kart)"></i>Kart track / Supermoto</button>
       </div>
       <div class="sep"></div>
       <div class="grp" id="f-drive">
@@ -444,9 +448,10 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
         <button class="chip-btn" data-v="1" aria-pressed="false">Up to 1 hr</button>
         <button class="chip-btn" data-v="3" aria-pressed="false">Up to 3.5 hr</button>
       </div>
-      <div class="sep"></div>
+      <div class="grp sels">
       <select class="chip-btn" id="f-track" aria-label="Track"></select>
       <select class="chip-btn" id="f-org" aria-label="Organizer"></select>
+      </div>
       <button class="chip-btn share" id="share">Copy link to this track</button><span class="copied" id="copied" aria-live="polite"></span>
     </div>
     <div id="schedule"></div>
