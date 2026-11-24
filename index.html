@@ -340,8 +340,9 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
 .cf .hp{position:absolute;left:-9999px}
 
 /* ---- Section bar ---- */
-.snav{position:fixed;left:0;right:0;top:0;z-index:20;background:rgba(11,11,11,.96);border-bottom:2px solid var(--green);transform:translateY(-110%);transition:transform .2s ease;padding-top:env(safe-area-inset-top,0px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.snav.on{transform:none}
+.snav{position:sticky;top:0;z-index:20;background:rgba(11,11,11,.96);border-bottom:2px solid var(--green);padding-top:env(safe-area-inset-top,0px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.snav:not(.on) .home{display:none}
+@media (max-width:600px){.snav:not(.on) select,.snav:not(.on) .top{display:none}.snav:not(.on) .links2{-webkit-mask-image:none;mask-image:none;justify-content:space-between}.snav:not(.on) .links2 a{padding:0 2px;font-size:11px;letter-spacing:.03em}}
 @media (prefers-reduced-motion:reduce){.snav{transition:none}}
 .snav .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:10px;height:50px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
 .snav .home{flex:none;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--chalk);font-family:var(--display);font-weight:900;font-style:italic;font-size:20px;text-transform:uppercase;line-height:1;white-space:nowrap}
@@ -399,6 +400,7 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
       <a href="#map" data-s="map">Map</a>
       <a href="#schedule-block" data-s="schedule-block">Schedule</a>
       <a href="#orgs-block" data-s="orgs-block">Organizers</a>
+      <a href="mailto:events@phoenixtrackdays.com?subject=phoenixtrackdays.com" data-contact="other">Contact</a>
     </div>
     <select id="snav-month" aria-label="Jump to month"></select>
     <a class="top" href="#" data-top aria-label="Back to top">&uarr;</a>
@@ -908,7 +910,7 @@ function initNav(){ (() => {
   const spy = () => { raf = 0;
     const y = 90; let cur = null;
     secs.forEach(s => { if (s.getBoundingClientRect().top <= y) cur = s; });
-    links.forEach(a => { const on = cur && a.dataset.s === cur.id; if (on !== a.classList.contains("cur")) { a.classList.toggle("cur", on); if (on) a.scrollIntoView({ block: "nearest", inline: "center" }); } });
+    links.forEach(a => { const on = cur && a.dataset.s === cur.id; if (on !== a.classList.contains("cur")) { a.classList.toggle("cur", on); if (on) { const L = a.parentElement; L.scrollTo({ left: a.offsetLeft - L.offsetLeft - (L.clientWidth - a.offsetWidth) / 2, behavior: "smooth" }); } } });
     let m = ""; document.querySelectorAll("#schedule .month").forEach(x => { if (x.getBoundingClientRect().top <= y) m = x.id; });
     const sb = document.getElementById("schedule-block").getBoundingClientRect();
     if (sb.bottom < y) m = "";
