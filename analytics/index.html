@@ -77,6 +77,7 @@ section{padding-block:8px 26px}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--data);font-size:12px;color:var(--soft)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:12px;height:10px;display:inline-block}
+.cnote{margin:12px 0 0;font-size:12px;color:var(--dim)}
 .card h4{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 12px;line-height:1}
 footer{padding-block:10px 28px;color:var(--soft);font-size:12.5px;font-family:var(--data);letter-spacing:.04em}
 footer p{margin:6px 0;max-width:80ch}
@@ -104,9 +105,9 @@ footer a{color:var(--green)}
   </section>
 
   <section>
-    <div class="block-h"><h3>Booking Clicks</h3><p>Taps on Book and Details, last 30 days</p></div>
+    <div class="block-h"><h3>Traffic to Organizers</h3><p>Riders sent to organizer sites, last 30 days</p></div>
     <div class="grid2">
-      <div class="card"><h4>By organizer</h4><div class="rows" id="byorg"></div></div>
+      <div class="card"><h4>By organizer</h4><div class="rows" id="byorg"></div><p class="cnote">Booking: Book and Details taps on events. Site: taps on the organizer's name.</p></div>
       <div class="card"><h4>Top events</h4><div class="rows" id="topev"></div></div>
     </div>
   </section>
@@ -121,7 +122,7 @@ footer a{color:var(--green)}
   </section>
 
   <footer>
-    <p>Booking clicks are taps through to an organizer's site, not confirmed bookings. Every outbound link carries utm_source=phoenixtrackdays, so organizers can see these riders in their own analytics.</p>
+    <p>Traffic to organizers counts taps through to an organizer's site: booking taps on an event, and taps on the organizer's name in the Organizers section. They are not confirmed bookings. A featured event counts for each of its organizers. Every outbound link carries utm_source=phoenixtrackdays, so organizers can see these riders in their own analytics.</p>
     <p>Counted with GoatCounter: privacy friendly, no cookies, no tracking across sites. Tracking started Nov 20, 2026.</p>
     <p id="updated"></p>
     <p>Want to reach these riders? <a href="/">Sponsor the page</a> from the main site.</p>
@@ -150,13 +151,13 @@ fetch("stats.json", { cache: "no-store" }).then(r => r.json()).then(S => {
   document.getElementById("tiles").innerHTML = `
     <div class="tile"><b>${fmt(v.all)}</b><span>Visits since ${md(S.since)}</span><em>About ${fmt(avg)} a day</em></div>
     <div class="tile"><b>${fmt(v.last7)}</b><span>Last 7 days</span>${wow}</div>
-    <div class="tile"><b>${fmt(c.booking)}</b><span>Booking clicks</span><em>Last 30 days</em></div>
+    <div class="tile"><b>${fmt(c.sent != null ? c.sent : c.booking)}</b><span>Sent to organizers</span><em>${fmt(c.booking)} booking, ${fmt(c.org || 0)} site · 30 days</em></div>
     <div class="tile"><b>${Math.round((dv.phone + dv.tablet) / devT * 100)}%</b><span>On phones</span><em>Riders check it on the go</em></div>`;
   document.getElementById("range").textContent = days ? `${md(S.daily[0].d)} to ${md(S.daily[days - 1].d)}` : "";
   const mx = Math.max(1, ...S.daily.map(d => d.n)), ch = document.getElementById("chart");
   if (days > 14) ch.classList.add("many");
   ch.innerHTML = S.daily.map(d => `<div class="bar${d.d === S.today ? " today" : ""}" title="${md(d.d)}: ${d.n} visits"><i data-n="${d.n}" style="height:${Math.max(1, d.n / mx * 100)}%"></i><small>${DOW[pd(d.d).getDay()]} ${pd(d.d).getDate()}</small></div>`).join("");
-  rows(document.getElementById("byorg"), c.byOrg);
+  rows(document.getElementById("byorg"), c.toOrg || c.byOrg);
   rows(document.getElementById("topev"), c.top.map(t => [t.track, t.n, t.org]));
   rows(document.getElementById("refs"), S.refs, "alt");
   rows(document.getElementById("locs"), S.locations, "alt2");
