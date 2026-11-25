@@ -399,6 +399,12 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
 .getapp svg{width:14px;height:14px;color:var(--green)}
 .getapp:hover{background:var(--green);color:#111}.getapp:hover svg{color:#111}
 .getapp[hidden]{display:none}
+.appbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.appbtns .getapp{margin-top:0}
+.al label.ck{display:flex;align-items:center;gap:10px;font-size:15px;padding:10px 12px;border:1px solid var(--line);cursor:pointer}
+.al label.ck input{width:18px;height:18px;accent-color:#ceff00}
+.al .row2{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.al .off{background:none;border:0;color:var(--dim);text-decoration:underline;cursor:pointer;font:inherit;font-size:13px;padding:0}
+.al[hidden]{display:none}
 .appbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--tarmac);border:1px solid var(--line);border-top:3px solid var(--green);padding:12px 40px 12px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:14px;max-width:520px;margin:0 auto}
 .appbar[hidden]{display:none}
 .appbar img{width:40px;height:40px;flex:none}
@@ -443,7 +449,10 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <div class="eyebrow">Within 6 hours of Phoenix, AZ &nbsp;·&nbsp; Updated daily</div>
     <h1>Phoenix Area <span>Motorcycle</span> Track Days</h1>
     <p class="lede">Every public motorcycle track day, school and supermoto day we can find at tracks within a 6 hour drive of Phoenix. Tap Book to register directly with the organizer.</p>
-    <button class="getapp" id="getapp" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Get the app</button>
+    <div class="appbtns">
+      <button class="getapp" id="getapp" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Get the app</button>
+      <button class="getapp" id="getalerts" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span id="getalerts-t">Get alerts</span></button>
+    </div>
   </div>
   </div>
 </header>
@@ -1069,6 +1078,88 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
     if (n >= 2 && !ls("ptd-appbar-x")) setTimeout(() => { bar.hidden = false; }, 3000);
     document.getElementById("appbar-x").addEventListener("click", () => { bar.hidden = true; ls("ptd-appbar-x", "1"); });
   }
+})();
+</script>
+<dialog class="contact" id="aldlg" aria-labelledby="al-title">
+  <div class="ai al" id="al-body">
+    <div class="cf-h"><h4 id="al-title">Get alerts</h4><button type="button" class="cf-x" id="al-x" aria-label="Close">×</button></div>
+    <p style="color:var(--soft);font-size:14px">We'll send a notification when new dates are posted or a date changes. At most one a day.</p>
+    <label class="ck"><input type="checkbox" value="day" checked> Track days</label>
+    <label class="ck"><input type="checkbox" value="school" checked> Schools</label>
+    <label class="ck"><input type="checkbox" value="moto" checked> Kart track / Supermoto</label>
+    <div class="row2"><button class="cf-send" id="al-on" type="button">Turn on alerts</button><button class="off" id="al-off" type="button" hidden>Turn alerts off</button></div>
+    <p class="cf-msg" id="al-msg" role="status" aria-live="polite"></p>
+  </div>
+  <div class="ai al" id="al-ios" hidden>
+    <div class="cf-h"><h4>Alerts need the app</h4><button type="button" class="cf-x" id="al-x2" aria-label="Close">×</button></div>
+    <p style="color:var(--soft);font-size:14px">iPhone only sends website alerts to apps on your Home Screen. Add it first, then open it from the saguaro icon and tap Get alerts.</p>
+    <button class="cf-send" id="al-toapp" type="button">Show me how</button>
+  </div>
+</dialog>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+(() => {
+  const APP_ID = "6add44ce-8e44-4390-b115-f66ec67534c6";
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const ua = navigator.userAgent, isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const btn = document.getElementById("getalerts"), lbl = document.getElementById("getalerts-t"), dlg = document.getElementById("aldlg");
+  const body = document.getElementById("al-body"), ios = document.getElementById("al-ios"), msg = document.getElementById("al-msg");
+  const on = document.getElementById("al-on"), off = document.getElementById("al-off");
+  const boxes = [...body.querySelectorAll("input[type=checkbox]")];
+  const gc = p => { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path: p, title: p, event: true }); } catch (e) {} };
+  const pushOK = "PushManager" in window && "Notification" in window;
+  // iPhone browsers can only get alerts from the installed app; everyone else can turn them on in the browser
+  if (!(standalone || (pushOK && !isIOS) || isIOS)) return;
+  btn.hidden = false;
+  let OS = null;
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async OneSignal => {
+    try {
+      await OneSignal.init({ appId: APP_ID, serviceWorkerPath: "sw.js", serviceWorkerParam: { scope: "/" }, notifyButton: { enable: false } });
+      OS = OneSignal; refresh();
+      OneSignal.User.PushSubscription.addEventListener("change", refresh);
+    } catch (e) {}
+  });
+  const subscribed = () => !!(OS && OS.User.PushSubscription.optedIn);
+  function refresh(){
+    const s = subscribed();
+    lbl.textContent = s ? "Alerts on" : "Get alerts";
+    on.textContent = s ? "Save" : "Turn on alerts"; off.hidden = !s;
+    if (s && OS) { const t = OS.User.getTags ? OS.User.getTags() : {}; if (t && Object.keys(t).length) boxes.forEach(b => b.checked = t[b.value] === "1"); }
+  }
+  const close = () => dlg.close();
+  document.getElementById("al-x").addEventListener("click", close);
+  document.getElementById("al-x2").addEventListener("click", close);
+  dlg.addEventListener("click", ev => { if (ev.target === dlg) close(); });
+  document.getElementById("al-toapp").addEventListener("click", () => { close(); const g = document.getElementById("getapp"); if (g) g.click(); });
+  btn.addEventListener("click", () => {
+    msg.textContent = ""; msg.className = "cf-msg";
+    const needApp = isIOS && !standalone;
+    body.hidden = needApp; ios.hidden = !needApp;
+    refresh(); if (dlg.showModal) dlg.showModal();
+    gc(needApp ? "alerts: needs app" : "alerts: open");
+  });
+  on.addEventListener("click", async () => {
+    const tags = {}; boxes.forEach(b => tags[b.value] = b.checked ? "1" : "0");
+    if (!boxes.some(b => b.checked)) { msg.className = "cf-msg err"; msg.textContent = "Pick at least one."; return; }
+    if (!OS) { msg.className = "cf-msg err"; msg.textContent = "Alerts couldn't load. Check your connection and try again."; return; }
+    on.disabled = true;
+    try {
+      if (!subscribed()) {
+        await OS.Notifications.requestPermission();
+        if (!OS.Notifications.permission) throw new Error("denied");
+        await OS.User.PushSubscription.optIn();
+      }
+      await OS.User.addTags(tags);
+      msg.className = "cf-msg ok"; msg.textContent = "Alerts are on. You'll hear about new dates and changes.";
+      gc("alerts: on"); refresh(); setTimeout(() => { if (dlg.open) close(); }, 2200);
+    } catch (e) {
+      msg.className = "cf-msg err"; msg.textContent = "Notifications are blocked. Allow them for this site in your settings, then try again.";
+    } finally { on.disabled = false; }
+  });
+  off.addEventListener("click", async () => {
+    try { await OS.User.PushSubscription.optOut(); gc("alerts: off"); msg.className = "cf-msg"; msg.textContent = "Alerts are off."; refresh(); } catch (e) {}
+  });
 })();
 </script>
 <script data-goatcounter="https://phoenixtrackdays.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
