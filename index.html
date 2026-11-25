@@ -15,6 +15,12 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=3">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PHX Track Days">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700;900&family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600&display=swap">
 <style>
@@ -387,6 +393,27 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
   .of tr.open td:first-child{border-bottom:1px solid var(--line)}
   .of tr.open td:last-child{padding-bottom:12px}
 }
+
+/* Get the app */
+.getapp{justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);background:transparent;border:1px solid var(--green);padding:8px 14px;cursor:pointer}
+.getapp svg{width:14px;height:14px;color:var(--green)}
+.getapp:hover{background:var(--green);color:#111}.getapp:hover svg{color:#111}
+.getapp[hidden]{display:none}
+.appbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--tarmac);border:1px solid var(--line);border-top:3px solid var(--green);padding:12px 40px 12px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:14px;max-width:520px;margin:0 auto}
+.appbar[hidden]{display:none}
+.appbar img{width:40px;height:40px;flex:none}
+.appbar b{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:19px;text-transform:uppercase;line-height:1}
+.appbar .sh{display:inline-block;width:15px;height:15px;vertical-align:-2px;color:var(--green)}
+.appbar .x{position:absolute;right:6px;top:6px;background:none;border:0;color:var(--dim);font-size:24px;line-height:1;cursor:pointer;padding:2px 6px}
+.ai{display:grid;gap:12px;padding:20px 20px 22px}
+.ai ol[hidden]{display:none}
+.ai ol{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15px}
+.ai .sh{display:inline-block;width:16px;height:16px;vertical-align:-3px;color:var(--green)}
+.ai p{margin:0;color:var(--dim);font-size:13px}
+.ai .tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.ai .tabs button{font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 4px;background:none;border:0;color:var(--dim);cursor:pointer}
+.ai .tabs button+button{border-left:1px solid var(--line)}
+.ai .tabs button[aria-pressed="true"]{background:var(--green);color:#111;font-weight:600}
 </style>
 </head>
 <body>
@@ -416,6 +443,7 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
     <div class="eyebrow">Within 6 hours of Phoenix, AZ &nbsp;·&nbsp; Updated daily</div>
     <h1>Phoenix Area <span>Motorcycle</span> Track Days</h1>
     <p class="lede">Every public motorcycle track day, school and supermoto day we can find at tracks within a 6 hour drive of Phoenix. Tap Book to register directly with the organizer.</p>
+    <button class="getapp" id="getapp" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Get the app</button>
   </div>
   </div>
 </header>
@@ -996,6 +1024,51 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
       msg.className = "cf-msg err"; msg.textContent = `Couldn't send. Please email ${t === "sponsor" ? "sponsor" : "events"}@phoenixtrackdays.com instead.`;
     } finally { send.disabled = false; }
   });
+})();
+</script>
+<div class="appbar" id="appbar" role="dialog" aria-label="Get the app" hidden>
+  <img src="/apple-touch-icon.png?v=3" alt="">
+  <div><b>Get the app</b>Tap <svg class="sh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Share"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg> Share, then <strong>Add to Home Screen</strong>.</div>
+  <button class="x" id="appbar-x" type="button" aria-label="Close">×</button>
+</div>
+<dialog class="contact" id="appdlg" aria-labelledby="ai-title">
+  <div class="ai">
+    <div class="cf-h"><h4 id="ai-title">Get the app</h4><button type="button" class="cf-x" id="ai-x" aria-label="Close">×</button></div>
+    <div class="tabs"><button type="button" data-os="ios" aria-pressed="true">iPhone</button><button type="button" data-os="android" aria-pressed="false">Android</button></div>
+    <ol data-os="ios"><li>Open phoenixtrackdays.com in Safari.</li><li>Tap <svg class="sh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Share"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg> <strong>Share</strong> (on newer iPhones it's in the ••• menu).</li><li>Tap <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol>
+    <ol data-os="android" hidden><li>Open phoenixtrackdays.com in Chrome.</li><li>Tap the <strong>⋮</strong> menu.</li><li>Tap <strong>Install app</strong> (or <strong>Add to Home screen</strong>).</li></ol>
+    <p>It opens full screen with the saguaro icon, updates itself every day, and still shows the last schedule you loaded when you have no signal at the track.</p>
+  </div>
+</dialog>
+<script>
+(() => {
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const ua = navigator.userAgent, isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1), isAndroid = /Android/.test(ua);
+  const gc = p => { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path: p, title: p, event: true }); } catch (e) {} };
+  const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
+  if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+  if (standalone) { try { if (!sessionStorage.getItem("ptd-open")) { sessionStorage.setItem("ptd-open", 1); setTimeout(() => gc("app: open"), 1500); } } catch (e) {} return; }
+  const btn = document.getElementById("getapp"), bar = document.getElementById("appbar"), dlg = document.getElementById("appdlg");
+  let deferred = null;
+  const showBtn = () => { btn.hidden = false; };
+  if (isIOS || isAndroid) showBtn();
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; showBtn(); });
+  addEventListener("appinstalled", () => { btn.hidden = true; bar.hidden = true; gc("app: installed"); });
+  const setOS = os => { dlg.querySelectorAll("[data-os]").forEach(el => { if (el.tagName === "BUTTON") el.setAttribute("aria-pressed", el.dataset.os === os); else el.hidden = el.dataset.os !== os; }); };
+  dlg.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => setOS(b.dataset.os)));
+  document.getElementById("ai-x").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", ev => { if (ev.target === dlg) dlg.close(); });
+  btn.addEventListener("click", async () => {
+    gc("app: get the app tap");
+    if (deferred) { deferred.prompt(); const r = await deferred.userChoice.catch(() => null); deferred = null; if (r && r.outcome === "accepted") btn.hidden = true; return; }
+    setOS(isAndroid ? "android" : "ios"); if (dlg.showModal) dlg.showModal();
+  });
+  // iPhone: one small banner from the second visit on, until closed
+  if (isIOS) {
+    let n = 0; try { if (!sessionStorage.getItem("ptd-v")) { sessionStorage.setItem("ptd-v", 1); n = (+ls("ptd-visits") || 0) + 1; ls("ptd-visits", n); } else n = +ls("ptd-visits") || 1; } catch (e) {}
+    if (n >= 2 && !ls("ptd-appbar-x")) setTimeout(() => { bar.hidden = false; }, 3000);
+    document.getElementById("appbar-x").addEventListener("click", () => { bar.hidden = true; ls("ptd-appbar-x", "1"); });
+  }
 })();
 </script>
 <script data-goatcounter="https://phoenixtrackdays.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
