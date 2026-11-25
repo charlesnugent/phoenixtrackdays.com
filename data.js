@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-24";
+window.UPDATED = "2026-11-25";
 
 // Featured events: named special events (not regular track days or schools). An event is featured when its note starts with one of these names.
 window.FEATURED = ["Trackday Massacre", "MOTOFest"];
@@ -31,7 +31,6 @@ const pkNote = "1 to 6 PM. Pay at gate";
 
 window.EVENTS = [
   // ---------- PAST 6 MONTHS ----------
-  { d: "2026-05-24", t: "pkra", cfg: "Night", org: "Southwest Supermoto", type: "moto", price: "$50", note: "5 to 10 PM" },
   { d: "2026-05-31", t: "pkra", cfg: "Night", org: "Southwest Supermoto", type: "moto", price: "$50", note: "5 to 10 PM" },
   { d: "2026-06-01", t: "chuckwalla", cfg: "Oakland Valley", org: "HVMC Motard Monday", type: "moto", note: "10 AM to 6 PM" },
   { d: "2026-06-14", t: "podium", cfg: "CCW", org: "Brake Free", type: "day", price: "$199", note: "Beat the Heat, 7 AM to 1 PM" },

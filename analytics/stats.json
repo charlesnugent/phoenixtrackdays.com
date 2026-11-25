@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-24T11:45:59.169Z",
- "today": "2026-11-24",
+ "updated": "2026-11-25T11:46:58.874Z",
+ "today": "2026-11-25",
  "since": "2026-11-20",
  "since30": "2026-11-20",
  "visits": {
-  "all": 142,
-  "last7": 142,
+  "all": 151,
+  "last7": 151,
   "prev7": 0,
-  "last30": 142
+  "last30": 151
  },
  "daily": [
   {
@@ -28,7 +28,11 @@
   },
   {
    "d": "2026-11-24",
-   "n": 0
+   "n": 8
+  },
+  {
+   "d": "2026-11-25",
+   "n": 1
   }
  ],
  "clicks": {
@@ -42,7 +46,7 @@
  "refs": [
   [
    "Direct or unknown",
-   122
+   131
   ],
   [
    "facebook.com",
@@ -50,14 +54,14 @@
   ]
  ],
  "devices": {
-  "phone": 73,
-  "tablet": 8,
-  "desktop": 61
+  "phone": 79,
+  "tablet": 10,
+  "desktop": 62
  },
  "locations": [
   [
    "United States",
-   128
+   137
   ],
   [
    "Netherlands",
