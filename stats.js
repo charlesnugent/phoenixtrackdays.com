@@ -7,6 +7,8 @@ const TOKEN = process.env.GC_TOKEN;
 if (!TOKEN) { console.error("GC_TOKEN is not set"); process.exit(1); }
 const BASE = "https://phoenixtrackdays.goatcounter.com/api/v0";
 const LAUNCH = "2026-11-20";
+global.window = {}; require("./data.js");
+const EV = window.EVENTS || [], TR = window.TRACKS || {}, FEAT = window.FEATURED || [];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function api(p) {
@@ -42,11 +44,28 @@ const merge = rows => { const m = new Map(); rows.forEach(([k, n]) => m.set(k, (
   const kind = p => p.startsWith("book: ") ? "book" : p.startsWith("featured: ") ? "featured" : p.startsWith("org: ") ? "org" : "other";
   const sum = k => ev.filter(h => kind(h.path) === k).reduce((a, h) => a + h.count, 0);
   const booking = ev.filter(h => ["book", "featured"].includes(kind(h.path)));
-  const byOrg = merge(ev.filter(h => kind(h.path) === "book").map(h => [h.path.slice(6).split(" · ")[0], h.count]));
-  const top = booking.sort((a, b) => b.count - a.count).slice(0, 8).map(h => {
-    const p = h.path.replace(/^(book|featured): /, ""), parts = p.split(" · ");
-    return { org: parts.length > 1 ? parts[0] : "Featured", track: parts[parts.length - 1], n: h.count };
-  });
+  // Resolve each click to its event in data.js so featured events credit every organizer.
+  // Paths: "book: <org> · <track>", "featured: <track>" (old) or "featured: <name> · <track>"; titles add " · <date>".
+  const info = h => {
+    const k = kind(h.path), parts = h.path.replace(/^(book|featured): /, "").split(" · ");
+    const date = ((h.title || "").match(/(\d{4}-\d{2}-\d{2})$/) || [])[1];
+    const track = parts[parts.length - 1], first = parts.length > 1 ? parts[0] : null;
+    const org = k === "book" ? first : null, named = k === "featured" ? first : null;
+    const e = date && EV.find(x => x.d === date && (TR[x.t] || {}).name === track && (!org || x.org === org)
+      && (!named || (x.note || "").startsWith(named)));
+    const feat = (e && FEAT.find(n => (e.note || "").startsWith(n))) || named;
+    let orgs = org ? [org] : [];
+    if (e && feat) { const m = e.note.slice(feat.length).match(/\bwith (.+?)(?:[.;]|$)/);
+      const co = m ? m[1].split(/,\s*(?:and\s+)?|\s+and\s+|\s*&\s*/).map(x => x.trim()).filter(Boolean) : [];
+      orgs = [e.org, ...co.filter(o => o !== e.org)]; }
+    else if (e && !orgs.length) orgs = [e.org];
+    return { track, feat, orgs, n: h.count };
+  };
+  const and = a => a.length < 2 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+  const resolved = booking.map(info);
+  const byOrg = merge(resolved.flatMap(r => (r.orgs.length ? r.orgs : ["Unknown"]).map(o => [o, r.n])));
+  const top = merge(resolved.map(r => [JSON.stringify([r.feat ? `${r.feat} at ${r.track}` : r.track, and(r.orgs) || (r.feat ? "Featured" : "")]), r.n]))
+    .slice(0, 8).map(([k, n]) => { const [track, org] = JSON.parse(k); return { org, track, n }; });
 
   const refs = await api(`stats/toprefs?${rng(s30, END)}&limit=20`);
   const refRows = merge((refs.stats || []).map(r => [r.name ? r.name.replace(/^www\./, "").replace(/^(l|m)\.facebook\.com$/, "facebook.com") : "Direct or unknown", r.count])).slice(0, 6);

@@ -686,7 +686,8 @@ document.addEventListener("click", ev => { const a = ev.target.closest("a[data-g
   let path, title; const kind = a.dataset.gc;
   if (kind === "org") { path = "org: " + a.firstChild.textContent.trim(); title = path; }
   else { const box = a.closest("[data-k]"), k = ((box && box.dataset.k) || "|").split("|"), tr = T[k[1]] || {}, o = box && box.dataset.o;
-    path = (kind === "feat" ? "featured: " : "book: ") + (o ? o + " · " : "") + (tr.name || k[1]); title = path + " · " + k[0]; }
+    const fn = kind === "feat" && box && box.querySelector("h4") ? box.querySelector("h4").textContent.trim() : "";
+    path = (kind === "feat" ? "featured: " + (fn ? fn + " · " : "") : "book: ") + (o ? o + " · " : "") + (tr.name || k[1]); title = path + " · " + k[0]; }
   try { window.goatcounter.count({ path, title, event: true }); } catch (_) {} });
 function renderFeatured(){
   const f = upcoming.filter(e => e.feat), groups = [];
