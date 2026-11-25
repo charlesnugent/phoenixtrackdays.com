@@ -59,7 +59,7 @@ const merge = rows => { const m = new Map(); rows.forEach(([k, n]) => m.set(k, (
       const co = m ? m[1].split(/,\s*(?:and\s+)?|\s+and\s+|\s*&\s*/).map(x => x.trim()).filter(Boolean) : [];
       orgs = [e.org, ...co.filter(o => o !== e.org)]; }
     else if (e && !orgs.length) orgs = [e.org];
-    return { track, feat, orgs, n: h.count };
+    return { track, feat, orgs, date, n: h.count };
   };
   const and = a => a.length < 2 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
   const resolved = booking.map(info);
@@ -69,13 +69,9 @@ const merge = rows => { const m = new Map(); rows.forEach(([k, n]) => m.set(k, (
   const orgName = n => evOrgs.find(o => o === n) || evOrgs.find(o => n.startsWith(o + " ") || n.includes("(" + o + ")"))
     || evOrgs.find(o => o.startsWith(n + " ")) || n;
   const site = merge(ev.filter(h => kind(h.path) === "org").map(h => [orgName(h.path.slice(5).trim()), h.count]));
-  const bk = new Map(byOrg), st = new Map(site);
-  const toOrg = [...new Set([...bk.keys(), ...st.keys()])].map(o => {
-    const b = bk.get(o) || 0, s = st.get(o) || 0;
-    return [o, b + s, [b && `${b} booking`, s && `${s} site`].filter(Boolean).join(", ")];
-  }).sort((a, b) => b[1] - a[1]);
-  const top = merge(resolved.map(r => [JSON.stringify([r.feat ? `${r.feat} at ${r.track}` : r.track, and(r.orgs) || (r.feat ? "Featured" : "")]), r.n]))
-    .slice(0, 8).map(([k, n]) => { const [track, org] = JSON.parse(k); return { org, track, n }; });
+  // One row per event (name or track, date, organizers); a featured event's Details and Book taps on the same date merge.
+  const top = merge(resolved.map(r => [JSON.stringify([r.feat ? `${r.feat} at ${r.track}` : r.track, and(r.orgs) || (r.feat ? "Featured" : ""), r.date || ""]), r.n]))
+    .slice(0, 8).map(([k, n]) => { const [track, org, d] = JSON.parse(k); return { org, track, d, n }; });
 
   const refs = await api(`stats/toprefs?${rng(s30, END)}&limit=20`);
   const refRows = merge((refs.stats || []).map(r => [r.name ? r.name.replace(/^www\./, "").replace(/^(l|m)\.facebook\.com$/, "facebook.com") : "Direct or unknown", r.count])).slice(0, 6);
@@ -92,7 +88,7 @@ const merge = rows => { const m = new Map(); rows.forEach(([k, n]) => m.set(k, (
     today: T, since: LAUNCH, since30: s30,
     visits: { all: all.total || 0, last7: w.total || 0, prev7: pw.total || 0, last30: m30.total || 0 },
     daily,
-    clicks: { booking: sum("book") + sum("featured"), book: sum("book"), featured: sum("featured"), org: sum("org"), sent: sum("book") + sum("featured") + sum("org"), byOrg: byOrg.slice(0, 8), site: site.slice(0, 8), toOrg: toOrg.slice(0, 10), top },
+    clicks: { booking: sum("book") + sum("featured"), book: sum("book"), featured: sum("featured"), org: sum("org"), sent: sum("book") + sum("featured") + sum("org"), byOrg: byOrg.slice(0, 8), site: site.slice(0, 8), top },
     refs: refRows, devices: dev, locations: locRows,
   };
   fs.mkdirSync(path.join(__dirname, "analytics"), { recursive: true });

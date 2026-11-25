@@ -105,11 +105,16 @@ footer a{color:var(--green)}
   </section>
 
   <section>
-    <div class="block-h"><h3>Traffic to Organizers</h3><p>Riders sent to organizer sites, last 30 days</p></div>
+    <div class="block-h"><h3>Booking Clicks</h3><p>Taps on Book and Details, last 30 days</p></div>
     <div class="grid2">
-      <div class="card"><h4>By organizer</h4><div class="rows" id="byorg"></div><p class="cnote">Booking: Book and Details taps on events. Site: taps on the organizer's name.</p></div>
-      <div class="card"><h4>Top events</h4><div class="rows" id="topev"></div></div>
+      <div class="card"><h4>By organizer</h4><div class="rows" id="byorg"></div></div>
+      <div class="card"><h4>By event</h4><div class="rows" id="topev"></div></div>
     </div>
+  </section>
+
+  <section>
+    <div class="block-h"><h3>Organizer Site Visits</h3><p>Taps on an organizer's name, last 30 days</p></div>
+    <div class="card"><h4>By organizer</h4><div class="rows" id="siteorg"></div><p class="cnote">Riders who opened an organizer's own site from the Organizers section, outside of booking an event.</p></div>
   </section>
 
   <section>
@@ -122,7 +127,7 @@ footer a{color:var(--green)}
   </section>
 
   <footer>
-    <p>Traffic to organizers counts taps through to an organizer's site: booking taps on an event, and taps on the organizer's name in the Organizers section. They are not confirmed bookings. A featured event counts for each of its organizers. Every outbound link carries utm_source=phoenixtrackdays, so organizers can see these riders in their own analytics.</p>
+    <p>Booking clicks are taps on Book or Details for an event, through to the organizer's site. They are not confirmed bookings. A featured event counts for each of its organizers. Organizer site visits are counted separately. Every outbound link carries utm_source=phoenixtrackdays, so organizers can see these riders in their own analytics.</p>
     <p>Counted with GoatCounter: privacy friendly, no cookies, no tracking across sites. Tracking started Nov 20, 2026.</p>
     <p id="updated"></p>
     <p>Want to reach these riders? <a href="/">Sponsor the page</a> from the main site.</p>
@@ -151,14 +156,16 @@ fetch("stats.json", { cache: "no-store" }).then(r => r.json()).then(S => {
   document.getElementById("tiles").innerHTML = `
     <div class="tile"><b>${fmt(v.all)}</b><span>Visits since ${md(S.since)}</span><em>About ${fmt(avg)} a day</em></div>
     <div class="tile"><b>${fmt(v.last7)}</b><span>Last 7 days</span>${wow}</div>
-    <div class="tile"><b>${fmt(c.sent != null ? c.sent : c.booking)}</b><span>Sent to organizers</span><em>${fmt(c.booking)} booking, ${fmt(c.org || 0)} site · 30 days</em></div>
+    <div class="tile"><b>${fmt(c.booking)}</b><span>Booking clicks</span><em>Last 30 days${c.org ? ` · plus ${fmt(c.org)} organizer site ${c.org === 1 ? "visit" : "visits"}` : ""}</em></div>
     <div class="tile"><b>${Math.round((dv.phone + dv.tablet) / devT * 100)}%</b><span>On phones</span><em>Riders check it on the go</em></div>`;
   document.getElementById("range").textContent = days ? `${md(S.daily[0].d)} to ${md(S.daily[days - 1].d)}` : "";
   const mx = Math.max(1, ...S.daily.map(d => d.n)), ch = document.getElementById("chart");
   if (days > 14) ch.classList.add("many");
   ch.innerHTML = S.daily.map(d => `<div class="bar${d.d === S.today ? " today" : ""}" title="${md(d.d)}: ${d.n} visits"><i data-n="${d.n}" style="height:${Math.max(1, d.n / mx * 100)}%"></i><small>${DOW[pd(d.d).getDay()]} ${pd(d.d).getDate()}</small></div>`).join("");
-  rows(document.getElementById("byorg"), c.toOrg || c.byOrg);
-  rows(document.getElementById("topev"), c.top.map(t => [t.track, t.n, t.org]));
+  rows(document.getElementById("byorg"), c.byOrg);
+  rows(document.getElementById("siteorg"), c.site || [], "alt");
+  const evd = d => { if (!d) return ""; const x = pd(d); return `${DOW[x.getDay()]} ${MON[x.getMonth()]} ${x.getDate()}${x.getFullYear() !== pd(S.today).getFullYear() ? ", " + x.getFullYear() : ""}`; };
+  rows(document.getElementById("topev"), c.top.map(t => [t.track, t.n, [evd(t.d), t.org].filter(Boolean).join(" · ")]));
   rows(document.getElementById("refs"), S.refs, "alt");
   rows(document.getElementById("locs"), S.locations, "alt2");
   const parts = [["Phone", dv.phone, "var(--green)"], ["Tablet", dv.tablet, "var(--soft)"], ["Desktop", dv.desktop, "var(--dim)"]].filter(p => p[1]);
