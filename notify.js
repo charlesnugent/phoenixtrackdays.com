@@ -1,11 +1,15 @@
 // notify.js: send "new dates" / "date changed" alerts through OneSignal after the daily refresh.
 // Usage: ONESIGNAL_KEY=<app api key> node notify.js <old data.js> <new data.js>
 //        add DRY=1 to print what would be sent without sending.
+//        Alerts arrive at 10:00 AM in each subscriber's time zone (DELIVER_AT), not when this runs.
 // Compares upcoming events (today through 12 months) in the old and new data files.
 // Sends at most one alert per type (track days, schools, kart track/supermoto) to subscribers
 // who picked that type (OneSignal tags day/school/moto = "1"). No packages needed (Node 18+).
 const fs = require("fs"), vm = require("vm");
 const APP_ID = "6add44ce-8e44-4390-b115-f66ec67534c6";
+// Alerts are held by OneSignal and delivered at this time of day in each subscriber's own time zone
+// (Charlie's call, Nov 25, 2026: not at refresh time). Override with DELIVER_AT, e.g. DELIVER_AT=9:00AM.
+const DELIVER_AT = process.env.DELIVER_AT || "10:00AM";
 const SITE = "https://phoenixtrackdays.com/";
 const [oldPath, newPath] = process.argv.slice(2);
 if (!oldPath || !newPath) { console.error("usage: node notify.js <old data.js> <new data.js>"); process.exit(2); }
@@ -59,13 +63,14 @@ if (!msgs.length) { console.log("No changes to alert."); process.exit(0); }
 (async () => {
   let fail = 0;
   for (const m of msgs) {
-    console.log(`\n[${m.type}] ${m.heading}\n${m.body}\n${m.url}`);
+    console.log(`\n[${m.type}] ${m.heading} (delivers ${DELIVER_AT} subscriber local time)\n${m.body}\n${m.url}`);
     if (process.env.DRY) continue;
     if (!process.env.ONESIGNAL_KEY) { console.error("ONESIGNAL_KEY not set; not sent."); fail++; continue; }
     const r = await fetch("https://api.onesignal.com/notifications", { method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Key " + process.env.ONESIGNAL_KEY },
       body: JSON.stringify({ app_id: APP_ID, target_channel: "push", headings: { en: m.heading }, contents: { en: m.body }, url: m.url,
-        filters: [{ field: "tag", key: m.type, relation: "=", value: "1" }], web_push_topic: "ptd-" + m.type }) });
+        filters: [{ field: "tag", key: m.type, relation: "=", value: "1" }], web_push_topic: "ptd-" + m.type,
+        delayed_option: "timezone", delivery_time_of_day: DELIVER_AT }) });
     const j = await r.json().catch(() => ({}));
     if (!r.ok || j.errors) { console.error("Send failed:", r.status, JSON.stringify(j)); fail++; } else console.log("Sent:", j.id || "(no id)", j.recipients !== undefined ? `to ${j.recipients}` : "");
   }
