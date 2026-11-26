@@ -399,6 +399,7 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
 .getapp svg{width:14px;height:14px;color:var(--green)}
 .getapp:hover{background:var(--green);color:#111}.getapp:hover svg{color:#111}
 .getapp[hidden]{display:none}
+.linkbtn{background:none;border:0;padding:0;color:var(--green);font:inherit;text-decoration:underline;cursor:pointer}
 .appbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.appbtns .getapp{margin-top:0}
 .al label.ck{display:flex;align-items:center;gap:10px;font-size:15px;padding:10px 12px;border:1px solid var(--line);cursor:pointer}
 .al label.ck input{width:18px;height:18px;accent-color:#ceff00}
@@ -416,7 +417,7 @@ dialog.contact::backdrop{background:rgba(0,0,0,.72)}
 .ai ol{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15px}
 .ai .sh{display:inline-block;width:16px;height:16px;vertical-align:-3px;color:var(--green)}
 .ai p{margin:0;color:var(--dim);font-size:13px}
-.ai .tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.ai .tabs{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line)}
 .ai .tabs button{font-family:var(--data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 4px;background:none;border:0;color:var(--dim);cursor:pointer}
 .ai .tabs button+button{border-left:1px solid var(--line)}
 .ai .tabs button[aria-pressed="true"]{background:var(--green);color:#111;font-weight:600}
@@ -1043,9 +1044,10 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
 <dialog class="contact" id="appdlg" aria-labelledby="ai-title">
   <div class="ai">
     <div class="cf-h"><h4 id="ai-title">Get the app</h4><button type="button" class="cf-x" id="ai-x" aria-label="Close">×</button></div>
-    <div class="tabs"><button type="button" data-os="ios" aria-pressed="true">iPhone</button><button type="button" data-os="android" aria-pressed="false">Android</button></div>
+    <div class="tabs"><button type="button" data-os="ios" aria-pressed="true">iPhone</button><button type="button" data-os="android" aria-pressed="false">Android</button><button type="button" data-os="mac" aria-pressed="false">Mac</button></div>
     <ol data-os="ios"><li>Open phoenixtrackdays.com in Safari.</li><li>Tap <svg class="sh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Share"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg> <strong>Share</strong> (on newer iPhones it's in the ••• menu).</li><li>Tap <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol>
     <ol data-os="android" hidden><li>Open phoenixtrackdays.com in Chrome.</li><li>Tap the <strong>⋮</strong> menu.</li><li>Tap <strong>Install app</strong> (or <strong>Add to Home screen</strong>).</li></ol>
+    <ol data-os="mac" hidden><li>Open phoenixtrackdays.com in Safari (macOS Sonoma or later).</li><li>Choose <strong>File &gt; Add to Dock</strong> (or click <svg class="sh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Share"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg> <strong>Share</strong>, then <strong>Add to Dock</strong>), then <strong>Add</strong>.</li><li>Open <strong>PHX Track Days</strong> from the Dock. Turn on alerts there and they show the saguaro icon instead of Safari's.</li></ol>
     <p>It opens full screen with the saguaro icon, updates itself every day, and still shows the last schedule you loaded when you have no signal at the track.</p>
   </div>
 </dialog>
@@ -1053,6 +1055,7 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
 (() => {
   const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
   const ua = navigator.userAgent, isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1), isAndroid = /Android/.test(ua);
+  const isMacSafari = /Macintosh/.test(ua) && !isIOS && /Version\/[\d.]+.*Safari\//.test(ua) && !/Chrome|Chromium|Edg|Firefox|OPR/.test(ua);
   const gc = p => { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path: p, title: p, event: true }); } catch (e) {} };
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
   if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
@@ -1060,7 +1063,7 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
   const btn = document.getElementById("getapp"), bar = document.getElementById("appbar"), dlg = document.getElementById("appdlg");
   let deferred = null;
   const showBtn = () => { btn.hidden = false; };
-  if (isIOS || isAndroid) showBtn();
+  if (isIOS || isAndroid || isMacSafari) showBtn();
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; showBtn(); });
   addEventListener("appinstalled", () => { btn.hidden = true; bar.hidden = true; gc("app: installed"); });
   const setOS = os => { dlg.querySelectorAll("[data-os]").forEach(el => { if (el.tagName === "BUTTON") el.setAttribute("aria-pressed", el.dataset.os === os); else el.hidden = el.dataset.os !== os; }); };
@@ -1070,7 +1073,7 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
   btn.addEventListener("click", async () => {
     gc("app: get the app tap");
     if (deferred) { deferred.prompt(); const r = await deferred.userChoice.catch(() => null); deferred = null; if (r && r.outcome === "accepted") btn.hidden = true; return; }
-    setOS(isAndroid ? "android" : "ios"); if (dlg.showModal) dlg.showModal();
+    setOS(isAndroid ? "android" : isMacSafari ? "mac" : "ios"); if (dlg.showModal) dlg.showModal();
   });
   // iPhone: one small banner from the second visit on, until closed
   if (isIOS) {
@@ -1084,6 +1087,7 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
   <div class="ai al" id="al-body">
     <div class="cf-h"><h4 id="al-title">Get alerts</h4><button type="button" class="cf-x" id="al-x" aria-label="Close">×</button></div>
     <p style="color:var(--soft);font-size:14px">We'll send a notification when new dates are posted or a date changes. At most one a day.</p>
+    <p id="al-mac" hidden style="color:var(--soft);font-size:14px">On a Mac, add the site to your Dock first and alerts show the saguaro icon instead of Safari's. <button type="button" class="linkbtn" id="al-tomac">Show me how</button></p>
     <label class="ck"><input type="checkbox" value="day" checked> Track days</label>
     <label class="ck"><input type="checkbox" value="school" checked> Schools</label>
     <label class="ck"><input type="checkbox" value="moto" checked> Kart track / Supermoto</label>
@@ -1111,6 +1115,8 @@ try { const sp = window.safari && window.safari.pushNotification; if (sp && type
   const body = document.getElementById("al-body"), ios = document.getElementById("al-ios"), msg = document.getElementById("al-msg");
   const on = document.getElementById("al-on"), off = document.getElementById("al-off");
   const boxes = [...body.querySelectorAll("input[type=checkbox]")];
+  const isMacSafari = /Macintosh/.test(ua) && !isIOS && /Version\/[\d.]+.*Safari\//.test(ua) && !/Chrome|Chromium|Edg|Firefox|OPR/.test(ua);
+  if (isMacSafari && !standalone) document.getElementById("al-mac").hidden = false;
   const gc = p => { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path: p, title: p, event: true }); } catch (e) {} };
   const pushOK = "PushManager" in window && "Notification" in window;
   // iPhone browsers can only get alerts from the installed app; everyone else can turn them on in the browser
@@ -1136,6 +1142,7 @@ try { const sp = window.safari && window.safari.pushNotification; if (sp && type
   document.getElementById("al-x").addEventListener("click", close);
   document.getElementById("al-x2").addEventListener("click", close);
   dlg.addEventListener("click", ev => { if (ev.target === dlg) close(); });
+  document.getElementById("al-tomac").addEventListener("click", () => { close(); const g = document.getElementById("getapp"); if (g) g.click(); });
   document.getElementById("al-toapp").addEventListener("click", () => { close(); const g = document.getElementById("getapp"); if (g) g.click(); });
   btn.addEventListener("click", () => {
     msg.textContent = ""; msg.className = "cf-msg";
