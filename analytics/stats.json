@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-26T04:15:50.587Z",
- "today": "2026-11-25",
+ "updated": "2026-11-26T07:42:04.824Z",
+ "today": "2026-11-26",
  "since": "2026-11-20",
  "since30": "2026-11-20",
  "visits": {
-  "all": 170,
-  "last7": 170,
+  "all": 210,
+  "last7": 210,
   "prev7": 0,
-  "last30": 170
+  "last30": 210
  },
  "daily": [
   {
@@ -32,19 +32,31 @@
   },
   {
    "d": "2026-11-25",
-   "n": 20
+   "n": 60
+  },
+  {
+   "d": "2026-11-26",
+   "n": 0
   }
  ],
  "clicks": {
-  "booking": 3,
-  "book": 2,
+  "booking": 5,
+  "book": 4,
   "featured": 1,
   "org": 1,
-  "sent": 4,
+  "sent": 6,
   "byOrg": [
    [
     "Brake Free",
     2
+   ],
+   [
+    "2 Wheels Track Days",
+    1
+   ],
+   [
+    "Racers Edge",
+    1
    ],
    [
     "TrackXperience",
@@ -62,6 +74,18 @@
    ]
   ],
   "top": [
+   {
+    "org": "2 Wheels Track Days",
+    "track": "Chuckwalla",
+    "d": "2026-12-14",
+    "n": 1
+   },
+   {
+    "org": "Racers Edge",
+    "track": "Chuckwalla",
+    "d": "2026-12-09",
+    "n": 1
+   },
    {
     "org": "Brake Free",
     "track": "Podium Club",
@@ -85,22 +109,22 @@
  "refs": [
   [
    "Direct or unknown",
-   150
+   189
   ],
   [
    "facebook.com",
-   20
+   21
   ]
  ],
  "devices": {
-  "phone": 96,
-  "tablet": 11,
-  "desktop": 63
+  "phone": 105,
+  "tablet": 12,
+  "desktop": 93
  },
  "locations": [
   [
    "United States",
-   156
+   196
   ],
   [
    "Netherlands",
