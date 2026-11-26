@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-25";
+window.UPDATED = "2026-11-26";
 
 // Featured events: named special events (not regular track days or schools). An event is featured when its note starts with one of these names.
 window.FEATURED = ["Trackday Massacre", "MOTOFest"];
@@ -79,6 +79,7 @@ window.EVENTS = [
   // ---------- UPCOMING 12 MONTHS ----------
   { d: "2026-11-28", e: "2026-11-29", t: "chuckwalla", cfg: "Sat CW, Sun CCW", org: "TrackXperience", type: "day", price: "$285/day", note: "8 AM to 4 PM. Sold out", url: "https://www.txptrackdays.com/chuckwalla-raceway-november-28-29" },
   { d: "2026-11-29", t: "pkra", org: "Southwest Supermoto", type: "moto", price: "$50", note: pkNote, url: PK },
+  { d: "2026-11-29", t: "musselman", org: "Musselman Honda Circuit", type: "day", note: "Motorcycle / Open Kart Day, 10 AM to 5 PM. Shared with open karting", url: "https://mhcircuit.com/event/open-2026-11-29/" },
   { d: "2026-11-29", t: "perris", org: "SoCal Supermoto", type: "school", note: "Supermoto school", url: "https://www.socalsupermoto.com/calendar" },
   { d: "2026-12-04", e: "2026-12-05", t: "lvms", org: "Yamaha ChampSchool", type: "school", note: "Two day school", url: "https://ridelikeachampion.com/veg-dec-2026/" },
   { d: "2026-12-05", e: "2026-12-06", t: "chuckwalla", cfg: "CCW", org: "Race Pace", type: "day", price: "~$295/day", url: "https://racepace.motorsportreg.com/events/december-saturday-chuckwalla-ccw-valley-raceway-race-pace-track-days-846067" },
