@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-26T13:46:05.531Z",
+ "updated": "2026-11-26T19:42:06.080Z",
  "today": "2026-11-26",
  "since": "2026-11-20",
  "since30": "2026-11-20",
  "visits": {
-  "all": 214,
-  "last7": 214,
+  "all": 217,
+  "last7": 217,
   "prev7": 0,
-  "last30": 214
+  "last30": 217
  },
  "daily": [
   {
@@ -36,15 +36,15 @@
   },
   {
    "d": "2026-11-26",
-   "n": 4
+   "n": 7
   }
  ],
  "clicks": {
   "booking": 5,
   "book": 4,
   "featured": 1,
-  "org": 1,
-  "sent": 6,
+  "org": 2,
+  "sent": 7,
   "byOrg": [
    [
     "Brake Free",
@@ -68,6 +68,10 @@
    ]
   ],
   "site": [
+   [
+    "Southwest Supermoto",
+    1
+   ],
    [
     "Brake Free",
     1
@@ -109,7 +113,7 @@
  "refs": [
   [
    "Direct or unknown",
-   193
+   196
   ],
   [
    "facebook.com",
@@ -117,14 +121,14 @@
   ]
  ],
  "devices": {
-  "phone": 108,
+  "phone": 111,
   "tablet": 13,
   "desktop": 93
  },
  "locations": [
   [
    "United States",
-   200
+   203
   ],
   [
    "Netherlands",
