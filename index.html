@@ -1101,7 +1101,7 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
 // Hide the stub so OneSignal uses standard web push instead.
 try { const sp = window.safari && window.safari.pushNotification; if (sp && typeof sp.permission !== "function") Object.defineProperty(window.safari, "pushNotification", { value: null, configurable: true }); } catch (e) {}
 </script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer onerror="window.__osErr='SDK blocked or offline'"></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer onerror="window.__osErr='blocked'"></script>
 <script>
 (() => {
   const APP_ID = "6add44ce-8e44-4390-b115-f66ec67534c6";
@@ -1147,7 +1147,7 @@ try { const sp = window.safari && window.safari.pushNotification; if (sp && type
   on.addEventListener("click", async () => {
     const tags = {}; boxes.forEach(b => tags[b.value] = b.checked ? "1" : "0");
     if (!boxes.some(b => b.checked)) { msg.className = "cf-msg err"; msg.textContent = "Pick at least one."; return; }
-    if (!OS) { msg.className = "cf-msg err"; msg.textContent = "Alerts couldn't load. Check your connection and try again." + (window.__osErr ? " (" + window.__osErr + ")" : " (not started)"); return; }
+    if (!OS) { msg.className = "cf-msg err"; msg.textContent = window.__osErr === "blocked" ? "Your browser or an ad blocker is blocking alerts. Allow phoenixtrackdays.com in it, reload and try again." : "Alerts couldn't load. Reload the page and try again." + (window.__osErr ? " (" + window.__osErr + ")" : ""); return; }
     on.disabled = true;
     try {
       if (!subscribed()) {
