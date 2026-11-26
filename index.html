@@ -1096,6 +1096,11 @@ renderHero(); renderFeatured(); renderMap(); initFilters(); renderPast(); render
     <button class="cf-send" id="al-toapp" type="button">Show me how</button>
   </div>
 </dialog>
+<script>
+// Current Safari keeps a stub of the old Safari push API without permission(); OneSignal calls it and init fails.
+// Hide the stub so OneSignal uses standard web push instead.
+try { const sp = window.safari && window.safari.pushNotification; if (sp && typeof sp.permission !== "function") Object.defineProperty(window.safari, "pushNotification", { value: null, configurable: true }); } catch (e) {}
+</script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
 (() => {
