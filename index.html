@@ -1156,17 +1156,28 @@ try { const sp = window.safari && window.safari.pushNotification; if (sp && type
     if (!boxes.some(b => b.checked)) { msg.className = "cf-msg err"; msg.textContent = "Pick at least one."; return; }
     if (!OS) { msg.className = "cf-msg err"; msg.textContent = window.__osErr === "blocked" ? "Your browser or an ad blocker is blocking alerts. Allow phoenixtrackdays.com in it, reload and try again." : "Alerts couldn't load. Reload the page and try again." + (window.__osErr ? " (" + window.__osErr + ")" : ""); return; }
     on.disabled = true;
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    const granted = () => (OS.Notifications && OS.Notifications.permission === true) || (window.Notification && Notification.permission === "granted");
     try {
       if (!subscribed()) {
-        await OS.Notifications.requestPermission();
-        if (!OS.Notifications.permission) throw new Error("denied");
-        await OS.User.PushSubscription.optIn();
+        if (!granted()) await OS.Notifications.requestPermission();
+        // the permission state can lag a moment behind the Allow click
+        for (let i = 0; i < 10 && !granted(); i++) await wait(300);
+        if (!granted()) {
+          msg.className = "cf-msg err";
+          msg.textContent = (window.Notification && Notification.permission === "denied") ? "Notifications are blocked. Allow them for this site in your settings, then try again." : "Notifications weren't allowed. Tap Turn on alerts and choose Allow.";
+          return;
+        }
+        if (!OS.User.PushSubscription.optedIn) await OS.User.PushSubscription.optIn();
       }
-      await OS.User.addTags(tags);
+      let ok = false, err = null;
+      for (let i = 0; i < 3 && !ok; i++) { try { await OS.User.addTags(tags); ok = true; } catch (e) { err = e; await wait(800); } }
+      if (!ok) throw err || new Error("tags not saved");
       msg.className = "cf-msg ok"; msg.textContent = "Alerts are on. You'll hear about new dates and changes.";
       gc("alerts: on"); refresh(); setTimeout(() => { if (dlg.open) close(); }, 2200);
     } catch (e) {
-      msg.className = "cf-msg err"; msg.textContent = "Notifications are blocked. Allow them for this site in your settings, then try again.";
+      console.error("alerts", e);
+      msg.className = "cf-msg err"; msg.textContent = "Alerts didn't finish turning on. Tap the button again. (" + ((e && (e.message || e.name)) || e) + ")";
     } finally { on.disabled = false; }
   });
   off.addEventListener("click", async () => {
