@@ -1,7 +1,7 @@
 // Phoenix Area Motorcycle Track Days: data file.
 // Refreshed daily. Window: past 6 months + next 12 months.
 // Fields: d start (YYYY-MM-DD), e end (optional), t track key, cfg, org, type (day|school|moto), price, url, note
-window.UPDATED = "2026-11-26";
+window.UPDATED = "2026-11-27";
 
 // Featured events: named special events (not regular track days or schools). An event is featured when its note starts with one of these names.
 window.FEATURED = ["Trackday Massacre", "MOTOFest"];
